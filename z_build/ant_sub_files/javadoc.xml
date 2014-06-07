@@ -1,0 +1,114 @@
+<project name="javadoc" default="help" basedir=".">
+   <target name="doccl" description="Check (non @link/@see) links">
+<echo>TODO: Need to set os="Windows..." into exec call</echo>
+<echo>TODO: Need to set os="Windows..." into exec call</echo>
+<echo>TODO: Need to set os="Windows..." into exec call</echo>
+
+         <exec executable="linkchecker" output="${dir_sandbox}broken_link_report.txt">
+           <arg value="${dir_build_docs_javadoc}overview-summary.html"/>
+           <arg value="--no-follow-url=http"/>
+           <arg value="--ignore-url=http"/>
+         </exec>
+   </target>
+
+   <target name="doc" description="Generates javadoc documentation.">
+
+      <!--
+         Packages need to be delimited by both commas and colons.  In build.properties, it's only delimited by commas.  Commas (with or without spaces) are needed by the JavaDoc "packagenames" attribute, and colons (without spaces) are needed by the "group" sub-tags.
+
+         Replace comma-space first, then comma-no-space
+        -->
+         <propfromrplc property="xbn.jd_colon.packages" string="${xbn.javadoc.packages}" what="," with=":"/>
+
+      <property name="dir_sandbox_needed_by_javadoc" value="${dir_sandbox_bldfiles}needed_by_javadoc${fs}"/>
+      <record name="${dir_build}javadoc_log.txt" action="start"/>
+      <javadoc
+         packagenames="${xbn.javadoc.packages}"
+         defaultexcludes="yes"
+         destdir="${dir_build_docs_javadoc}"
+         splitindex="true"
+         author="true"
+         stylesheetfile="${dir_sandbox_needed_by_javadoc}javadoc_stylesheet.css"
+         access="protected"
+         overview="${dir_sandbox}${project.name}_overview.html"
+         linksource="yes"
+         version="true"
+         windowtitle="Template Featherweight"
+         nodeprecatedlist="yes"
+         additionalparam="-J-Dcodelet_config_dir=${dir_sandbox}${codelet.config.dir}${fs}"
+      >
+         <sourcepath>
+            <pathelement path="${dir_sandbox_src}"/>
+            <pathelement path="${dir_sandbox_examples}"/>
+            <pathelement path="${dir_sandbox_test}"/>
+         </sourcepath>
+      	<!-- Custom taglets
+            	<taglet name="com.github.aliteralmind.codelet.taglet.UnderlineTaglet" path="R:\jeffy\programming\build\CLASSES\"/>-->
+            <taglet name="com.github.aliteralmind.codelet.taglet.CodeletTaglet" path="R:\jeffy\programming\build\CLASSES\"/>
+            <taglet name="com.github.aliteralmind.codelet.taglet.CodeletDotOutTaglet" path="R:\jeffy\programming\build\CLASSES\"/>
+            <taglet name="com.github.aliteralmind.codelet.taglet.CodeletAndOutTaglet" path="R:\jeffy\programming\build\CLASSES\"/>
+            <taglet name="com.github.aliteralmind.codelet.taglet.FileTextletTaglet" path="R:\jeffy\programming\build\CLASSES\"/>
+
+         <link href="http://junit.sourceforge.net/javadoc/"/>
+         <link href="http://docs.oracle.com/javase/7/docs/api/"/>
+         <link href="http://aliteralmind.com/docs/computer/programming/xbnjava/documentation/javadoc/"/>
+         <link href="http://aliteralmind.com/docs/computer/programming/codelet/documentation/javadoc/"/>
+         <link href="http://commons.apache.org/proper/commons-collections/javadocs/api-release/"/>
+         <link href="http://commons.apache.org/proper/commons-lang/javadocs/api-release"/>
+         <link href="http://commons.apache.org/proper/commons-io/javadocs/api-2.4/"/>
+
+         <DOCTITLE><![CDATA[Template Featherweight<BR><font size=\"4\"><CODE><A HREF=\"https://github.com/aliteralmind/${project.name}\">https://github.com/aliteralmind/${project.name}</A></CODE></FONT>]]></DOCTITLE>
+
+         <BOTTOM><![CDATA[<P><HR><CODE><B>Copyright 2014, Jeff Epstein</B>, All Rights Reserved.  See top of source code files for copyright notice.</CODE></P><P>&nbsp;</P><P><A HREF=\"https://github.com/aliteralmind/${project.name}\"><B><CODE>https://github.com/aliteralmind/${project.name}</CODE></B></A></P><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE>]]></BOTTOM>
+      </javadoc>
+      <copy file="${dir_sandbox_needed_by_javadoc}up_arrow.gif" todir="${dir_build_docs_javadoc}resources${fs}"/>
+      <record name="${dir_build}javadoc_log.txt" action="stop"/>
+
+      <replace dir="${dir_build_docs_javadoc}" summary="yes">
+         <replacetoken><![CDATA[</head>]]></replacetoken>
+         <replacevalue><![CDATA[<meta name="viewport" content="width=device-width" />
+</HEAD>]]></replacevalue>
+      </replace>
+   </target>
+</project>
+
+
+<!--
+Possibly caused by a single package being listed twice in build.properties:
+=====================================================================================
+  [javadoc] Loading source files for package  com.github.xbn.io...
+  [javadoc] Loading source files for package  com.github.xbn.lang...
+  [javadoc] Loading source files for package  com.github.xbn.text...
+  [javadoc] Loading source files for package  com.github.xbn.util...
+  [javadoc] Constructing Javadoc information...
+  [javadoc] java.util.MissingResourceException: Can't find resource for bundle com.sun.tools.doclets.internal.to
+olkit.resources.doclets, key doclet.Same_package_name_used
+  [javadoc]     at java.util.ResourceBundle.getObject(ResourceBundle.java:384)
+  [javadoc]     at java.util.ResourceBundle.getString(ResourceBundle.java:344)
+  [javadoc]     at com.sun.tools.doclets.internal.toolkit.util.MessageRetriever.getText(MessageRetriever.java:11
+4)
+  [javadoc]     at com.sun.tools.doclets.internal.toolkit.util.MessageRetriever.getText(MessageRetriever.java:92
+)
+  [javadoc]     at com.sun.tools.doclets.internal.toolkit.util.MessageRetriever.getText(MessageRetriever.java:81
+)
+  [javadoc]     at com.sun.tools.doclets.internal.toolkit.util.MessageRetriever.error(MessageRetriever.java:212)
+
+  [javadoc]     at com.sun.tools.doclets.internal.toolkit.util.Group.foundGroupFormat(Group.java:148)
+  [javadoc]     at com.sun.tools.doclets.internal.toolkit.util.Group.checkPackageGroups(Group.java:128)
+  [javadoc]     at com.sun.tools.doclets.internal.toolkit.Configuration.setOptions(Configuration.java:386)
+  [javadoc]     at com.sun.tools.doclets.internal.toolkit.Configuration.setOptions(Configuration.java:415)
+  [javadoc]     at com.sun.tools.doclets.internal.toolkit.AbstractDoclet.startGeneration(AbstractDoclet.java:101
+)
+  [javadoc]     at com.sun.tools.doclets.internal.toolkit.AbstractDoclet.start(AbstractDoclet.java:64)
+  [javadoc]     at com.sun.tools.doclets.formats.html.HtmlDoclet.start(HtmlDoclet.java:42)
+  [javadoc]     at com.sun.tools.doclets.standard.Standard.start(Standard.java:23)
+  [javadoc]     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+  [javadoc]     at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+  [javadoc]     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+  [javadoc]     at java.lang.reflect.Method.invoke(Method.java:597)
+  [javadoc]     at com.sun.tools.javadoc.DocletInvoker.invoke(DocletInvoker.java:269)
+  [javadoc]     at com.sun.tools.javadoc.DocletInvoker.start(DocletInvoker.java:143)
+  [javadoc]     at com.sun.tools.javadoc.Start.parseAndExecute(Start.java:340)
+  [javadoc]     at com.sun.tools.javadoc.Start.begin(Start.java:128)
+  [javadoc]     at com.sun.tools.javadoc.Main.execute(Main.java:41)
+  [javadoc]     at com.sun.tools.javadoc.Main.main(Main.java:31) -->

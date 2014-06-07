@@ -1,0 +1,54 @@
+<BODY>
+   <P><B>Template Featherweight:</B> A simplistic Java template-rendering engine, providing for <I>plain gaps only</I>, such as {@code "Hello, %name%!"}--it has no advanced features such as if-logic, looping, or expressions--Templates may be output in full, after all gaps have been filled, or they may be <I>auto-rendered</I>, such that they are gradually output as each gap is filled.</P>
+
+   <P>&quot;Featherweight&quot; is a reaction to all the so-called <A HREF="http://stackoverflow.com/questions/3793880/lightweight-template-engine-in-java">&quot;lightweight&quot; Java templating solutions</A>, <I>all</I> of which have advanced features.</P>
+
+   <H3><A HREF="#install"><I>Links, downloads, and Installation</I></A></H3>
+
+   <a name="xmpl_fully"/><H2><A HREF="#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Template Featherweight: Example: <U>Getting fully-rendered output</U></H2>
+
+{@.codelet.and.out com.github.aliteralmind.templatefeather.examples.HelloFeather:eliminateCmtBlocksPkgLineAndPkgReferences(true, true, false)}
+
+
+   <a name="xmpl_fully"/><H2><A HREF="#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Template Featherweight: Example: <U>Auto-rendering output</U></H2>
+
+{@.codelet.and.out com.github.aliteralmind.templatefeather.examples.FeatherAutoRenderDemo:eliminateCmtBlocksPkgLineAndPkgReferences(true, true, false)}
+
+
+   <a name="install"/><H2><A HREF="#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Template Featherweight: <U>Links, downloads, and installation</U></H2>
+
+   <P><OL>
+      <LI>Template Featherweight is hosted by GitHub: <A HREF="https://github.com/aliteralmind/xbnjava">Project page</A>, <A HREF="https://github.com/aliteralmind/xbnjava/issues">issue tracker</A></LI>
+      <LI>JavaDoc: <A HREF="#navbar_top">This installation</A>, <A HREF="http://www.aliteralmind.com/docs/computer/programming/xbnjava/documentation/javadoc/overview-summary.html#description">latest version</A>, <A HREF="http://aliteralmind.com/docs/computer/programming/xbnjava/download/xbnjava_0p1p0_documentation.zip">download zip</A>, <A HREF="http://aliteralmind.com/docs/computer/programming/xbnjava/com/github/xbn/javadoc_output.txt">generation report</A></LI>
+      <LI><A HREF="http://aliteralmind.com/docs/computer/programming/xbnjava/download/xbnjava_0p1p0_source_code.zip">Download source</A>, including build files</LI>
+   </OL></P>
+
+   <P>Template Featherweight requires <A HREF="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">Java 1.7</A> (it may be compatible with earlier versions).</P>
+
+   <P><B>Installation instructions for using Template Featherweight</B></P>
+
+   <P>(For <B>building</B>, see XBN-Java's <A HREF="http://aliteralmind.com/docs/computer/programming/xbnjava/documentation/javadoc/overview-summary.html#install">installation instructions</A>. The Template Featherweight build process is derived from, and is almost the same as, XBN-Java's build process.)</P>
+
+   <P>Adding the following elements to your <A HREF="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html">classpath</A> will install Template Featherweight:</P>
+
+   <P><UL>
+      <LI>{@code INSTALLATION_DIR\templatefeather\z_build\jar_dependencies\commons-io-2.4.jar}</LI>
+      <LI>{@code INSTALLATION_DIR\templatefeather\z_build\jar_dependencies\commons-lang3-3.3.2.jar}</LI>
+      <LI>{@code INSTALLATION_DIR\templatefeather\z_build\jar_dependencies\xbnjava_0p1p0_templatefeather_needed_only.jar}</LI>
+      <LI>{@code INSTALLATION_DIR\templatefeather\z_build\jar_dependencies\templatefeather_0p1p0_all.jar}</LI>
+   </UL></P>
+
+   <P>Details and alternatives:<OL>
+      <LI>Template Feather: Exactly one of the following must be used (The above classpath-string assumes you've chosen {@code "templatefeather_0p1p0_all.jar"}):<OL>
+         <LI><A HREF="http://aliteralmind.com/docs/computer/programming/templatefeather/download/templatefeather_0p1p0_all.jar">{@code templatefeather_0p1p0_all.jar}</A>: Core classes, example code, and unit tests</LI>
+         <LI><A HREF="http://aliteralmind.com/docs/computer/programming/templatefeather/download/templatefeather_0p1p0_core.jar">{@code templatefeather_0p1p0_core.jar}</A>: Core classes only</I></LI>
+      </OL></LI>
+      <LI><A HREF="http://xbnjava.aliteralmind.com">XBN-Java</A>: Exactly one of the following must be used (The above classpath-string assumes {@code "xbnjava_0p1p0_templatefeather_needed_only.jar"}):<OL>
+         <LI><A HREF="http://aliteralmind.com/docs/computer/programming/templatefeather/download/xbnjava_0p1p0_templatefeather_needed_only.jar">{@code xbnjava_0p1p0_templatefeather_needed_only.jar}</A>: Contains exactly those classes as required by Template Featherweight. <I>If you have no need for other XBN-Java beyond Template Featherweight, choose this. It's about 1/3 of the size of {@code xbnjava_0p1p0_core.jar}.</I></LI>
+         <LI><A HREF="http://aliteralmind.com/docs/computer/programming/xbnjava/download/xbnjava_0p1p0_core.jar">{@code xbnjava_0p1p0_core.jar}</A>: All classes except example code and unit tests</I></LI>
+         <LI><A HREF="http://aliteralmind.com/docs/computer/programming/xbnjava/download/xbnjava_0p1p0_all.jar">{@code xbnjava_0p1p0_all.jar}</A>: All classes</I></LI>
+      </OL><B>Warning:</B> If you choose either {@code "core"} or {@code "all"}, this must also be added to your classpath:
+      <BR> &nbsp; &nbsp; {@code INSTALLATION_DIR\templatefeather\z_build\jar_dependencies\commons-collections4-4.0.jar}</LI>
+   </OL></P>
+
+</BODY>

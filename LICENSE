@@ -1,0 +1,16 @@
+**Template Featherweight**: A simplistic Java template-rendering engine, providing for *plain gaps only*, such as "Hello, %name%!"--it has no advanced features such as if-logic, looping, or expressions--Templates may be output in full, after all gaps have been filled, or they may be *auto-rendered*, such that they are gradually output as each gap is filled.
+
+http://templatefeather.aliteralmind.com
+
+Copyright (c) 2014, Jeff Epstein (aliteralmind __DASH__ github __AT__ yahoo __DOT__ com)
+
+This software is dual-licensed under:
+- the Lesser General Public License (LGPL) version 3.0 or, at your option, any later version;
+- the Apache Software License (ASL) version 2.0.
+
+Either license may be applied at your discretion. More information may be found at
+- http://en.wikipedia.org/wiki/Multi-licensing
+
+The text of both licenses is available in the root directory of this project. The latest copies may be downloaded at:
+- LGPL 3.0: https://www.gnu.org/licenses/lgpl-3.0.txt
+- ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
