@@ -16,7 +16,6 @@
    <target name="compilehelp" description="See XBN-Java project's 'compilehelp' ant task for important information.">
 <echo>See XBN-Java project's 'compilehelp' ant task for important information.</echo>
    </target>
-
    <target name="compileprecodelet">
       <antcall target="compilefeather"/>
       <antcall target="compilefeather2"/>
@@ -69,11 +68,9 @@
       <delete includeemptydirs="true">
          <fileset dir="${build.class.dir}${fs}${com_github_xbn}" excludes="testdev/ant/*"/>
       </delete>
-
       <!--
          IMPORTANT: See 'ant compilehelp' in XBN-Java. The below list is an exact subset from XBN-Java's compile.xml, with classes in exactly the same order.
        -->
-
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="lang/XbnConstants.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
@@ -94,6 +91,9 @@
          includes="regexutil/IgnoreCase.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="util/DefaultValueFor.java"/>
+<!-- 5/8/2014: First class requiring com.google.common: -->
+      <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="false" debuglevel="lines,vars,source" listfiles="true"
+         includes="lang/BadDuplicateException.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="util/EnumUtil.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
@@ -125,6 +125,8 @@
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="io/NewTextAppenterFor.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
+         includes="number/NumberUtil.java"/>
+      <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="array/Duplicates.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="text/Trim.java"/>
@@ -132,12 +134,7 @@
          includes="text/StringUtilBase.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="text/StringUtil.java"/>
-      <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="io/Existence.java"/>
-      <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="io/Readable.java"/>
-      <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="io/Writable.java"/>
+<!-- 5/8/2014: First class requiring org.apache.commons.io: -->
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="keyed/Keyed.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
@@ -179,11 +176,21 @@
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="number/IntBoundExclusive.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="number/NewIntInRangeFor.java"/>
-      <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="array/NullContainer.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
+         includes="array/IndexableUtil.java"/>
+      <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="lang/Copyable.java"/>
+      <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
+         includes="util/copyval/ActionForNull.java"/>
+      <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
+         includes="util/copyval/NullHandler.java"/>
+      <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
+         includes="util/copyval/ValueCopier.java"/>
+      <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
+         includes="array/ArrayUtil.java"/>
+      <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
+         includes="list/CollectionUtil.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="neederneedable/Chainable.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
@@ -202,30 +209,28 @@
          includes="array/XbnIbxBase.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="array/z/XbnIbxBase_Cfg.java"/>
+      <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
+         includes="array/primitive/ObjThatIsPrimitiveArrayUtil.java"/>
+      <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
+         includes="number/LengthRange.java"/>
+      <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
+         includes="number/LengthInRange.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="false" debuglevel="lines,vars,source" listfiles="true"
          includes="lang/Expirable.java"/>
-      <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="io/DebugLevel.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="lang/ExpirableComposer.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="false" debuglevel="lines,vars,source" listfiles="true"
          includes="lang/ObjectOrCrashIfNull.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="testdev/CompositionConstructor.java"/>
-      <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="testdev/CompositionFunction.java"/>
-      <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="array/XbnIndexOutOfBoundsException.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="array/z/XbnIndexOutOfBoundsException_Cfg.java"/>
-      <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="false" debuglevel="lines,vars,source" listfiles="true"
-         includes="array/NullElement.java"/>
-      <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="false" debuglevel="lines,vars,source" listfiles="true"
-         includes="array/CrashIfArray.java"/>
+<!-- 5/8/2014: First class requiring org.apache.commons.io: -->
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="io/z/GetDebugApbl_Fieldable.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="io/Debuggable.java"/>
+<!-- 5/8/2014: First class requiring org.apache.commons.lang3: -->
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="io/SimpleDebuggable.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="false" debuglevel="lines,vars,source" listfiles="true"
@@ -311,10 +316,18 @@
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="false" debuglevel="lines,vars,source" listfiles="true"
          includes="number/z/IntInRangeValidator_CfgForNeeder.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="false" debuglevel="lines,vars,source" listfiles="true"
-         includes="number/z/IntInRangeValidator_Cfg.java"/>
+         includes="number/z/LengthInRangeValidator_Fieldable.java"/>
+      <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="false" debuglevel="lines,vars,source" listfiles="true"
+         includes="number/LengthInRangeValidator.java"/>
+      <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="false" debuglevel="lines,vars,source" listfiles="true"
+         includes="number/z/LengthInRangeValidator_CfgForNeeder.java"/>
+      <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="false" debuglevel="lines,vars,source" listfiles="true"
+         includes="number/z/LengthInRangeValidator_Cfg.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
-         includes="number/NewIntInRangeValidatorFor.java"/>
-<!-- 5/8/2014: First class requiring org.apache.commons.io: -->
+         includes="number/NewLengthInRangeFor.java"/>
+      <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
+         includes="number/NewLengthInRangeValidatorFor.java"/>
+<!-- 5/8/2014: First class requiring org.apache.commons.collections4: -->
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="false" debuglevel="lines,vars,source" listfiles="true"
          includes="text/padchop/z/PadChopBase_Fieldable.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="false" debuglevel="lines,vars,source" listfiles="true"
@@ -328,22 +341,17 @@
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="false" debuglevel="lines,vars,source" listfiles="true"
          includes="text/padchop/z/PadString_CfgForNeeder.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="false" debuglevel="lines,vars,source" listfiles="true"
-         includes="text/padchop/z/PadString_Cfg.java"/>
-      <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="false" debuglevel="lines,vars,source" listfiles="true"
          includes="text/padchop/z/ChopString_Fieldable.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="false" debuglevel="lines,vars,source" listfiles="true"
          includes="text/padchop/ChopString.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="false" debuglevel="lines,vars,source" listfiles="true"
          includes="text/padchop/z/ChopString_CfgForNeeder.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="false" debuglevel="lines,vars,source" listfiles="true"
-         includes="text/padchop/z/ChopString_Cfg.java"/>
-      <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="false" debuglevel="lines,vars,source" listfiles="true"
          includes="text/padchop/EscapeAction.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="false" debuglevel="lines,vars,source" listfiles="true"
          includes="text/padchop/z/VzblPadChop_Fieldable.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="false" debuglevel="lines,vars,source" listfiles="true"
          includes="text/padchop/DifferentGoalLengths.java"/>
-<!-- 5/8/2014: First class requiring org.apache.commons.lang3: -->
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="false" debuglevel="lines,vars,source" listfiles="true"
          includes="text/padchop/VzblPadChop.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="false" debuglevel="lines,vars,source" listfiles="true"
@@ -386,6 +394,8 @@
          includes="regexutil/z/RegexTokenizer_CfgForNeeder.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="false" debuglevel="lines,vars,source" listfiles="true"
          includes="regexutil/z/RegexTokenizer_Cfg.java"/>
+      <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
+         includes="analyze/validate/NullnessValidator.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="false" debuglevel="lines,vars,source" listfiles="true"
          includes="regexutil/z/RegexReplacer_CfgForNeeder.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="false" debuglevel="lines,vars,source" listfiles="true"
@@ -430,6 +440,9 @@
       <copy file="${xbn_project_jar_in_build_pre_core_dot_jar}_core.jar" todir="${dir_sandbox_jar_dependencies}"/>
 </target>
 <target name="compilefeather2">
+      <unzip src="${xbn_project_jar_in_build_pre_core_dot_jar}_all.jar" dest="${build.class.dir}"/>
+      <copy file="${xbn_project_jar_in_build_pre_core_dot_jar}_all.jar" todir="${dir_sandbox_jar_dependencies}"/>
+      <copy file="${xbn_project_jar_in_build_pre_core_dot_jar}_core.jar" todir="${dir_sandbox_jar_dependencies}"/>
    </target>
 
  <target name="compilepostcodelet" description="Optionally copies the IXC jar to 'jar_dependencies', and then compiles all classes that depend on it.">

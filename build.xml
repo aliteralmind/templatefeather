@@ -77,7 +77,7 @@ The *documentation* for Template Feather uses codelets. But Codelet is based on 
      -1.a- ant refresh
      -1.b- ant pubprecodelet
   -2- Build Codelet:
-     - ant cleanpublish
+     - ant publish
   -3- Finish building Template Feather (part 2 of 2):
      - ant pubpostcodelet
 
@@ -109,12 +109,12 @@ Documentation for Template Feather can be generated before Codelet is built. The
       <copy file="${codelet.jar.path.in.codelet.build.dir}" todir="${dir_sandbox_jar_dependencies}"/>
    </target>
 
-   <target name="cleanpublish" description="Full build of Template Featherweight.">
-      <antcall target="clean"/>
+   <target name="publish" description="Full build of Template Featherweight.">
       <antcall target="pubprecodelet"/>
       <antcall target="pubpostcodelet"/>
    </target>
    <target name="pubprecodelet" description="cq, compileposttabs2, pubprecodelet2">
+      <antcall target="refresh"/>
       <record name="${dir_build}build_log_pre_codelet.txt" action="start"/>
       <antcall target="compileprecodelet"/>
       <antcall target="-autocopyxbnjar"/>
@@ -138,7 +138,9 @@ Documentation for Template Feather can be generated before Codelet is built. The
       <record name="${dir_build}build_log_post_codelet.txt" action="start"/>
       <antcall target="-autocopycodeletjar"/>
       <antcall target="doc"/>
+      <antcall target="doc2"/>
       <antcall target="zip"/>
+      <antcall target="zip2"/>
       <record name="${dir_build}build_log_post_codelet.txt" action="stop"/>
    </target>
 
@@ -212,6 +214,8 @@ Documentation for Template Feather can be generated before Codelet is built. The
       <zip destfile="${download_zip_docs}" whenempty="fail"
          basedir="${dir_build_parent}"
          includes="${project_name_for_dir}${fs}documentation/**/*"/>
+</target>
+<target name="zip2" description="Generates javadoc documentation.">
    </target>
 
    <!-- See http://ant.apache.org/faq.html#propertyvalue-as-name-for-property -->
