@@ -143,7 +143,7 @@ Documentation for Template Feather can be generated before Codelet is built. The
    </target>
 
    <target name="unit" description="Executes all unit tests">
-      <java classname="com.github.aliteralmind.templatefeather.test.UnitTestRunner"/>
+      <java classname="com.github.aliteralmind.templatefeather.test.UnitTestRunner" failonerror="true"/>
    </target>
 
       <property name="download_zip_source_name" value="${project_name_for_dir}_source_code.zip"/>
@@ -160,7 +160,7 @@ Documentation for Template Feather can be generated before Codelet is built. The
       </copy>
 
       <echo>xbnjavabuild.CreateTempBuildAndCodeletPropsForPublish</echo>
-      <java classname="xbnjavabuild.CreateTempBuildAndCodeletPropsForPublish">
+      <java classname="xbnjavabuild.CreateTempBuildAndCodeletPropsForPublish" failonerror="true">
          <arg value="${dir_sandbox}"/>
          <arg value="${codelet.config.dir}${fs}"/>
          <arg value="subproject"/>

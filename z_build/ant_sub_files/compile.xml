@@ -74,7 +74,6 @@
          IMPORTANT: See 'ant compilehelp' in XBN-Java. The below list is an exact subset from XBN-Java's compile.xml, with classes in exactly the same order.
        -->
 
-<!-- The compilepretabs list: -->
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="lang/XbnConstants.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
@@ -203,9 +202,6 @@
          includes="array/XbnIbxBase.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="array/z/XbnIbxBase_Cfg.java"/>
-
-<!-- The compileposttabs list: -->
-
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="false" debuglevel="lines,vars,source" listfiles="true"
          includes="lang/Expirable.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" debug="true" debuglevel="lines,vars,source" listfiles="true"
