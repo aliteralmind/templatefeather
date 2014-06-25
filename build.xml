@@ -137,11 +137,15 @@ Documentation for Template Feather can be generated before Codelet is built. The
    <target name="pubpostcodelet" description="compilepostcodelet, doc, zip">
       <record name="${dir_build}build_log_post_codelet.txt" action="start"/>
       <antcall target="-autocopycodeletjar"/>
+      <antcall target="doczip"/>
+      <record name="${dir_build}build_log_post_codelet.txt" action="stop"/>
+   </target>
+
+   <target name="doczip" description="doc, doc2, zip, zip2">
       <antcall target="doc"/>
       <antcall target="doc2"/>
       <antcall target="zip"/>
       <antcall target="zip2"/>
-      <record name="${dir_build}build_log_post_codelet.txt" action="stop"/>
    </target>
 
    <target name="unit" description="Executes all unit tests">
@@ -215,7 +219,20 @@ Documentation for Template Feather can be generated before Codelet is built. The
          basedir="${dir_build_parent}"
          includes="${project_name_for_dir}${fs}documentation/**/*"/>
 </target>
-<target name="zip2" description="Generates javadoc documentation.">
+<target name="zip2" description="For starting execution somewhere in the middle of the 'zip' task.">
+      <property name="xbn_and_all_dependency_jars_working_dir" value="${dir_working}${project_name_for_dir}_and_all_dependency_jars"/>
+
+      <copy todir="${xbn_and_all_dependency_jars_working_dir}">
+         <fileset dir="${dir_sandbox_jar_dependencies}"/>
+      </copy>
+      <copy todir="${xbn_and_all_dependency_jars_working_dir}">
+         <fileset dir="${dir_build_download}" includes="xbn*.jar"/>
+      </copy>
+
+      <property name="xbn_and_all_dependency_jars_zip" value="${dir_build_download}${project_name_for_dir}_and_all_dependency_jars.zip"/>
+      <zip destfile="${xbn_and_all_dependency_jars_zip}"
+         whenempty="fail"
+         basedir="${xbn_and_all_dependency_jars_working_dir}"/>
    </target>
 
    <!-- See http://ant.apache.org/faq.html#propertyvalue-as-name-for-property -->
