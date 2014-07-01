@@ -414,7 +414,7 @@ public class FeatherTemplate extends SimpleDebuggable implements Copyable  {
 
       <H3>Example</H3>
 
-{@.codelet.and.out com.github.aliteralmind.templatefeather.examples.FeatherAutoRenderDemo:eliminateCmtBlocksPkgLineAndPkgReferences(true, true, false)}
+{@.codelet.and.out com.github.aliteralmind.templatefeather.examples.FeatherAutoRenderDemo%eliminateCmtBlocksPkgLineAndPkgReferences(true, true, false)}
 
       <P><B>Warning:</B> If the template is {@linkplain #isResettable() resettable}, this means that gaps can be {@linkplain #unfill(String) unfilled}, even though they may have already been output.</P>
 
