@@ -115,6 +115,8 @@
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="io/TAAppendable.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
+         includes="io/UnusableAppenterException.java"/>
+      <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="io/TextAppenter.java"/>
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" debug="true" debuglevel="lines,vars,source" listfiles="true"
          includes="io/NewPrintWriterToFile.java"/>
