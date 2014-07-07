@@ -27,7 +27,20 @@
 
    <P><B>Installation instructions for using Template Featherweight</B></P>
 
+
    <P>(For <B>building</B>, see XBN-Java's <A HREF="http://aliteralmind.com/docs/computer/programming/xbnjava/documentation/javadoc/overview-summary.html#install">installation instructions</A>. The Template Featherweight build process is derived from XBN-Java's.)</P>
+
+   <H3>Downloads</H3>
+
+   <P><OL>
+      <LI>Template Featherweight JAR (choose exactly one):<OL>
+         <LI><A HREF="http://aliteralmind.com/docs/computer/programming/templatefeather/download/xbnjava_0p1p0_all.jar">{@code xbnjava_0p1p0_all.jar}</A>: Core classes, example code, and unit tests, with no dependencies.</LI>
+         <LI><A HREF="http://aliteralmind.com/docs/computer/programming/templatefeather/download/xbnjava_0p1p0_core.jar">{@code xbnjava_0p1p0_core.jar}</A>: Core classes only, with no dependencies. Excludes unit tests and example code.</LI>
+      </OL></LI>
+      <LI><A HREF="http://aliteralmind.com/docs/computer/programming/templatefeather/download/xbnjava_0p1p0_and_all_dependency_jars.jar">{@code xbnjava_0p1p0_and_all_dependency_jars.jar}</A>: Includes both the &quot;core&quot; and &quot;all&quot; jars (only put one on your classpath), and all of the jars Template Featherweight depends on. <I>The JUnit and Ant jars are needed only for building Template Featherweight. See below for information on choosing the correct version of the XBN-Java jar.</I></LI>
+      <LI><A HREF="http://aliteralmind.com/docs/computer/programming/templatefeather/download/xbnjava_0p1p0_source_code.jar">{@code xbnjava_0p1p0_source_code.jar}</A>: All source code, including proper, examples, unit tests, and all build files.</LI>
+      <LI><A HREF="http://aliteralmind.com/docs/computer/programming/templatefeather/download/xbnjava_0p1p0_documentation.jar">{@code xbnjava_0p1p0_documentation.jar}</A>: JavaDoc documentation for local installation.</LI>
+   </OL></P>
 
    <P>Adding the following elements to your <A HREF="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html">classpath</A> will install Template Featherweight:</P>
 
@@ -39,10 +52,6 @@
    </OL></P>
 
    <P>Details and alternatives:<OL>
-      <LI>Template Feather: Exactly one of the following must be used (The above classpath-string assumes you've chosen {@code "templatefeather_0p1p0_all.jar"}):<OL>
-         <LI><A HREF="http://aliteralmind.com/docs/computer/programming/templatefeather/download/templatefeather_0p1p0_all.jar">{@code templatefeather_0p1p0_all.jar}</A>: Core classes, example code, and unit tests</LI>
-         <LI><A HREF="http://aliteralmind.com/docs/computer/programming/templatefeather/download/templatefeather_0p1p0_core.jar">{@code templatefeather_0p1p0_core.jar}</A>: Core classes only</I></LI>
-      </OL></LI>
       <LI><A HREF="http://xbnjava.aliteralmind.com">XBN-Java</A>: Exactly one of the following must be used (The above classpath-string assumes {@code "xbnjava_0p1p0_templatefeather_needed_only.jar"}):<OL>
          <LI><A HREF="http://aliteralmind.com/docs/computer/programming/templatefeather/download/xbnjava_0p1p0_templatefeather_needed_only.jar">{@code xbnjava_0p1p0_templatefeather_needed_only.jar}</A>: Contains exactly those classes as required by Template Featherweight. <I>If you have no need for other XBN-Java beyond Template Featherweight, choose this. It's about 1/3 of the size of {@code xbnjava_0p1p0_core.jar}.</I></LI>
          <LI><A HREF="http://aliteralmind.com/docs/computer/programming/xbnjava/download/xbnjava_0p1p0_core.jar">{@code xbnjava_0p1p0_core.jar}</A>: All classes except example code and unit tests</I></LI>
