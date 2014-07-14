@@ -21,6 +21,10 @@ package  com.github.aliteralmind.templatefeather;
 
  **/
 public class IncorrectGapsException extends IllegalArgumentException  {
+   /**
+    * 
+    */
+   private static final long serialVersionUID = 7821565948218966778L;
    public IncorrectGapsException(String message)  {
       super(message);
    }

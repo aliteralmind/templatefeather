@@ -13,7 +13,6 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.templatefeather;
-   import  com.github.xbn.lang.CrashIfObject;
    import  java.util.Objects;
 /**
    <P>A single element in a parsed template: Either a gap name, or its &quot;between&quot; text.</P>

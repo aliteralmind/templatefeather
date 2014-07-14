@@ -1,0 +1,30 @@
+<project name="compile_examples" basedir=".">
+   <property name="dir_src_examples" value="${dir_sandbox_examples}${cgx_feather_examples}"/>
+
+   <target name="compileexamples">
+      <antcall target="-compileexamplesasawhole"/>
+      <antcall target="-compileexamples1by1"/>
+   </target>
+   <target name="-compileexamplesasawhole" if="compile.as.a.whole">
+      <antcall target="compileexamplesasawhole"/>
+   </target>
+   <target name="-compileexamples1by1" unless="compile.as.a.whole">
+      <antcall target="compileexamples1by1"/>
+      <antcall target="compileexamples1by1b"/>
+   </target>
+   <target name="compileexamplesasawhole" description="Compiles all Template Feather example code, in a single javac call.">
+      <javac srcdir="${dir_sandbox_examples}" classpathref="project_classpath" listfiles="false" includeantruntime="true" createMissingPackageInfoClass="false"
+         destdir="${build.class.dir}"
+         includes="**/*.java"/>
+   </target>
+
+   <target name="compileexamples1by1">
+      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
+         includes="FeatherAutoRenderDemo.java"/>
+      <javac srcdir="${dir_src_examples}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
+         includes="HelloFeather.java"/>
+</target>
+<target name="compileexamples1by1b" description="For intercepting the compileproper1by1 task.">
+   </target>
+</project>
+

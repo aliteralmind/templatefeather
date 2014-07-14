@@ -13,7 +13,6 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.templatefeather;
-   import  com.github.xbn.util.EnumUtil;
 /**
    <P>Can the template be {@linkplain com.github.aliteralmind.templatefeather.FeatherTemplate#isResettable() reset}?--This implies whether gaps can be {@linkplain com.github.aliteralmind.templatefeather.GapMap#isUnfillOk() unfilled}.</P>
 

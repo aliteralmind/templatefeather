@@ -21,6 +21,10 @@ package  com.github.aliteralmind.templatefeather;
 
  **/
 public class GapFilledException extends IllegalArgumentException  {
+   /**
+    * 
+    */
+   private static final long serialVersionUID = -6792117553126376006L;
    public GapFilledException(String message)  {
       super(message);
    }

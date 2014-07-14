@@ -16,7 +16,6 @@ package  com.github.aliteralmind.templatefeather;
    import  com.github.xbn.array.z.XbnIndexOutOfBoundsException_Cfg;
    import  com.github.xbn.io.RTIOException;
    import  com.github.xbn.io.SimpleDebuggable;
-   import  com.github.xbn.io.TextAppenter;
    import  com.github.xbn.lang.Copyable;
    import  com.github.xbn.lang.CrashIfObject;
    import  com.github.xbn.regexutil.RegexTokenizer;

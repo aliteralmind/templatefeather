@@ -1,7 +1,5 @@
 package  com.github.aliteralmind.templatefeather.test;
    import  com.github.aliteralmind.templatefeather.GapCharConfig;
-   import  com.github.aliteralmind.templatefeather.GapUnfilledException;
-   import  java.util.NoSuchElementException;
    import  org.junit.Test;
    import  static org.junit.Assert.*;
 

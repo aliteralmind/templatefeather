@@ -1,12 +1,8 @@
 package  com.github.aliteralmind.templatefeather.test;
-   import  java.util.List;
-   import  com.github.aliteralmind.templatefeather.GapFilledException;
    import  com.github.aliteralmind.templatefeather.GapUnfilledException;
-   import  com.github.aliteralmind.templatefeather.TemplatePiece;
    import  org.junit.Test;
    import  static org.junit.Assert.*;
    import  com.github.aliteralmind.templatefeather.FeatherTemplate;
-   import  com.github.aliteralmind.templatefeather.GapPiece;
 
 /**
    <P>One-class unit: {@code java com.github.aliteralmind.templatefeather.test.TemplatePiece_Unit}</P>

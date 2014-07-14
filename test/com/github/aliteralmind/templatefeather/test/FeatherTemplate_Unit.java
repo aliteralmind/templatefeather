@@ -1,9 +1,7 @@
 package  com.github.aliteralmind.templatefeather.test;
    import  com.github.aliteralmind.templatefeather.GapUnfilledException;
    import  com.github.aliteralmind.templatefeather.TemplateResettableException;
-   import  com.github.aliteralmind.templatefeather.GapPiece;
    import  java.util.List;
-   import  com.github.aliteralmind.templatefeather.GapFilledException;
    import  com.github.aliteralmind.templatefeather.TemplatePiece;
    import  org.junit.Test;
    import  static org.junit.Assert.*;

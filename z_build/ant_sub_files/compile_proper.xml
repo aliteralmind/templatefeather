@@ -1,0 +1,51 @@
+<project name="compile_proper" basedir=".">
+
+   <target name="compileproper">
+      <antcall target="-compileproperasawhole"/>
+      <antcall target="-compileproper1by1"/>
+   </target>
+   <target name="-compileproperasawhole" if="compile.as.a.whole">
+      <antcall target="compileproperasawhole"/>
+   </target>
+   <target name="-compileproper1by1" unless="compile.as.a.whole">
+      <antcall target="compileproper1by1"/>
+      <antcall target="compileproper1by1b"/>
+   </target>
+   <target name="compileproperasawhole" description="Compiles all core Template Feather code (not examples or tests) in a single javac call.">
+      <javac srcdir="${dir_sandbox_src}" classpathref="project_classpath" listfiles="false" includeantruntime="true" createMissingPackageInfoClass="false"
+         destdir="${build.class.dir}"
+         includes="**/*.java"/>
+   </target>
+
+   <target name="compileproper1by1" description="Compile all core Template Featherweight code (not examples or tests), sequentially, one class at a time. For ensuring no circular dependencies.">
+      <javac srcdir="${dir_src_feather}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
+         includes="Resettable.java"/>
+      <javac srcdir="${dir_src_feather}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
+         includes="TemplateResettableException.java"/>
+      <javac srcdir="${dir_src_feather}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
+         includes="TemplateFormatException.java"/>
+      <javac srcdir="${dir_src_feather}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
+         includes="GapFilledException.java"/>
+      <javac srcdir="${dir_src_feather}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
+         includes="GapUnfilledException.java"/>
+      <javac srcdir="${dir_src_feather}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
+         includes="IncorrectGapsException.java"/>
+      <javac srcdir="${dir_src_feather}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
+         includes="GapCharConfig.java"/>
+      <javac srcdir="${dir_src_feather}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
+         includes="GapMap.java"/>
+      <javac srcdir="${dir_src_feather}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
+         includes="TemplatePiece.java"/>
+      <javac srcdir="${dir_src_feather}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
+         includes="BetweenPiece.java"/>
+      <javac srcdir="${dir_src_feather}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
+         includes="GapPiece.java"/>
+      <javac srcdir="${dir_src_feather}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
+         includes="FeatherTemplate.java"/>
+      <javac srcdir="${dir_src_feather}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
+         includes="TemplateValidationUtil.java"/>
+</target>
+<target name="compileproper1by1b" description="For intercepting the compileproper1by1 task.">
+   </target>
+</project>
+

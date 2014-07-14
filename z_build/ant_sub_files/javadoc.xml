@@ -12,6 +12,7 @@
    </target>
 
    <target name="doc" description="Generates javadoc documentation.">
+      <copy file="${dir_sandbox}prev_versions.html" todir="${dir_build_docs_javadoc}"/>
 
       <!--
          Packages need to be delimited by both commas and colons.  In build.properties, it's only delimited by commas.  Commas (with or without spaces) are needed by the JavaDoc "packagenames" attribute, and colons (without spaces) are needed by the "group" sub-tags.
@@ -61,6 +62,10 @@
 
          <BOTTOM><![CDATA[<P><HR><CODE><B>Copyright 2014, Jeff Epstein</B>, All Rights Reserved.  See top of source code files for copyright notice.</CODE></P><P>&nbsp;</P><P><A HREF=\"https://github.com/aliteralmind/${project.name}\"><B><CODE>https://github.com/aliteralmind/${project.name}</CODE></B></A></P><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE><PRE><P>&nbsp;</P></PRE>]]></BOTTOM>
       </javadoc>
+
+      <replace file="${dir_build_docs_javadoc}overview-summary.html" summary="yes"
+      	token="${version}" value="${version.number}"/>
+
       <copy file="${dir_sandbox_needed_by_javadoc}up_arrow.gif" todir="${dir_build_docs_javadoc}resources${fs}"/>
       <record name="${dir_build}javadoc_log.txt" action="stop"/>
 

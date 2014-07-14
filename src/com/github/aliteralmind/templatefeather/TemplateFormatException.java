@@ -21,6 +21,10 @@ package  com.github.aliteralmind.templatefeather;
 
  **/
 public class TemplateFormatException extends IllegalArgumentException  {
+   /**
+    * 
+    */
+   private static final long serialVersionUID = 3100963757019972384L;
    public TemplateFormatException(String message)  {
       super(message);
    }
