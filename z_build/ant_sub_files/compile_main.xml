@@ -14,13 +14,13 @@
    </target>
 
    <target name="jar" description="Creates the 'all' and 'core' jars, for using Template Featherweight.">
-      <delete file="${dir_build_download}${project_name_for_dir}_all.jar"/>
-      <delete file="${dir_build_download}${project_name_for_dir}_core.jar"/>
-      <jar destfile="${dir_build_download}${project_name_for_dir}_all.jar"
+      <delete file="${dir_build_download}${project_name_dash_version}-all.jar"/>
+      <delete file="${dir_build_download}${project_name_dash_version}.jar"/>
+      <jar destfile="${dir_build_download}${project_name_dash_version}-all.jar"
          basedir="${build.class.dir}"
          includes="${cg_alit_feather}**/*.class"
       />
-      <jar destfile="${dir_build_download}${project_name_for_dir}_core.jar"
+      <jar destfile="${dir_build_download}${project_name_dash_version}.jar"
          basedir="${build.class.dir}"
          includes="${cg_alit_feather}**/*.class"
          excludes="${cg_alit_feather}examples/**/*.class,${cg_alit_feather}test/**/*.class"

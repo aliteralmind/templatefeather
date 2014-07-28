@@ -1,11 +1,12 @@
 <project name="compile_xbn_needed_only" basedir=".">
+   <property name="xbnjava_project_name_and_version" value="xbnjava-${xbnjava_project_version}"/>
    <property name="com_github_xbn" value="com${fs}github${fs}xbn${fs}"/>
    <property name="dir_xbn_project_src_xbn" value="${dir_xbn_project_src}${com_github_xbn}"/>
 
    <!--
-      Contains all core XBN-Java classes. Both "_core.jar" and "_all.jar" is added to this.
+      Contains all core XBN-Java classes. Both ".jar" and "-all.jar" is added to this.
      -->
-   <property name="xbn_project_jar_in_build_pre_core_dot_jar" value="${base.dir}\\build\\${xbn_java_project_name_and_version}\\download\\${xbn_java_project_name_and_version}"/>
+   <property name="xbn_project_jar_in_build_pre_core_dot_jar" value="${base.dir}\\build\\${xbnjava_project_name_and_version}\\download\\${xbnjava_project_name_and_version}"/>
 
    <target name="-deleteallxbnclassesandjars">
       <echo>About to delete classes from XBN-Java CLASSES directory (except bootstraps), *and* the xbn-jar from the dependencies directory (they are restored by 'unzipallxbntoclassescopycodeletjarstodependencydir'). Will then compile XBN-Java code **directly from the XBN-Java project sandbox**, but only exactly those classes that are needed to *use* Template Featherweight.</echo>
@@ -16,7 +17,7 @@
    </target>
 
    <target name="unzipallxbntoclassescopycodeletjarstodependencydir">
-      <unzip src="${xbn_project_jar_in_build_pre_core_dot_jar}_all.jar" dest="${build.class.dir}"/>
+      <unzip src="${xbn_project_jar_in_build_pre_core_dot_jar}-all.jar" dest="${build.class.dir}"/>
    </target>
 
    <target name="-compilexbnneededonly" if="compile.xbn.needed.only">
@@ -34,7 +35,7 @@
          <fileset dir="${dir_sandbox_jar_dependencies}" includes="xbn*.jar"/>
       </delete>
 
-      <property name="xbn_needed_only_jar" value="${dir_sandbox_jar_dependencies}${xbn_java_project_name_and_version}_templatefeather_needed_only.jar"/>
+      <property name="xbn_needed_only_jar" value="${dir_sandbox_jar_dependencies}${xbnjava_project_name_and_version}_templatefeather_needed_only.jar"/>
 
       <jar destfile="${xbn_needed_only_jar}"
          basedir="${build.class.dir}"
@@ -423,7 +424,7 @@
       <javac srcdir="${dir_xbn_project_src_xbn}" destdir="${build.class.dir}" classpathref="project_classpath" listfiles="true" includeantruntime="true"
          includes="testdev/VerifyApplicationOutput.java"/>
 <!--
-      <jar destfile="${dir_sandbox_jar_dependencies}${xbn_java_project_name_and_version}_templatefeather_needed_only.jar"
+      <jar destfile="${dir_sandbox_jar_dependencies}${xbnjava_project_name_and_version}_templatefeather_needed_only.jar"
          basedir="${build.class.dir}"
          includes="${com_github_alit}**/*.class"
          excludes="${cg_alit_feather}/*.class"/>

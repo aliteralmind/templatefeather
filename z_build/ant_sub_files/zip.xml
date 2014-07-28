@@ -1,8 +1,8 @@
 <project name="zip" basedir=".">
 
-      <property name="download_zip_docs_name" value="${project_name_for_dir}-javadoc.jar"/>
+      <property name="download_zip_docs_name" value="${project_name_dash_version}-javadoc.jar"/>
       <property name="download_zip_docs" value="${dir_build_download}${download_zip_docs_name}"/>
-      <property name="download_zip_source_name" value="${project_name_for_dir}-sources.jar"/>
+      <property name="download_zip_source_name" value="${project_name_dash_version}-sources.jar"/>
       <property name="download_zip_source" value="${dir_build_download}${download_zip_source_name}"/>
    <target name="zip" description="Creates end-user download archives for source-code, documentation, and jars. Also creates placeholder-only build.properties and codelet.properties DIRECTLY INTO THE SANDBOX, with a 'placeholder__' prefix. Both the live and placeholder files are committed.">
       <copy todir="${dir_build}">
@@ -61,8 +61,8 @@
       <echo>Creating documentation download zip.</echo>
       <zip destfile="${download_zip_docs}" whenempty="fail"
          basedir="${dir_build_parent}"
-         includes="${project_name_for_dir}${fs}documentation/**/*"/>
-      <property name="zip_of_dependency_jars_working_dir" value="${dir_working}${project_name_for_dir}_dependency_jars"/>
+         includes="${project_name_dash_version}${fs}documentation/**/*"/>
+      <property name="zip_of_dependency_jars_working_dir" value="${dir_working}${project_name_dash_version}_dependency_jars"/>
 
       <delete dir="${zip_of_dependency_jars_working_dir}"/>
       <mkdir dir="${zip_of_dependency_jars_working_dir}"/>
@@ -72,7 +72,7 @@
             excludes="commons-io-*.jar, commons-lang3-*.jar, guava-*.jar, xbnjava_*_templatefeather_needed_only.jar"/>
       </copy>
 
-      <property name="dependency_jars_zip" value="${dir_build_download}${project_name_for_dir}_dependency_jars.zip"/>
+      <property name="dependency_jars_zip" value="${dir_build_download}${project_name_dash_version}_dependency_jars.zip"/>
       <zip destfile="${dependency_jars_zip}"
          whenempty="fail"
          basedir="${zip_of_dependency_jars_working_dir}"/>

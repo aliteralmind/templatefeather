@@ -36,6 +36,7 @@
          version="true"
          windowtitle="Template Featherweight"
          nodeprecatedlist="yes"
+         classpathref="project_classpath"
          additionalparam="-J-Dcodelet_config_dir=${dir_sandbox}${codelet.config.dir}${fs}"
       >
          <sourcepath>
@@ -43,8 +44,8 @@
             <pathelement path="${dir_sandbox_examples}"/>
             <pathelement path="${dir_sandbox_test}"/>
          </sourcepath>
-      	<!-- Custom taglets
-            	<taglet name="com.github.aliteralmind.codelet.taglet.UnderlineTaglet" path="R:\jeffy\programming\build\CLASSES\"/>-->
+         <!-- Custom taglets
+               <taglet name="com.github.aliteralmind.codelet.taglet.UnderlineTaglet" path="R:\jeffy\programming\build\CLASSES\"/>-->
             <taglet name="com.github.aliteralmind.codelet.taglet.CodeletTaglet" path="R:\jeffy\programming\build\CLASSES\"/>
             <taglet name="com.github.aliteralmind.codelet.taglet.CodeletDotOutTaglet" path="R:\jeffy\programming\build\CLASSES\"/>
             <taglet name="com.github.aliteralmind.codelet.taglet.CodeletAndOutTaglet" path="R:\jeffy\programming\build\CLASSES\"/>
@@ -64,7 +65,7 @@
       </javadoc>
 
       <replace file="${dir_build_docs_javadoc}overview-summary.html" summary="yes"
-      	token="${version}" value="${version.number}"/>
+         token="${project_version}" value="${version.number}"/>
 
       <copy file="${dir_sandbox_needed_by_javadoc}up_arrow.gif" todir="${dir_build_docs_javadoc}resources${fs}"/>
       <record name="${dir_build}javadoc_log.txt" action="stop"/>
@@ -90,32 +91,32 @@ Possibly caused by a single package being listed twice in build.properties:
   [javadoc] Constructing Javadoc information...
   [javadoc] java.util.MissingResourceException: Can't find resource for bundle com.sun.tools.doclets.internal.to
 olkit.resources.doclets, key doclet.Same_package_name_used
-  [javadoc]     at java.util.ResourceBundle.getObject(ResourceBundle.java:384)
-  [javadoc]     at java.util.ResourceBundle.getString(ResourceBundle.java:344)
-  [javadoc]     at com.sun.tools.doclets.internal.toolkit.util.MessageRetriever.getText(MessageRetriever.java:11
+  [javadoc]	  at java.util.ResourceBundle.getObject(ResourceBundle.java:384)
+  [javadoc]	  at java.util.ResourceBundle.getString(ResourceBundle.java:344)
+  [javadoc]	  at com.sun.tools.doclets.internal.toolkit.util.MessageRetriever.getText(MessageRetriever.java:11
 4)
-  [javadoc]     at com.sun.tools.doclets.internal.toolkit.util.MessageRetriever.getText(MessageRetriever.java:92
+  [javadoc]	  at com.sun.tools.doclets.internal.toolkit.util.MessageRetriever.getText(MessageRetriever.java:92
 )
-  [javadoc]     at com.sun.tools.doclets.internal.toolkit.util.MessageRetriever.getText(MessageRetriever.java:81
+  [javadoc]	  at com.sun.tools.doclets.internal.toolkit.util.MessageRetriever.getText(MessageRetriever.java:81
 )
-  [javadoc]     at com.sun.tools.doclets.internal.toolkit.util.MessageRetriever.error(MessageRetriever.java:212)
+  [javadoc]	  at com.sun.tools.doclets.internal.toolkit.util.MessageRetriever.error(MessageRetriever.java:212)
 
-  [javadoc]     at com.sun.tools.doclets.internal.toolkit.util.Group.foundGroupFormat(Group.java:148)
-  [javadoc]     at com.sun.tools.doclets.internal.toolkit.util.Group.checkPackageGroups(Group.java:128)
-  [javadoc]     at com.sun.tools.doclets.internal.toolkit.Configuration.setOptions(Configuration.java:386)
-  [javadoc]     at com.sun.tools.doclets.internal.toolkit.Configuration.setOptions(Configuration.java:415)
-  [javadoc]     at com.sun.tools.doclets.internal.toolkit.AbstractDoclet.startGeneration(AbstractDoclet.java:101
+  [javadoc]	  at com.sun.tools.doclets.internal.toolkit.util.Group.foundGroupFormat(Group.java:148)
+  [javadoc]	  at com.sun.tools.doclets.internal.toolkit.util.Group.checkPackageGroups(Group.java:128)
+  [javadoc]	  at com.sun.tools.doclets.internal.toolkit.Configuration.setOptions(Configuration.java:386)
+  [javadoc]	  at com.sun.tools.doclets.internal.toolkit.Configuration.setOptions(Configuration.java:415)
+  [javadoc]	  at com.sun.tools.doclets.internal.toolkit.AbstractDoclet.startGeneration(AbstractDoclet.java:101
 )
-  [javadoc]     at com.sun.tools.doclets.internal.toolkit.AbstractDoclet.start(AbstractDoclet.java:64)
-  [javadoc]     at com.sun.tools.doclets.formats.html.HtmlDoclet.start(HtmlDoclet.java:42)
-  [javadoc]     at com.sun.tools.doclets.standard.Standard.start(Standard.java:23)
-  [javadoc]     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-  [javadoc]     at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
-  [javadoc]     at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
-  [javadoc]     at java.lang.reflect.Method.invoke(Method.java:597)
-  [javadoc]     at com.sun.tools.javadoc.DocletInvoker.invoke(DocletInvoker.java:269)
-  [javadoc]     at com.sun.tools.javadoc.DocletInvoker.start(DocletInvoker.java:143)
-  [javadoc]     at com.sun.tools.javadoc.Start.parseAndExecute(Start.java:340)
-  [javadoc]     at com.sun.tools.javadoc.Start.begin(Start.java:128)
-  [javadoc]     at com.sun.tools.javadoc.Main.execute(Main.java:41)
-  [javadoc]     at com.sun.tools.javadoc.Main.main(Main.java:31) -->
+  [javadoc]	  at com.sun.tools.doclets.internal.toolkit.AbstractDoclet.start(AbstractDoclet.java:64)
+  [javadoc]	  at com.sun.tools.doclets.formats.html.HtmlDoclet.start(HtmlDoclet.java:42)
+  [javadoc]	  at com.sun.tools.doclets.standard.Standard.start(Standard.java:23)
+  [javadoc]	  at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+  [javadoc]	  at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+  [javadoc]	  at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+  [javadoc]	  at java.lang.reflect.Method.invoke(Method.java:597)
+  [javadoc]	  at com.sun.tools.javadoc.DocletInvoker.invoke(DocletInvoker.java:269)
+  [javadoc]	  at com.sun.tools.javadoc.DocletInvoker.start(DocletInvoker.java:143)
+  [javadoc]	  at com.sun.tools.javadoc.Start.parseAndExecute(Start.java:340)
+  [javadoc]	  at com.sun.tools.javadoc.Start.begin(Start.java:128)
+  [javadoc]	  at com.sun.tools.javadoc.Main.execute(Main.java:41)
+  [javadoc]	  at com.sun.tools.javadoc.Main.main(Main.java:31) -->

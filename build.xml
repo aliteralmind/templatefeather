@@ -10,7 +10,7 @@
    <property name="fs" value="${file.separator}"/>      <!-- Shortcut -->
 
    <property name="project_name_fs" value="${project.name}${fs}"/>
-   <property name="project_name_for_dir" value="${project.name}_${version.number}"/>
+   <property name="project_name_dash_version" value="${project.name}-${version.number}"/>
 
    <!-- com.github.xbn..., ignoring base directories -->
    <property name="com_github_alit" value="com${fs}github${fs}aliteralmind${fs}"/>
@@ -37,7 +37,7 @@
    <property name="dir_build_parent" value="${build.dir}${fs}"/>
       <property name="dir_classes_parent" value="${build.class.dir}${fs}"/>
       <property name="dir_classes_xbn" value="${dir_classes_parent}com${fs}github${fs}aliteralmind${fs}"/>
-   <property name="dir_build" value="${dir_build_parent}${project_name_for_dir}${fs}"/>
+   <property name="dir_build" value="${dir_build_parent}${project_name_dash_version}${fs}"/>
    <property name="dir_build_download" value="${dir_build}download${fs}"/>
       <property name="DIR_bld_src" value="${dir_build}com${fs}github${fs}aliteralmind${fs}"/>
       <property name="DIR_bld_docs" value="${dir_build}documentation${fs}"/>
@@ -60,7 +60,7 @@
          <include name="commons-lang3-3.3.2.jar"/>
          <include name="junit-4.8.2.jar"/>
          <include name="xbnjava_0.1.0_templatefeather_needed_only.jar"/>
-         <include name="codelet_0.1.0_all.jar"/>
+         <include name="codelet_0.1.0-all.jar"/>
          <include name="guava-16.0.1.jar"/>
       </fileset>
  -->
@@ -89,9 +89,9 @@ The *documentation* for Template Feather uses codelets. But Codelet is based on 
 
 Documentation for Template Feather can be generated before Codelet is built. The example codes will be excluded.</echo>
    </target>
-
+   <property name="codelet_project_name_and_version" value="codelet-${codelet_project_version}"/>
    <target name="copycodeletjar" description="Duplicates Codelet's 'core' jar into the dependency directory">
-      <copy file="${base.dir}\\build\\${codelet_project_name_and_version}\\download\\${codelet_project_name_and_version}_core.jar" todir="${dir_sandbox_jar_dependencies}"/>
+      <copy file="${base.dir}\\build\\${codelet_project_name_and_version}\\download\\${codelet_project_name_and_version}.jar" todir="${dir_sandbox_jar_dependencies}"/>
    </target>
    <target name="-autocopycodeletjar" if="do.auto.copy.codelet.jar">
       <antcall target="copycodeletjar"/>
@@ -142,11 +142,12 @@ Documentation for Template Feather can be generated before Codelet is built. The
    <target name="poc" description="Shortcut for pubpostcodelet.">
       <antcall target="pubpostcodelet"/>
    </target>
-   <target name="pubpostcodelet" description="compilepostcodelet, doc, zip">
+   <target name="pubpostcodelet" description="compilepostcodelet, doczip, preppom">
       <record name="${dir_build}build_log_post_codelet.txt" action="start"/>
       <antcall target="compilepostcodelet"/>
       <antcall target="-autocopycodeletjar"/>
       <antcall target="doczip"/>
+      <antcall target="preppom"/>
       <record name="${dir_build}build_log_post_codelet.txt" action="stop"/>
    </target>
 
@@ -162,6 +163,23 @@ Documentation for Template Feather can be generated before Codelet is built. The
 
    <target name="unit" description="Executes all unit tests">
       <java classname="com.github.aliteralmind.templatefeather.test.UnitTestRunner" failonerror="true" classpathref="project_classpath"/>
+   </target>
+
+   <target name="pp" description="Shortcut for preppom.">
+      <antcall target="preppom"/>
+   </target>
+   <target name="preppom" description="Moves z_build/pom_source_file.xml to pom.xml, and sets the proper version number.">
+      <property name="pom_xml_dest" value="${dir_sandbox}pom.xml"/>
+      <delete file="${pom_xml_dest}"/><!-- Originates in task preppom. Needed by task clean -->
+      <copy file="${dir_sandbox_bldfiles}pom_source_file.xml" tofile="${pom_xml_dest}"/>
+      <replace file="${pom_xml_dest}" summary="yes"
+         token="^{project_version_for_jd}" value="${version.number}"/>
+      <replace file="${pom_xml_dest}" summary="yes"
+         token="^{project_build_dir}" value="${dir_build_parent}"/>
+      <replace file="${pom_xml_dest}" summary="yes"
+         token="^{xbnjava_project_version}" value="${xbnjava_project_version}"/>
+
+
    </target>
 
    <!-- See http://ant.apache.org/faq.html#propertyvalue-as-name-for-property -->
