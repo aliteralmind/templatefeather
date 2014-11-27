@@ -3,7 +3,7 @@
 
       <target name="delete_build"
             description="Delete the entire build directory (not ${dir_classes_xbn})">
-         <delete dir="${dir_build}" includeemptydirs="true" quiet="true"/>
+         <delete dir="${dir_build}" includeemptydirs="true" quiet="false"/>
       </target>
          <target name="docclean"
                description="Delete the entire build documentation directory">
@@ -15,12 +15,23 @@
          </target>
          <target name="delete_classes_xbn"
                description="Delete the xbn.** class files in both build/classes and the sandbox">
-               <!-- Note delete is of CLASSES/xbn, but mkdir below is only of CLASSES (parent) -->
+            <delete quiet="true" includeemptydirs="true" dir="${dir_classes}codelet"/>
             <delete quiet="true" includeemptydirs="true">
-               <fileset dir="${dir_classes_xbn}" includes="templatefeather/**/*.class"/>
+               <fileset dir="${dir_classes_xbn}" excludes="testdev/ant/*.class"/>
             </delete>
+            <echo>dir_classes_xbn=${dir_classes_xbn}</echo>
+            <!-- Delete any class files in the sandbox, except in the bin (or root) directory. -->
             <delete quiet="true">
-               <fileset dir="${dir_sandbox}">
+               <fileset dir="${dir_sandbox_src}">
+                  <include name="**${fs}*.class"/>
+               </fileset>
+               <fileset dir="${dir_sandbox_examples}">
+                  <include name="**${fs}*.class"/>
+               </fileset>
+               <fileset dir="${dir_sandbox_test}">
+                  <include name="**${fs}*.class"/>
+               </fileset>
+               <fileset dir="${dir_sandbox_bldfiles}">
                   <include name="**${fs}*.class"/>
                </fileset>
             </delete>
@@ -32,8 +43,8 @@
 
       <target name="cleansandbox"
             description="Deletes temporary files from the sandbox">
-         <delete file="${pom_xml_dest}"/><!-- Originates in task preppom. Needed by task clean -->
-         <delete file="${dir_sandbox}temp.txt"/>
+			<delete file="${pom_xml_dest}"/><!-- Originates in task preppom. Needed by task clean -->
+			<delete file="${dir_sandbox}temp.txt"/>
       </target>
 
       <target name="clean"
@@ -50,7 +61,7 @@
          description="Create all directories outside of the sandbox, necessary for building xbn">
       <mkdir dir="${dir_working}"/>
 
-      <!-- Never deleted! Created here just in case. -->
+		<!-- Never deleted! Created here just in case. -->
       <mkdir dir="${build.class.dir}"/>
 
       <!-- The delete above is CLASSES/xbn, but mkdir here is only of CLASSES (parent) -->

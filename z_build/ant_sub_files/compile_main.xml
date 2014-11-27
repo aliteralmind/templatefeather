@@ -1,37 +1,36 @@
 <project name="compile_main" default="compilehelp" basedir=".">
 
-   <target name="compilehelp" description="See XBN-Java project's 'compilehelp' ant task for important information.">
-      <echo>See XBN-Java project's 'compilehelp' ant task for important information.</echo>
-   </target>
+	<target name="compilehelp" description="See XBN-Java project's 'compilehelp' ant task for important information.">
+		<echo>See XBN-Java project's 'compilehelp' ant task for important information.</echo>
+	</target>
 
-   <target name="compileprecodelet" description="compilexbnneededonly, compileproper, unzipallxbntoclassescopycodeletjarstodependencydir, compileexamples, compiletests, jar">
-      <antcall target="-compilexbnneededonly"/>
-      <antcall target="compileproper"/>
-      <antcall target="-unzipallxbntoclassescopycodeletjarstodependencydir"/>
-      <antcall target="compileexamples"/>
-      <antcall target="compiletests"/>
-      <antcall target="jar"/>
-   </target>
+	<target name="compileprecodelet" description="compileproper, unzipallxbntoclassescopycodeletjarstodependencydir, compileexamples, compiletests, jar">
+		<antcall target="compileproper"/>
+		<!-- <antcall target="-unzipallxbntoclassescopycodeletjarstodependencydir"/> -->
+		<antcall target="compileexamples"/>
+		<antcall target="compiletests"/>
+		<antcall target="jar"/>
+	</target>
 
-   <target name="jar" description="Creates the 'all' and 'core' jars, for using Template Featherweight.">
-      <delete file="${dir_build_download}${project_name_dash_version}-all.jar"/>
-      <delete file="${dir_build_download}${project_name_dash_version}.jar"/>
-      <jar destfile="${dir_build_download}${project_name_dash_version}-all.jar"
-         basedir="${build.class.dir}"
-         includes="${cg_alit_feather}**/*.class"
-      />
-      <jar destfile="${dir_build_download}${project_name_dash_version}.jar"
-         basedir="${build.class.dir}"
-         includes="${cg_alit_feather}**/*.class"
-         excludes="${cg_alit_feather}examples/**/*.class,${cg_alit_feather}test/**/*.class"
-      />
-   </target>
+	<target name="jar" description="Creates the 'all' and 'core' (the non-'all') jars, for using Template Featherweight.">
+		<delete file="${dir_build_download}${project_name_with_version}-all.jar"/>
+		<delete file="${dir_build_download}${project_name_with_version}.jar"/>
+		<jar destfile="${dir_build_download}${project_name_with_version}-all.jar"
+			basedir="${build.class.dir}"
+			includes="${cg_alit_feather}**/*.class"
+		/>
+		<jar destfile="${dir_build_download}${project_name_with_version}.jar"
+			basedir="${build.class.dir}"
+			includes="${cg_alit_feather}**/*.class"
+			excludes="${cg_alit_feather}examples/**/*.class,${cg_alit_feather}test/**/*.class"
+		/>
+	</target>
 
- <target name="compilepostcodelet" description="Optionally copies the IXC jar to 'jar_dependencies', and then compiles all classes that depend on it.">
-      <antcall target="-autocopycodeletjar"/>
-      <javac srcdir="${dir_src_feather}" destdir="${build.class.dir}" classpathref="project_classpath" includeantruntime="true" listfiles="true"
-         includes="zCodeletCustomizers.java"/>
-      <antcall target="jar"/>
-   </target>
+ <target name="compilepostcodelet" description="Compiles all classes dependant on Codelet (custom customizers) and then re-jars.">
+		<!-- <antcall target="-autocopycodeletjar"/> -->
+		<javac srcdir="${dir_src_feather}" destdir="${build.class.dir}" classpathref="project_classpath_id" includeantruntime="true" listfiles="true"
+			includes="zCodeletCustomizers.java"/>
+		<antcall target="jar"/>
+	</target>
 </project>
 

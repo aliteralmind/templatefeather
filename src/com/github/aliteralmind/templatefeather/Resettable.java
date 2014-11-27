@@ -14,63 +14,63 @@
 \*license*/
 package  com.github.aliteralmind.templatefeather;
 /**
-   <P>Can the template be {@linkplain com.github.aliteralmind.templatefeather.FeatherTemplate#isResettable() reset}?--This implies whether gaps can be {@linkplain com.github.aliteralmind.templatefeather.GapMap#isUnfillOk() unfilled}.</P>
+	<P>Can the template be {@linkplain com.github.aliteralmind.templatefeather.FeatherTemplate#isResettable() reset}?--This implies whether gaps can be {@linkplain com.github.aliteralmind.templatefeather.GapMap#isUnfillOk() unfilled}.</P>
 
-   @since 0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://templatefeather.aliteralmind.com">{@code http://templatefeather.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/templatefeather">{@code https://github.com/aliteralmind/templatefeather}</A>
+	@since 0.1.0
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://templatefeather.aliteralmind.com">{@code http://templatefeather.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/templatefeather">{@code https://github.com/aliteralmind/templatefeather}</A>
  **/
 public enum Resettable  {
-   /**
-      <P>The template is resettable--gaps can be unfilled.</P>
+	/**
+		<P>The template is resettable--gaps can be unfilled.</P>
 
-      @see  #NO
-      @see  #isYes()
-    **/
-   YES,
-   /**
-      <P>The template is not resettable--gaps cannot be unfilled.</P>
+		@see  #NO
+		@see  #isYes()
+	 **/
+	YES,
+	/**
+		<P>The template is not resettable--gaps cannot be unfilled.</P>
 
-      @see  #YES
-      @see  #isNo()
-    **/
-   NO;
-   /**
-      <P>Is this {@code Resettable} equal to {@code YES}?.</P>
+		@see  #YES
+		@see  #isNo()
+	 **/
+	NO;
+	/**
+		<P>Is this {@code Resettable} equal to {@code YES}?.</P>
 
-      @return  <CODE>this == {@link #YES}</CODE>
+		@return  <CODE>this == {@link #YES}</CODE>
 
-      @see  #isNo()
-    **/
-   public final boolean isYes()  {
-      return  this == YES;
-   }
-   /**
-      <P>Is this {@code Resettable} equal to {@code NO}?.</P>
+		@see  #isNo()
+	 **/
+	public final boolean isYes()  {
+		return  this == YES;
+	}
+	/**
+		<P>Is this {@code Resettable} equal to {@code NO}?.</P>
 
-      @return  <CODE>this == {@link #NO}</CODE>
-      @see  #isYes()
-    **/
-   public final boolean isNo()  {
-      return  this == NO;
-   }
-   /**
-      @return  {@link #YES}
-    **/
-   public Resettable trueValue()  {
-      return  YES;
-   }
-   /**
-      @return  {@link #NO}
-    **/
-   public Resettable falseValue()  {
-      return  NO;
-   }
-   /**
-      <P>Get a {@code Resettable} from an actual boolean.</P>
+		@return  <CODE>this == {@link #NO}</CODE>
+		@see  #isYes()
+	 **/
+	public final boolean isNo()  {
+		return  this == NO;
+	}
+	/**
+		@return  {@link #YES}
+	 **/
+	public Resettable trueValue()  {
+		return  YES;
+	}
+	/**
+		@return  {@link #NO}
+	 **/
+	public Resettable falseValue()  {
+		return  NO;
+	}
+	/**
+		<P>Get a {@code Resettable} from an actual boolean.</P>
 
-      @return  <CODE>(b ? {@link #YES} : {@link #NO})</CODE>
-    **/
-   public static final Resettable getForBoolean(boolean b)  {
-      return  (b ? YES : NO);
-   }
+		@return  <CODE>(b ? {@link #YES} : {@link #NO})</CODE>
+	 **/
+	public static final Resettable getForBoolean(boolean b)  {
+		return  (b ? YES : NO);
+	}
 };

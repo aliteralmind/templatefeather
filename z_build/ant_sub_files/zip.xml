@@ -1,82 +1,82 @@
 <project name="zip" basedir=".">
 
-      <property name="download_zip_docs_name" value="${project_name_dash_version}-javadoc.jar"/>
-      <property name="download_zip_docs" value="${dir_build_download}${download_zip_docs_name}"/>
-      <property name="download_zip_source_name" value="${project_name_dash_version}-sources.jar"/>
-      <property name="download_zip_source" value="${dir_build_download}${download_zip_source_name}"/>
-   <target name="zip" description="Creates end-user download archives for source-code, documentation, and jars. Also creates placeholder-only build.properties and codelet.properties DIRECTLY INTO THE SANDBOX, with a 'placeholder__' prefix. Both the live and placeholder files are committed.">
-      <copy todir="${dir_build}">
-         <fileset dir="${dir_sandbox}" includes="LICENSE, README.md"/>
-      </copy>
+		<property name="download_zip_docs_name" value="${project_name_with_version}-javadoc.jar"/>
+		<property name="download_zip_docs" value="${dir_build_download}${download_zip_docs_name}"/>
+		<property name="download_zip_source_name" value="${project_name_with_version}-sources.jar"/>
+		<property name="download_zip_source" value="${dir_build_download}${download_zip_source_name}"/>
+	<target name="zip" description="Creates end-user download archives for source-code, documentation, and jars. Also creates placeholder-only build.properties and codelet.properties DIRECTLY INTO THE SANDBOX, with a 'placeholder__' prefix. Both the live and placeholder files are committed.">
+		<copy todir="${dir_build}">
+			<fileset dir="${dir_sandbox}" includes="LICENSE, README.md"/>
+		</copy>
 
-      <echo>xbnjavabuild.CreateTempBuildAndCodeletPropsForPublish</echo>
-      <java classname="xbnjavabuild.CreateTempBuildAndCodeletPropsForPublish" failonerror="true" classpathref="project_classpath">
-         <arg value="${dir_sandbox}"/>
-         <arg value="${codelet.config.dir}${fs}"/>
-         <arg value="subproject"/>
-         <arg value="debugminimal"/>
-      </java>
+		<echo>xbnjavabuild.CreateTempBuildAndCodeletPropsForPublish</echo>
+		<java classname="xbnjavabuild.CreateTempBuildAndCodeletPropsForPublish" failonerror="true" classpathref="project_classpath_id">
+			<arg value="${dir_sandbox}"/>
+			<arg value="${codelet.config.dir}${fs}"/>
+			<arg value="subproject"/>
+			<arg value="debugminimal"/>
+		</java>
 
-      <echo>Creating source code download zip.</echo>
-      <property name="download_zip_temp_location" value="${dir_working}${download_zip_source_name}"/>
-      <delete file="${download_zip_source}"/>
+		<echo>Creating source code download zip.</echo>
+		<property name="download_zip_temp_location" value="${dir_working}${download_zip_source_name}"/>
+		<delete file="${download_zip_source}"/>
 
-      <zip destfile="${download_zip_temp_location}" whenempty="fail">
-         <fileset dir="${dir_sandbox}">
-            <exclude name=".git/**"/>
+		<zip destfile="${download_zip_temp_location}" whenempty="fail">
+			<fileset dir="${dir_sandbox}">
+				<exclude name=".git/**"/>
 <!--
       BOTH (either) WORK:
-            <exclude name="**/.git/**"/>
-            <exclude name=".git/**"/>
+				<exclude name="**/.git/**"/>
+				<exclude name=".git/**"/>
 
       DOES NOT WORK:
-            <exclude name="**/.git"/>
-            <exclude name=".git"/>
+				<exclude name="**/.git"/>
+				<exclude name=".git"/>
  -->
-            <exclude name="**/offline_package_lists/*"/>
-            <exclude name="**/offline_package_lists/*"/>
-            <exclude name="build.properties"/>
-            <exclude name="**/codelet.properties"/>
-         </fileset>
-      </zip>
+				<exclude name="**/offline_package_lists/*"/>
+				<exclude name="**/offline_package_lists/*"/>
+				<exclude name="build.properties"/>
+				<exclude name="**/codelet.properties"/>
+			</fileset>
+		</zip>
 
-      <copy file="${dir_sandbox}placeholder__build.properties"
-         tofile="${dir_working}build.properties"/>
-      <mkdir dir="${dir_working}${codelet.config.dir}"/>
-      <copy file="${dir_sandbox}${codelet.config.dir}${fs}placeholder__codelet.properties"
-         tofile="${dir_working}${codelet.config.dir}${fs}codelet.properties"/>
+		<copy file="${dir_sandbox}placeholder__build.properties"
+			tofile="${dir_working}build.properties"/>
+		<mkdir dir="${dir_working}${codelet.config.dir}"/>
+		<copy file="${dir_sandbox}${codelet.config.dir}${fs}placeholder__codelet.properties"
+			tofile="${dir_working}${codelet.config.dir}${fs}codelet.properties"/>
 
-      <zip destfile="${download_zip_temp_location}" update="true">
-         <fileset dir="${dir_working}">
-            <include name="build.properties"/>
-            <include name="**/codelet.properties"/>
-         </fileset>
-         <fileset dir="${dir_sandbox}">
-            <include name="**/offline_package_lists/java.txt"/>
-         </fileset>
-      </zip>
+		<zip destfile="${download_zip_temp_location}" update="true">
+			<fileset dir="${dir_working}">
+				<include name="build.properties"/>
+				<include name="**/codelet.properties"/>
+			</fileset>
+			<fileset dir="${dir_sandbox}">
+				<include name="**/offline_package_lists/java.txt"/>
+			</fileset>
+		</zip>
 
-      <move file="${download_zip_temp_location}" todir="${dir_build_download}"/>
+		<move file="${download_zip_temp_location}" todir="${dir_build_download}"/>
 
-      <echo>Creating documentation download zip.</echo>
-      <zip destfile="${download_zip_docs}" whenempty="fail"
-         basedir="${dir_build_parent}"
-         includes="${project_name_dash_version}${fs}documentation/**/*"/>
-      <property name="zip_of_dependency_jars_working_dir" value="${dir_working}${project_name_dash_version}_dependency_jars"/>
+		<echo>Creating documentation download zip.</echo>
+		<zip destfile="${download_zip_docs}" whenempty="fail"
+			basedir="${dir_build_parent}"
+			includes="${project_name_with_version}${fs}documentation/**/*"/>
+		<property name="zip_of_dependency_jars_working_dir" value="${dir_working}${project_name_with_version}_dependency_jars"/>
 
       <delete dir="${zip_of_dependency_jars_working_dir}"/>
       <mkdir dir="${zip_of_dependency_jars_working_dir}"/>
 
-      <copy todir="${zip_of_dependency_jars_working_dir}">
-         <fileset dir="${dir_sandbox_jar_dependencies}"
-            excludes="commons-io-*.jar, commons-lang3-*.jar, guava-*.jar, xbnjava_*_templatefeather_needed_only.jar"/>
-      </copy>
+		<copy todir="${zip_of_dependency_jars_working_dir}">
+			<fileset dir="${dir_sandbox_jar_dependencies}"
+				excludes="commons-io-*.jar, commons-lang3-*.jar, guava-*.jar, xbnjava-*.jar, templatefeather-*.jar"/>
+		</copy>
 
-      <property name="dependency_jars_zip" value="${dir_build_download}${project_name_dash_version}_dependency_jars.zip"/>
-      <zip destfile="${dependency_jars_zip}"
-         whenempty="fail"
-         basedir="${zip_of_dependency_jars_working_dir}"/>
+		<property name="dependency_jars_zip" value="${dir_build_download}${project_name_with_version}_dependency_jars.zip"/>
+		<zip destfile="${dependency_jars_zip}"
+			whenempty="fail"
+			basedir="${zip_of_dependency_jars_working_dir}"/>
 </target>
 <target name="zip2" description="For intercepting the 'zip' task.">
-   </target>
+	</target>
 </project>

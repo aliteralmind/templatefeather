@@ -13,25 +13,25 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.templatefeather.examples;
-   import  com.github.aliteralmind.templatefeather.FeatherTemplate;
+	import  com.github.aliteralmind.templatefeather.FeatherTemplate;
 /**
-   <P>Basic use of {@code com.github.aliteralmind.templatefeather.}{@link com.github.aliteralmind.templatefeather.FeatherTemplate}.</P>
+	<P>Basic use of {@code com.github.aliteralmind.templatefeather.}{@link com.github.aliteralmind.templatefeather.FeatherTemplate}.</P>
 
-   <P>{@code java com.github.aliteralmind.templatefeather.examples.HelloFeather}</P>
+	<P>{@code java com.github.aliteralmind.templatefeather.examples.HelloFeather}</P>
 
-   @since 0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://templatefeather.aliteralmind.com">{@code http://templatefeather.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/templatefeather">{@code https://github.com/aliteralmind/templatefeather}</A>
+	@since 0.1.0
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://templatefeather.aliteralmind.com">{@code http://templatefeather.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/templatefeather">{@code https://github.com/aliteralmind/templatefeather}</A>
  **/
 public class HelloFeather  {
-   public static final void main(String[] ignored)  {
-      String origText = "Hello %name%. I like you, %name%, %pct_num%__PCT__ guaranteed.";
+	public static final void main(String[] ignored)  {
+		String origText = "Hello %name%. I like you, %name%, %pct_num%__PCT__ guaranteed.";
 
-      String rendered = (new FeatherTemplate(origText,
-         null)).                        //debug on=System.out, off=null
-            fill("name", "Ralph").
-            fill("pct_num", 45).
-         getFilled();
+		String rendered = (new FeatherTemplate(origText,
+			null)).                        //debug on=System.out, off=null
+				fill("name", "Ralph").
+				fill("pct_num", 45).
+			getFilled();
 
-      System.out.println(rendered);
-   }
+		System.out.println(rendered);
+	}
 }

@@ -14,26 +14,26 @@
 \*license*/
 package  com.github.aliteralmind.templatefeather;
 /**
-   <P>Indicates an attempt was made to fill an already-filled gap.</P>
+	<P>Indicates an attempt was made to fill an already-filled gap.</P>
 
-   @since 0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://templatefeather.aliteralmind.com">{@code http://templatefeather.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/templatefeather">{@code https://github.com/aliteralmind/templatefeather}</A>
+	@since 0.1.0
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://templatefeather.aliteralmind.com">{@code http://templatefeather.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/templatefeather">{@code https://github.com/aliteralmind/templatefeather}</A>
 
  **/
 public class GapFilledException extends IllegalArgumentException  {
-   /**
-    * 
-    */
-   private static final long serialVersionUID = -6792117553126376006L;
-   public GapFilledException(String message)  {
-      super(message);
-   }
-   public GapFilledException()  {
-   }
-   public GapFilledException(String message, Throwable cause)  {
-      super(message, cause);
-   }
-   public GapFilledException(Throwable cause)  {
-      super(cause);
-   }
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6792117553126376006L;
+	public GapFilledException(String message)  {
+		super(message);
+	}
+	public GapFilledException()  {
+	}
+	public GapFilledException(String message, Throwable cause)  {
+		super(message, cause);
+	}
+	public GapFilledException(Throwable cause)  {
+		super(cause);
+	}
 }

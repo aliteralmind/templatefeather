@@ -14,26 +14,26 @@
 \*license*/
 package  com.github.aliteralmind.templatefeather;
 /**
-   <P>Indicates an error in the original template text, such as no gaps, or gap {@linkplain com.github.aliteralmind.codelet.GapCharConfig#getStart() start} or {@linkplain com.github.aliteralmind.codelet.GapCharConfig#getEnd() end} characters existing between the gaps.</P>
+	<P>Indicates an error in the original template text, such as no gaps, or gap {@linkplain com.github.aliteralmind.codelet.GapCharConfig#getStart() start} or {@linkplain com.github.aliteralmind.codelet.GapCharConfig#getEnd() end} characters existing between the gaps.</P>
 
-   @since 0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://templatefeather.aliteralmind.com">{@code http://templatefeather.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/templatefeather">{@code https://github.com/aliteralmind/templatefeather}</A>
+	@since 0.1.0
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://templatefeather.aliteralmind.com">{@code http://templatefeather.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/templatefeather">{@code https://github.com/aliteralmind/templatefeather}</A>
 
  **/
 public class TemplateFormatException extends IllegalArgumentException  {
-   /**
-    * 
-    */
-   private static final long serialVersionUID = 3100963757019972384L;
-   public TemplateFormatException(String message)  {
-      super(message);
-   }
-   public TemplateFormatException()  {
-   }
-   public TemplateFormatException(String message, Throwable cause)  {
-      super(message, cause);
-   }
-   public TemplateFormatException(Throwable cause)  {
-      super(cause);
-   }
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3100963757019972384L;
+	public TemplateFormatException(String message)  {
+		super(message);
+	}
+	public TemplateFormatException()  {
+	}
+	public TemplateFormatException(String message, Throwable cause)  {
+		super(message, cause);
+	}
+	public TemplateFormatException(Throwable cause)  {
+		super(cause);
+	}
 }
