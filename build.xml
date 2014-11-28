@@ -7,49 +7,47 @@
 	<!--  Read in the properties file.  -->
 	<property file="build.properties"/>
 
-	<property name="fs" value="${file.separator}"/>      <!-- Shortcut -->
-
-	<property name="project_name_fs" value="${project.name}${fs}"/>
+	<property name="project_name_fs" value="${project.name}/"/>
 	<property name="project_name_with_version" value="${project.name}-${version.number}"/>
 
 	<!-- com.github.xbn..., ignoring base directories -->
-	<property name="com_github_alit" value="com${fs}github${fs}aliteralmind${fs}"/>
-		<property name="cg_alit_feather" value="${com_github_alit}${project.name}${fs}"/>
-		<property name="cgx_feather_examples" value="${cg_alit_feather}examples${fs}"/>
-		<property name="cgx_feather_test" value="${cg_alit_feather}test${fs}"/>
+	<property name="com_github_alit" value="com/github/aliteralmind/"/>
+		<property name="cg_alit_feather" value="${com_github_alit}${project.name}/"/>
+		<property name="cgx_feather_examples" value="${cg_alit_feather}examples/"/>
+		<property name="cgx_feather_test" value="${cg_alit_feather}test/"/>
 
 	<!-- Using base directories -->
-	<property name="dir_sandbox_parent" value="${sandbox.dir}${fs}"/>
+	<property name="dir_sandbox_parent" value="${sandbox.dir}/"/>
 		<property name="dir_sandbox" value="${dir_sandbox_parent}${project_name_fs}"/>
-			<property name="dir_sandbox_src" value="${dir_sandbox}src${fs}"/>
+			<property name="dir_sandbox_src" value="${dir_sandbox}src/"/>
 				<property name="dir_src_feather" value="${dir_sandbox_src}${cg_alit_feather}"/>
-			<property name="dir_sandbox_examples" value="${dir_sandbox}examples${fs}"/>
-			<property name="dir_sandbox_test" value="${dir_sandbox}test${fs}"/>
+			<property name="dir_sandbox_examples" value="${dir_sandbox}examples/"/>
+			<property name="dir_sandbox_test" value="${dir_sandbox}test/"/>
 
-	<property name="dir_sandbox_parent" value="${sandbox.dir}${fs}"/>
+	<property name="dir_sandbox_parent" value="${sandbox.dir}/"/>
 		<property name="dir_sandbox" value="${dir_sandbox_parent}${project_name_fs}"/>
-			<property name="dir_sandbox_src_xbn" value="${dir_sandbox}com${fs}github${fs}aliteralmind${fs}"/>
-			<property name="dir_sandbox_bldfiles" value="${dir_sandbox}z_build${fs}"/>
-				<property name="dir_sandbox_src_xbn_ant" value="${dir_sandbox_src_xbn}testdev${fs}ant${fs}"/>
-				<property name="dir_sandbox_jar_dependencies" value="${dir_sandbox_bldfiles}jar_dependencies${fs}"/>
+			<property name="dir_sandbox_src_xbn" value="${dir_sandbox}com/github/aliteralmind/"/>
+			<property name="dir_sandbox_bldfiles" value="${dir_sandbox}z_build/"/>
+				<property name="dir_sandbox_src_xbn_ant" value="${dir_sandbox_src_xbn}testdev/ant/"/>
+				<property name="dir_sandbox_jar_dependencies" value="${dir_sandbox_bldfiles}jar_dependencies/"/>
 
-		<property name="dir_classes_parent" value="${build.class.dir}${fs}"/>
-			<property name="dir_classes_xbn" value="${dir_classes_parent}com${fs}github${fs}aliteralmind${fs}"/>
+		<property name="dir_classes_parent" value="${build.class.dir}/"/>
+			<property name="dir_classes_xbn" value="${dir_classes_parent}com/github/aliteralmind/"/>
 
-	<property name="dir_build_grandparent" value="${build.dir}${fs}"/>
-		<property name="dir_build_parent" value="${dir_build_grandparent}${project_name_with_version}${fs}"/>
-			<property name="dir_build" value="${dir_build_parent}${project_name_with_version}${fs}"/>
-				<property name="dir_build_logs" value="${dir_build}logs${fs}"/>
-				<property name="dir_build_download" value="${dir_build}download${fs}"/>
+	<property name="dir_build_grandparent" value="${build.dir}/"/>
+		<property name="dir_build_parent" value="${dir_build_grandparent}${project_name_with_version}/"/>
+			<property name="dir_build" value="${dir_build_parent}${project_name_with_version}/"/>
+				<property name="dir_build_logs" value="${dir_build}logs/"/>
+				<property name="dir_build_download" value="${dir_build}download/"/>
 					<property name="dir_build_download_templatefeather_all_jar" value="${dir_build_download}${project_name_with_version}-all.jar"/>
 					<property name="dir_build_download_templatefeather_core_jar" value="${dir_build_download}${project_name_with_version}.jar"/>
-					<property name="DIR_bld_src" value="${dir_build}com${fs}github${fs}aliteralmind${fs}"/>
-					<property name="DIR_bld_docs" value="${dir_build}documentation${fs}"/>
-						<property name="dir_build_docs_javadoc" value="${DIR_bld_docs}javadoc${fs}"/>
+					<property name="DIR_bld_src" value="${dir_build}com/github/aliteralmind/"/>
+					<property name="DIR_bld_docs" value="${dir_build}documentation/"/>
+						<property name="dir_build_docs_javadoc" value="${DIR_bld_docs}javadoc/"/>
 			<property name="curr_redir_dir" value="${dir_build_parent}/redir_file_for_QcurrentQ_directory/"/>
 				<property name="curr_redir_file" value="${curr_redir_dir}index.html"/>
 
-			<property name="dir_working" value="${working.dir}${fs}${project_name_fs}"/>
+			<property name="dir_working" value="${working.dir}/${project_name_fs}"/>
 
 <!-- Global properties...END -->
 
@@ -109,7 +107,7 @@ built. The example codes will be excluded.</echo>
 		<antcall target="copycodeletjar"/>
 	</target>
  -->
-  <property name="dir_sandbox_ant_subxml" value="${dir_sandbox_bldfiles}ant_sub_files${fs}"/>
+  <property name="dir_sandbox_ant_subxml" value="${dir_sandbox_bldfiles}ant_sub_files/"/>
   <import file="${dir_sandbox_ant_subxml}backup.xml"/>
   <import file="${dir_sandbox_ant_subxml}compile_main.xml"/>
   <import file="${dir_sandbox_ant_subxml}compile_proper.xml"/>
@@ -118,10 +116,6 @@ built. The example codes will be excluded.</echo>
   <import file="${dir_sandbox_ant_subxml}javadoc.xml"/>
   <import file="${dir_sandbox_ant_subxml}refresh.xml"/>
   <import file="${dir_sandbox_ant_subxml}zip.xml"/>
-
-	<!-- FOR JEFF EPSTEIN'S USE ONLY. Does not exist in published version: -->
-		<import file="${dir_sandbox_ant_subxml}for_jeff_epstein_only.xml"
-			optional="true"/>
 
 	<target name="publish" description="Full build of Template Featherweight.">
 		<antcall target="pubprecodelet"/>
@@ -210,55 +204,56 @@ built. The example codes will be excluded.</echo>
 			<property name="@{propname}" value="${@{valuepropname}}"/>
 		</sequential>
 	</macrodef>
-<!--
-	<target name="pubprecodeletwithneededxbn" description="cq, pubprecodelet">
-		<antcall target="pubprecodelet"/>
-	</target>
- -->
-	<target name="prcj" description="FOR JEFF EPSTEIN'S USE ONLY. Shortcut for pubprecodelet, copyjartoxbnandcodelet.">
-		<antcall target="pubprecodelet"/>
-		<antcall target="copyjartoxbnandcodelet"/>
-	</target>
-	<target name="pocj" description="FOR JEFF EPSTEIN'S USE ONLY. Shortcut for pubpostcodelet, dupbuildtoalit.">
-		<antcall target="pubpostcodelet"/>
-		<antcall target="dupbuildtoalit"/>
-	</target>
-	<target name="jxc" description="FOR JEFF EPSTEIN'S USE ONLY. Shortcut for copyjartoxbnandcodelet">
-		<antcall target="copyjartoxbnandcodelet"/>
-	</target>
-	<target name="copyjartoxbnandcodelet" description="FOR JEFF EPSTEIN'S USE ONLY. Copies the TemplateFeather 'all' jar to the Codelet sandbox directory, and the 'core' (non-'all') jar to the XBN-Java sandbox. Old jars are deleted.">
-		<property name="codelet_jar_dependencies_dir" value="${sandbox.dir}/codelet/z_build/jar_dependencies/"/>
-		<delete quiet="true">
-			<fileset dir="${codelet_jar_dependencies_dir}">
-				<include name="${project.name}-*.jar"/>
-			</fileset>
-		</delete>
-		<copy file="${dir_build_download_templatefeather_all_jar}"
-			todir="${codelet_jar_dependencies_dir}"/>
 
-		<property name="xbnjava_jar_dependencies_dir" value="${sandbox.dir}/xbnjava/z_build/jar_dependencies/"/>
-		<delete quiet="true">
-			<fileset dir="${xbnjava_jar_dependencies_dir}">
-				<include name="${project.name}-*.jar"/>
-			</fileset>
-		</delete>
-		<copy file="${dir_build_download_templatefeather_core_jar}"
-			todir="${xbnjava_jar_dependencies_dir}"/>
-	</target>
+	<!-- FOR JEFF EPSTEIN'S USE ONLY...start -->
+		<import file="${dir_sandbox_ant_subxml}for_jeff_epstein_only.xml"
+			optional="true"/>
 
-	<property name="alit_dir" value="C:\data_jeffy\jeffyepstein_com\jeffyepstein_com\docs\computer\programming\${project.name}\"/>
-	<target name="dupbuildtoalit"
-				description="FOR JEFF EPSTEIN'S USE ONLY. Copy all files to local aliteralmind.com directory">
+		<target name="prcj" description="FOR JEFF EPSTEIN'S USE ONLY. Shortcut for pubprecodelet, copyjartoxbnandcodelet.">
+			<antcall target="pubprecodelet"/>
+			<antcall target="copyjartoxbnandcodelet"/>
+		</target>
+		<target name="pocj" description="FOR JEFF EPSTEIN'S USE ONLY. Shortcut for pubpostcodelet, dupbuildtoalit.">
+			<antcall target="pubpostcodelet"/>
+			<antcall target="dupbuildtoalit"/>
+		</target>
+		<target name="jxc" description="FOR JEFF EPSTEIN'S USE ONLY. Shortcut for copyjartoxbnandcodelet">
+			<antcall target="copyjartoxbnandcodelet"/>
+		</target>
+		<target name="copyjartoxbnandcodelet" description="FOR JEFF EPSTEIN'S USE ONLY. Copies the TemplateFeather 'all' jar to the Codelet sandbox directory, and the 'core' (non-'all') jar to the XBN-Java sandbox. Old jars are deleted.">
+			<property name="codelet_jar_dependencies_dir" value="${sandbox.dir}/codelet/z_build/jar_dependencies/"/>
+			<delete quiet="true">
+				<fileset dir="${codelet_jar_dependencies_dir}">
+					<include name="${project.name}-*.jar"/>
+				</fileset>
+			</delete>
+			<copy file="${dir_build_download_templatefeather_all_jar}"
+				todir="${codelet_jar_dependencies_dir}"/>
 
-		<echo>Copying current-version redirect</echo>
-		<copy file="${curr_redir_file}" todir="${alit_dir}current"
-			overwrite="true"/>
+			<property name="xbnjava_jar_dependencies_dir" value="${sandbox.dir}/xbnjava/z_build/jar_dependencies/"/>
+			<delete quiet="true">
+				<fileset dir="${xbnjava_jar_dependencies_dir}">
+					<include name="${project.name}-*.jar"/>
+				</fileset>
+			</delete>
+			<copy file="${dir_build_download_templatefeather_core_jar}"
+				todir="${xbnjava_jar_dependencies_dir}"/>
+		</target>
 
-		<echo>Copying entire build directory</echo>
-		<delete quiet="true" dir="${alit_dir}${project_name_with_version}"/>
-		<copy todir="${alit_dir}">
-			<fileset dir="${dir_build_parent}"
-				includes="${project_name_with_version}/**"/>
-		</copy>
-	</target>
+		<property name="alit_dir" value="C:\data_jeffy\jeffyepstein_com\jeffyepstein_com\docs\computer\programming\${project.name}\"/>
+		<target name="dupbuildtoalit"
+					description="FOR JEFF EPSTEIN'S USE ONLY. Copy all files to local aliteralmind.com directory">
+
+			<echo>Copying current-version redirect</echo>
+			<copy file="${curr_redir_file}" todir="${alit_dir}current"
+				overwrite="true"/>
+
+			<echo>Copying entire build directory</echo>
+			<delete quiet="true" dir="${alit_dir}${project_name_with_version}"/>
+			<copy todir="${alit_dir}">
+				<fileset dir="${dir_build_parent}"
+					includes="${project_name_with_version}/**"/>
+			</copy>
+		</target>
+	<!-- FOR JEFF EPSTEIN'S USE ONLY...end -->
 </project>

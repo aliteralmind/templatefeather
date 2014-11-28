@@ -12,7 +12,7 @@
 		<echo>xbnjavabuild.CreateTempBuildAndCodeletPropsForPublish</echo>
 		<java classname="xbnjavabuild.CreateTempBuildAndCodeletPropsForPublish" failonerror="true" classpathref="project_classpath_id">
 			<arg value="${dir_sandbox}"/>
-			<arg value="${codelet.config.dir}${fs}"/>
+			<arg value="${codelet.config.dir}/"/>
 			<arg value="subproject"/>
 			<arg value="debugminimal"/>
 		</java>
@@ -43,8 +43,8 @@
 		<copy file="${dir_sandbox}placeholder__build.properties"
 			tofile="${dir_working}build.properties"/>
 		<mkdir dir="${dir_working}${codelet.config.dir}"/>
-		<copy file="${dir_sandbox}${codelet.config.dir}${fs}placeholder__codelet.properties"
-			tofile="${dir_working}${codelet.config.dir}${fs}codelet.properties"/>
+		<copy file="${dir_sandbox}${codelet.config.dir}/placeholder__codelet.properties"
+			tofile="${dir_working}${codelet.config.dir}/codelet.properties"/>
 
 		<zip destfile="${download_zip_temp_location}" update="true">
 			<fileset dir="${dir_working}">
@@ -61,7 +61,7 @@
 		<echo>Creating documentation download zip.</echo>
 		<zip destfile="${download_zip_docs}" whenempty="fail"
 			basedir="${dir_build_parent}"
-			includes="${project_name_with_version}${fs}documentation/**/*"/>
+			includes="${project_name_with_version}/documentation/**/*"/>
 		<property name="zip_of_dependency_jars_working_dir" value="${dir_working}${project_name_with_version}_dependency_jars"/>
 
       <delete dir="${zip_of_dependency_jars_working_dir}"/>
