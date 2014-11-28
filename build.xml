@@ -118,7 +118,7 @@ built. The example codes will be excluded.</echo>
   <import file="${dir_sandbox_ant_subxml}zip.xml"/>
 
 	<!-- For Jeff Epstein only. Does not exist in published version: -->
-		<import file="${dir_sandbox_ant_subxml}gitonly_sandbox__execute_from_main_sandbox_only.xml"
+		<import file="${dir_sandbox_ant_subxml}for_jeff_epstein_only.xml"
 			optional="true"/>
 
 	<target name="publish" description="Full build of Template Featherweight.">
