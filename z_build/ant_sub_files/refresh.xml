@@ -3,7 +3,7 @@
 
       <target name="delete_build"
             description="Delete the entire build directory (not ${dir_classes_xbn})">
-         <delete dir="${dir_build}" includeemptydirs="true" quiet="false"/>
+         <delete dir="${dir_build_parent}" includeemptydirs="true" quiet="false"/>
       </target>
          <target name="docclean"
                description="Delete the entire build documentation directory">
@@ -66,6 +66,7 @@
 
       <!-- The delete above is CLASSES/xbn, but mkdir here is only of CLASSES (parent) -->
       <mkdir dir="${dir_build_download}"/>
+      <mkdir dir="${dir_build_logs}"/>
       <mkdir dir="${dir_build_docs_javadoc}"/>
    </target>
 

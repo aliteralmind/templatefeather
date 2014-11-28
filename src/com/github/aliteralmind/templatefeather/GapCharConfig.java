@@ -25,7 +25,7 @@ package  com.github.aliteralmind.templatefeather;
 /**
    <P>The characters that must precede and follow gap names, their literal representations, and pre-compiled regular expressions as needed internally by the template.</P>
 
-	@since 0.1.0
+	@since  0.1.0
 	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://templatefeather.aliteralmind.com">{@code http://templatefeather.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/templatefeather">{@code https://github.com/aliteralmind/templatefeather}</A>
  **/
 public class GapCharConfig implements Copyable  {

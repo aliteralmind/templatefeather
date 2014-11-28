@@ -69,7 +69,7 @@
 
 		<copy todir="${zip_of_dependency_jars_working_dir}">
 			<fileset dir="${dir_sandbox_jar_dependencies}"
-				excludes="commons-io-*.jar, commons-lang3-*.jar, guava-*.jar, xbnjava-*.jar, templatefeather-*.jar"/>
+				excludes="commons-io-*.jar, commons-lang3-*.jar, guava-*.jar, xbnjava-*.jar, codelet-*.jar"/>
 		</copy>
 
 		<property name="dependency_jars_zip" value="${dir_build_download}${project_name_with_version}_dependency_jars.zip"/>

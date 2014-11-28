@@ -16,7 +16,7 @@ package  com.github.aliteralmind.templatefeather;
 /**
 	<P>Can the template be {@linkplain com.github.aliteralmind.templatefeather.FeatherTemplate#isResettable() reset}?--This implies whether gaps can be {@linkplain com.github.aliteralmind.templatefeather.GapMap#isUnfillOk() unfilled}.</P>
 
-	@since 0.1.0
+	@since  0.1.0
 	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://templatefeather.aliteralmind.com">{@code http://templatefeather.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/templatefeather">{@code https://github.com/aliteralmind/templatefeather}</A>
  **/
 public enum Resettable  {

@@ -12,7 +12,7 @@
 	</target>
 
 	<target name="doc" description="Generates javadoc documentation.">
-		<copy file="${dir_sandbox}prev_versions.html" todir="${dir_build_docs_javadoc}"/>
+		<copy file="${dir_sandbox}release_notes.html" todir="${dir_build_docs_javadoc}"/>
 
 		<!--
 			Packages need to be delimited by both commas and colons.  In build.properties, it's only delimited by commas.  Commas (with or without spaces) are needed by the JavaDoc "packagenames" attribute, and colons (without spaces) are needed by the "group" sub-tags.
@@ -22,7 +22,7 @@
 			<propfromrplc property="xbn.jd_colon.packages" string="${xbn.javadoc.packages}" what="," with=":"/>
 
 		<property name="dir_sandbox_needed_by_javadoc" value="${dir_sandbox_bldfiles}needed_by_javadoc${fs}"/>
-		<record name="${dir_build}javadoc_log.txt" action="start"/>
+		<record name="${dir_build_logs}javadoc_log.txt" action="start"/>
 		<javadoc
 			packagenames="${xbn.javadoc.packages}"
 			defaultexcludes="yes"
@@ -58,8 +58,8 @@
 				<!-- <taglet name="com.github.aliteralmind.codelet.taglet.UnderlineTaglet" path="${build.class.dir}"/> -->
 			<link href="http://junit.sourceforge.net/javadoc/"/>
 			<link href="http://docs.oracle.com/javase/7/docs/api/"/>
-			<link href="http://aliteralmind.com/docs/computer/programming/xbnjava/documentation/javadoc/"/>
-			<link href="http://aliteralmind.com/docs/computer/programming/codelet/documentation/javadoc/"/>
+			<link href="http://aliteralmind.com/docs/computer/programming/xbnjava/xbnjava-${xbnjava_project_version}/documentation/javadoc/"/>
+			<link href="http://aliteralmind.com/docs/computer/programming/codelet/codelet-${codelet_project_version}/documentation/javadoc/"/>
 			<link href="http://commons.apache.org/proper/commons-collections/javadocs/api-release/"/>
 			<link href="http://commons.apache.org/proper/commons-lang/javadocs/api-release"/>
 			<link href="http://commons.apache.org/proper/commons-io/javadocs/api-2.4/"/>
@@ -71,11 +71,11 @@
 
 		<replace file="${dir_build_docs_javadoc}overview-summary.html" summary="yes"
 			token="^{project_version_for_jd}" value="${version.number}"/>
-		<replace file="${dir_build_docs_javadoc}prev_versions.html" summary="yes"
+		<replace file="${dir_build_docs_javadoc}release_notes.html" summary="yes"
 			token="^{project_version_for_jd}" value="${version.number}"/>
 
 		<copy file="${dir_sandbox_needed_by_javadoc}up_arrow.gif" todir="${dir_build_docs_javadoc}resources${fs}"/>
-		<record name="${dir_build}javadoc_log.txt" action="stop"/>
+		<record name="${dir_build_logs}javadoc_log.txt" action="stop"/>
 
 		<replace dir="${dir_build_docs_javadoc}" summary="yes">
 			<replacetoken><![CDATA[</head>]]></replacetoken>

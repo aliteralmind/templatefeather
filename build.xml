@@ -33,19 +33,21 @@
             <property name="dir_sandbox_src_xbn_ant" value="${dir_sandbox_src_xbn}testdev${fs}ant${fs}"/>
             <property name="dir_sandbox_jar_dependencies" value="${dir_sandbox_bldfiles}jar_dependencies${fs}"/>
 
-
-   <property name="dir_build_parent" value="${build.dir}${fs}"/>
       <property name="dir_classes_parent" value="${build.class.dir}${fs}"/>
-      <property name="dir_classes_xbn" value="${dir_classes_parent}com${fs}github${fs}aliteralmind${fs}"/>
-   <property name="dir_build" value="${dir_build_parent}${project_name_with_version}${fs}"/>
-   <property name="dir_build_download" value="${dir_build}download${fs}"/>
-      <property name="dir_build_download_templatefeather_all_jar" value="${dir_build_download}${project_name_with_version}-all.jar"/>
-      <property name="dir_build_download_templatefeather_core_jar" value="${dir_build_download}${project_name_with_version}.jar"/>
-      <property name="DIR_bld_src" value="${dir_build}com${fs}github${fs}aliteralmind${fs}"/>
-      <property name="DIR_bld_docs" value="${dir_build}documentation${fs}"/>
-         <property name="dir_build_docs_javadoc" value="${DIR_bld_docs}javadoc${fs}"/>
+	      <property name="dir_classes_xbn" value="${dir_classes_parent}com${fs}github${fs}aliteralmind${fs}"/>
 
-      <property name="dir_working" value="${working.dir}${fs}${project_name_fs}"/>
+   <property name="dir_build_grandparent" value="${build.dir}${fs}"/>
+	   <property name="dir_build_parent" value="${dir_build_grandparent}${project_name_with_version}${fs}"/>
+	   	<property name="dir_build" value="${dir_build_parent}${project_name_with_version}${fs}"/>
+			   <property name="dir_build_logs" value="${dir_build}logs${fs}"/>
+			   <property name="dir_build_download" value="${dir_build}download${fs}"/>
+			      <property name="dir_build_download_templatefeather_all_jar" value="${dir_build_download}${project_name_with_version}-all.jar"/>
+			      <property name="dir_build_download_templatefeather_core_jar" value="${dir_build_download}${project_name_with_version}.jar"/>
+			      <property name="DIR_bld_src" value="${dir_build}com${fs}github${fs}aliteralmind${fs}"/>
+			      <property name="DIR_bld_docs" value="${dir_build}documentation${fs}"/>
+			         <property name="dir_build_docs_javadoc" value="${DIR_bld_docs}javadoc${fs}"/>
+
+	      <property name="dir_working" value="${working.dir}${fs}${project_name_fs}"/>
 
 <!-- Global properties...END -->
 
@@ -55,6 +57,7 @@
 <!-- CLASSPATH and custom tasks...START -->
    <path id="project_classpath_id">
       <pathelement location="${build.class.dir}"/>
+      <pathelement location="${dir_build_download_templatefeather_all_jar}"/>
 		<fileset dir="${dir_sandbox_jar_dependencies}" includes="*.jar"/>
 <!--
       <fileset dir="${dir_sandbox_jar_dependencies}">
@@ -127,10 +130,10 @@ built. The example codes will be excluded.</echo>
    </target>
 	<target name="pubprecodelet" description="compileprecodelet, pubprecodelet2">
 		<antcall target="refresh"/>
-		<record name="${dir_build}build_log_pre_codelet.txt" action="start"/>
+		<record name="${dir_build_logs}build_log_pre_codelet.txt" action="start"/>
 		<antcall target="compileprecodelet"/>
 		<antcall target="pubprecodelet2"/>
-		<record name="${dir_build}build_log_pre_codelet.txt" action="stop"/>
+		<record name="${dir_build_logs}build_log_pre_codelet.txt" action="stop"/>
 	</target>
 
 	<target name="pubprecodelet2" description="compileexamples, pubprecodelet3">
@@ -149,12 +152,26 @@ built. The example codes will be excluded.</echo>
 		<antcall target="pubpostcodelet"/>
    </target>
 	<target name="pubpostcodelet" description="compilepostcodelet, doczip, preppom">
-		<record name="${dir_build}build_log_post_codelet.txt" action="start"/>
+		<record name="${dir_build_logs}build_log_post_codelet.txt" action="start"/>
 		<antcall target="compilepostcodelet"/>
 		<!-- <antcall target="-autocopycodeletjar"/> -->
 		<antcall target="doczip"/>
+		<antcall target="currversionredirfile"/>
 		<antcall target="preppom"/>
-		<record name="${dir_build}build_log_post_codelet.txt" action="stop"/>
+		<record name="${dir_build_logs}build_log_post_codelet.txt" action="stop"/>
+	</target>
+
+	<target name="currversionredirfile"
+			description="Copies the 'current' directory redirect page to build, and updates its version number to the current.">
+		<property name="curr_redir_dir" value="${dir_build_parent}/redir_file_for_QcurrentQ_directory/"/>
+		<property name="curr_redir_file" value="${curr_redir_dir}index.html"/>
+
+		<delete quiet="true" dir="${curr_redir_dir}"/>
+		<mkdir dir="${curr_redir_dir}"/>
+
+		<copy file="${dir_sandbox_bldfiles}other/redir_for_QcurrentQ_directory_on_aliteralmind_com.html" tofile="${curr_redir_file}"/>
+		<replace file="${curr_redir_file}" summary="yes"
+			token="^{current_project_version}" value="${version.number}"/>
 	</target>
 
 	<target name="dz" description="Shortcut for doczip.">
