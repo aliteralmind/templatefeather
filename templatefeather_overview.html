@@ -1,60 +1,60 @@
 <BODY>
-	<P><B>Template Featherweight:</B> A simplistic Java template-rendering engine, providing for <I>plain gaps only</I>, such as {@code "Hello, %name%!"}--it has no advanced features such as if-logic, looping, or expressions--Templates may be output in full, after all gaps have been filled, or they may be <I>auto-rendered</I>, such that they are gradually output as each gap is filled.</P>
+	<p><b>Template Featherweight:</b> A simplistic Java template-rendering engine, providing for <i>plain gaps only</i>, such as {@code "Hello, %name%!"}--it has no advanced features such as if-logic, looping, or expressions--Templates may be output in full, after all gaps have been filled, or they may be <i>auto-rendered</i>, such that they are gradually output as each gap is filled.</p>
 
-	<P>&quot;Featherweight&quot; is a reaction to all the so-called <A HREF="http://stackoverflow.com/questions/3793880/lightweight-template-engine-in-java">&quot;lightweight&quot; Java templating solutions</A>, <I>all</I> of which have advanced features.</P>
+	<p>&quot;Featherweight&quot; is a reaction to all the so-called <a href="http://stackoverflow.com/questions/3793880/lightweight-template-engine-in-java">&quot;lightweight&quot; Java templating solutions</a>, <i>all</i> of which have advanced features.</p>
 
-	<P><B>Contents:</B><OL>
-		<LI><B>Examples:</B><OL>
-			<LI>Getting <A HREF="#xmpl_fully">fully-rendered</A> output</LI>
-			<LI><A HREF="#xmpl_fully">Auto-rendering</A> output</LI>
-		</OL></LI>
-		<LI><B><A HREF="#install">Installation instructions</A></B> (<A HREF="release_notes.html">release notes</A>)</LI>
-		<LI>Template Featherweight is hosted by GitHub: <A HREF="https://github.com/aliteralmind/xbnjava">Project page</A>, <A HREF="https://github.com/aliteralmind/xbnjava/issues">issue tracker</A></LI>
-		<LI><A HREF="http://www.aliteralmind.com/docs/computer/programming/xbnjava/documentation/javadoc/overview-summary.html#description">View latest JavaDoc</A> (<A HREF="http://aliteralmind.com/docs/computer/programming/xbnjava/com/github/xbn/javadoc_output.txt">generation report</A>)</LI>
-	</OL></P>
+	<p><b>Contents:</b><ol>
+		<li><b>Examples:</b><ol>
+			<li>Getting <a href="#xmpl_fully">fully-rendered</a> output</li>
+			<li><a href="#xmpl_fully">Auto-rendering</a> output</li>
+		</ol></li>
+		<li><b><a href="#install">Installation instructions</a></b> (<a href="release_notes.html">release notes</a>)</li>
+		<li>Template Featherweight is hosted by GitHub: <a href="https://github.com/aliteralmind/xbnjava">Project page</a>, <a href="https://github.com/aliteralmind/xbnjava/issues">issue tracker</a></li>
+		<li><a href="http://www.aliteralmind.com/docs/computer/programming/xbnjava/documentation/javadoc/overview-summary.html#description">View latest JavaDoc</a> (<a href="http://aliteralmind.com/docs/computer/programming/xbnjava/com/github/xbn/javadoc_output.txt">generation report</a>)</li>
+	</ol></p>
 
-	<a name="xmpl_fully"/><H2><A HREF="#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Template Featherweight: Example: <U>Getting fully-rendered output</U></H2>
+	<a name="xmpl_fully"/><h2><a href="#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> &nbsp; Template Featherweight: Example: <U>Getting fully-rendered output</U></h2>
 
 {@.codelet.and.out com.github.aliteralmind.templatefeather.examples.HelloFeather%eliminateCmtBlocksPkgLineAndPkgReferences(true, true, false)}
 
 
-	<a name="xmpl_fully"/><H2><A HREF="#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; Template Featherweight: Example: <U>Auto-rendering output</U></H2>
+	<a name="xmpl_fully"/><h2><a href="#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> &nbsp; Template Featherweight: Example: <U>Auto-rendering output</U></h2>
 
 {@.codelet.and.out com.github.aliteralmind.templatefeather.examples.FeatherAutoRenderDemo%eliminateCmtBlocksPkgLineAndPkgReferences(true, true, false)}
 
-	<a name="install"/><H2><A HREF="#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></A> &nbsp; <U>Installation for <I>using</I> Template Featherweight</U></H2>
+	<a name="install"/><h2><a href="#overview_description"><IMG SRC="{@docRoot}/resources/up_arrow.gif"/></a> &nbsp; <U>Installation for <i>using</i> Template Featherweight</U></h2>
 
-	<P>Template Featherweight requires <A HREF="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">Java 1.7</A> (it may be compatible with earlier versions).</P>
+	<p>Template Featherweight requires <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">Java 1.7</a> (it may be compatible with earlier versions).</p>
 
-	<P>(For <B>building</B>, see XBN-Java's <A HREF="http://aliteralmind.com/docs/computer/programming/xbnjava/documentation/javadoc/overview-summary.html#install">installation instructions</A>. The Template Featherweight build process is derived from XBN-Java's.)</P>
+	<p>(For <b>building</b>, see XBN-Java's <a href="http://aliteralmind.com/docs/computer/programming/xbnjava/documentation/javadoc/overview-summary.html#install">installation instructions</a>. The Template Featherweight build process is derived from XBN-Java's.)</p>
 
-	<H3>Apache Maven</H3>
+	<h3>Apache Maven</h3>
 
-<BLOCKQUOTE><PRE>&lt;dependency&gt;
+<blockquote><pre>&lt;dependency&gt;
 	&lt;groupId&gt;com.github.aliteralmind&lt;/groupId&gt;
 	&lt;artifactId&gt;templatefeather&lt;/artifactId&gt;
 	&lt;version&gt;^{project_version_for_jd}&lt;/version&gt;
-&lt;/dependency&gt;</PRE></BLOCKQUOTE>
+&lt;/dependency&gt;</pre></blockquote>
 
-	<H3>Downloads for latest version: ^{project_version_for_jd}</H3>
+	<h3>Downloads for latest version: ^{project_version_for_jd}</h3>
 
-	<P><I>View <A HREF="release_notes.html">Release notes</A> (includes downloads and release notes for all previous versions)</I></P>
+	<p><i>View <a href="release_notes.html">Release notes</a> (includes downloads and release notes for all previous versions)</i></p>
 
-	<P><OL>
-		<LI>The Template Featherweight jar, with no external dependencies (choose exactly one):<OL>
-			<LI><A HREF="../../download/templatefeather-^{project_version_for_jd}-all.jar">{@code t}</A><A HREF="http://aliteralmind.com/docs/computer/programming/templatefeather/download/templatefeather-^{project_version_for_jd}-all.jar">{@code emplatefeather_^{project_version_for_jd}-all.jar}</A>: Core classes, example code, and unit tests.</LI>
-			<LI><A HREF="../../download/templatefeather-^{project_version_for_jd}.jar">{@code t}</A><A HREF="http://aliteralmind.com/docs/computer/programming/templatefeather/download/templatefeather-^{project_version_for_jd}.jar">{@code emplatefeather_^{project_version_for_jd}.jar}</A>: Core classes only.</LI>
-		</OL></LI>
-		<LI><A HREF="../../download/templatefeather-^{project_version_for_jd}_dependency_jars.zip">{@code t}</A><A HREF="http://aliteralmind.com/docs/computer/programming/templatefeather/download/templatefeather-^{project_version_for_jd}_dependency_jars.zip">{@code emplatefeather_^{project_version_for_jd}_dependency_jars.jar}</A>: All external jars required to <I>use</I> Template Featherweight.</LI>
-		<LI><A HREF="../../download/templatefeather-^{project_version_for_jd}-sources.jar">{@code t}</A><A HREF="http://aliteralmind.com/docs/computer/programming/templatefeather/download/templatefeather-^{project_version_for_jd}-sources.jar">{@code emplatefeather_^{project_version_for_jd}-sources.jar}</A>: Source code, including all files necessary for building Template Featherweight.</LI>
-		<LI><A HREF="../../download/templatefeather-^{project_version_for_jd}-javadoc.jar">{@code t}</A><A HREF="http://aliteralmind.com/docs/computer/programming/templatefeather/download/templatefeather-^{project_version_for_jd}-javadoc.jar">{@code emplatefeather_^{project_version_for_jd}-javadoc.jar}</A>: JavaDoc documentation for local installation.</LI>
-	</OL></P>
+	<p><ol>
+		<li>The Template Featherweight jar, with no external dependencies (choose exactly one):<ol>
+			<li><a href="../../download/templatefeather-^{project_version_for_jd}-all.jar">{@code t}</a><a href="http://aliteralmind.com/docs/computer/programming/templatefeather/download/templatefeather-^{project_version_for_jd}-all.jar">{@code emplatefeather_^{project_version_for_jd}-all.jar}</a>: Core classes, example code, and unit tests.</li>
+			<li><a href="../../download/templatefeather-^{project_version_for_jd}.jar">{@code t}</a><a href="http://aliteralmind.com/docs/computer/programming/templatefeather/download/templatefeather-^{project_version_for_jd}.jar">{@code emplatefeather_^{project_version_for_jd}.jar}</a>: Core classes only.</li>
+		</ol></li>
+		<li><a href="../../download/templatefeather-^{project_version_for_jd}_dependency_jars.zip">{@code t}</a><a href="http://aliteralmind.com/docs/computer/programming/templatefeather/download/templatefeather-^{project_version_for_jd}_dependency_jars.zip">{@code emplatefeather_^{project_version_for_jd}_dependency_jars.jar}</a>: All external jars required to <i>use</i> Template Featherweight.</li>
+		<li><a href="../../download/templatefeather-^{project_version_for_jd}-sources.jar">{@code t}</a><a href="http://aliteralmind.com/docs/computer/programming/templatefeather/download/templatefeather-^{project_version_for_jd}-sources.jar">{@code emplatefeather_^{project_version_for_jd}-sources.jar}</a>: Source code, including all files necessary for building Template Featherweight.</li>
+		<li><a href="../../download/templatefeather-^{project_version_for_jd}-javadoc.jar">{@code t}</a><a href="http://aliteralmind.com/docs/computer/programming/templatefeather/download/templatefeather-^{project_version_for_jd}-javadoc.jar">{@code emplatefeather_^{project_version_for_jd}-javadoc.jar}</a>: JavaDoc documentation for local installation.</li>
+	</ol></p>
 
 
-	<P>Adding the following elements to your <A HREF="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html">classpath</A> will install Template Featherweight:</P>
+	<p>Adding the following elements to your <a href="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html">classpath</a> will install Template Featherweight:</p>
 
-<BLOCKQUOTE><PRE>INSTALLATION_DIR\templatefeather_^{project_version_for_jd}_dependency_jars\*
-INSTALLATION_DIR\templatefeather_^{project_version_for_jd}-all.jar &nbsp; &nbsp; <I>(or {@code ".jar"})</PRE></BLOCKQUOTE>
+<blockquote><pre>INSTALLATION_DIR\templatefeather_^{project_version_for_jd}_dependency_jars\*
+INSTALLATION_DIR\templatefeather_^{project_version_for_jd}-all.jar &nbsp; &nbsp; <i>(or {@code ".jar"})</pre></blockquote>
 
 
 </BODY>

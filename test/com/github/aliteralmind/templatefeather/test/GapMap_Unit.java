@@ -6,7 +6,7 @@ package  com.github.aliteralmind.templatefeather.test;
 	import  static org.junit.Assert.*;
 
 /**
-	<P>One-class unit: {@code java com.github.aliteralmind.templatefeather.test.GapMap_Unit}</P>
+	<p>One-class unit: {@code java com.github.aliteralmind.templatefeather.test.GapMap_Unit}</p>
  **/
 public class GapMap_Unit  {
 	public static final void main(String[] ignored)  {

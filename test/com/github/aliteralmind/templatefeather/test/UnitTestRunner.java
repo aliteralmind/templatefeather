@@ -3,7 +3,7 @@ package  com.github.aliteralmind.templatefeather.test;
 	import  org.junit.runner.Result;
 	import  org.junit.runner.notification.Failure;
 /**
-	<P>Run all units: {@code java com.github.xbn.test.UnitTestRunner}</P>
+	<p>Run all units: {@code java com.github.xbn.test.UnitTestRunner}</p>
  **/
 public class UnitTestRunner  {
     public static void main(String[] as_cmdLineArgs) {

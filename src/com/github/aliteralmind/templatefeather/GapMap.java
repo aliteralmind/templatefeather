@@ -27,10 +27,10 @@ package  com.github.aliteralmind.templatefeather;
 	import  java.util.regex.Matcher;
 	import  java.util.regex.Pattern;
 /**
-   <P>Associates gap names and their fill texts.</P>
+   <p>Associates gap names and their fill texts.</p>
 
 	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://templatefeather.aliteralmind.com">{@code http://templatefeather.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/templatefeather">{@code https://github.com/aliteralmind/templatefeather}</A>
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://templatefeather.aliteralmind.com">{@code http://templatefeather.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/templatefeather">{@code https://github.com/aliteralmind/templatefeather}</a>
  **/
 public class GapMap extends AbstractOneWayLockable implements Copyable  {
 	private final boolean             isUnfillOk;
@@ -39,16 +39,16 @@ public class GapMap extends AbstractOneWayLockable implements Copyable  {
   	private int filledCount;
 	private Matcher nameMtchr;
 	/**
-		<P>Create a new instance with defaults.</P>
+		<p>Create a new instance with defaults.</p>
 
-		<P>Equal to
-		<BR> &nbsp; &nbsp; <CODE>{@link #GapMap(GapCharConfig, Resettable, Appendable) this}((new {@link com.github.aliteralmind.templatefeather.GapCharConfig#GapCharConfig() GapCharConfig}), {@link com.github.aliteralmind.templatefeather.Resettable Resettable}.{@link com.github.aliteralmind.templatefeather.Resettable#NO NO}, debugDest_ifNonNull)</CODE></P>
+		<p>Equal to
+		<br> &nbsp; &nbsp; <code>{@link #GapMap(GapCharConfig, Resettable, Appendable) this}((new {@link com.github.aliteralmind.templatefeather.GapCharConfig#GapCharConfig() GapCharConfig}), {@link com.github.aliteralmind.templatefeather.Resettable Resettable}.{@link com.github.aliteralmind.templatefeather.Resettable#NO NO}, debugDest_ifNonNull)</code></p>
 	 **/
 	public GapMap(Appendable debugDest_ifNonNull)  {
 		this((new GapCharConfig()), Resettable.NO, debugDest_ifNonNull);
 	}
 	/**
-		<P>Create a new instance.</P>
+		<p>Create a new instance.</p>
 
 		@param  char_config  May not be {@code null}.
 		@param  resettable  Should {@linkplain com.github.aliteralmind.templatefeather.FeatherTemplate#unfill(String) unfilling} a gap be allowed? Get with {@link #isUnfillOk() isUnfillOk}{@code ()}.
@@ -69,9 +69,9 @@ public class GapMap extends AbstractOneWayLockable implements Copyable  {
 		}
 	}
 	/**
-		<P>Create a new and unfilled map from an existing one.</P>
+		<p>Create a new and unfilled map from an existing one.</p>
 
-		@param  to_copy  May not be {@code null}, and all gaps must have already been added (<CODE>{@link com.github.xbn.util.lock.Lockable Lockable}.{@link com.github.xbn.util.lock.Lockable#isLocked() isLocked}()</CODE> must be {@code true}).
+		@param  to_copy  May not be {@code null}, and all gaps must have already been added (<code>{@link com.github.xbn.util.lock.Lockable Lockable}.{@link com.github.xbn.util.lock.Lockable#isLocked() isLocked}()</code> must be {@code true}).
 		@exception  LockException  If {@code to_copy} is unlocked.
 		@see  #getObjectCopy()
 		@see  #GapMap(GapCharConfig, Resettable, Appendable)
@@ -94,20 +94,20 @@ public class GapMap extends AbstractOneWayLockable implements Copyable  {
 		lock();
 	}
 	/**
-		<P>Is unfilling a gap allowed? This also implies if the template is {@linkplain com.github.aliteralmind.templatefeather.FeatherTemplate#isResettable() resettable}.</P>
+		<p>Is unfilling a gap allowed? This also implies if the template is {@linkplain com.github.aliteralmind.templatefeather.FeatherTemplate#isResettable() resettable}.</p>
 
-		@return  {@code true} if <CODE>{@link com.github.aliteralmind.templatefeather.FeatherTemplate FeatherTemplate}.{@link com.github.aliteralmind.templatefeather.FeatherTemplate#unfill(String) unfill}</CODE> may be safely called. <B>Warning:</B> If this is {@code true} and {@linkplain com.github.aliteralmind.templatefeather.FeatherTemplate#setAutoRendererX(Appendable) auto-rendering} is active, unfilling a gap does not affect <I>already output</I> gaps.
+		@return  {@code true} if <code>{@link com.github.aliteralmind.templatefeather.FeatherTemplate FeatherTemplate}.{@link com.github.aliteralmind.templatefeather.FeatherTemplate#unfill(String) unfill}</code> may be safely called. <b>Warning:</b> If this is {@code true} and {@linkplain com.github.aliteralmind.templatefeather.FeatherTemplate#setAutoRendererX(Appendable) auto-rendering} is active, unfilling a gap does not affect <i>already output</i> gaps.
 		@see  #GapMap(GapCharConfig, Resettable, Appendable)
 	 **/
 	public boolean isUnfillOk()  {
 		return  isUnfillOk;
 	}
 	/**
-		<P>Add multiple gaps.</P>
+		<p>Add multiple gaps.</p>
 
-		<P>For each element, this calls <CODE>{@link #add(String) add}(<I>element</I>)</CODE>.</P>
+		<p>For each element, this calls <code>{@link #add(String) add}(<i>element</i>)</code>.</p>
 
-		@param  names  <I>Should</I> not be empty, and all its elements must be valid and unique gap names.
+		@param  names  <i>Should</i> not be empty, and all its elements must be valid and unique gap names.
 	 **/
 	public void addAll(String... names)  {
 		for(int i = 0; i < names.length; i++)  {
@@ -119,10 +119,10 @@ public class GapMap extends AbstractOneWayLockable implements Copyable  {
 		}
 	}
 	/**
-		<P>Add a new gap.</P>
+		<p>Add a new gap.</p>
 
 		@param  name  May not be {@code null} or empty, must contain only letters, digits, and underscores, may not contain the {@linkplain com.github.aliteralmind.templatefeather.GapCharConfig#getStart() start} or {@linkplain com.github.aliteralmind.templatefeather.GapCharConfig#getEnd() end} characters, and may not {@linkplain #contains(String) exist}.
-		@exception  LockException  If <CODE>{@link com.github.xbn.util.lock.Lockable Lockable}.{@link com.github.xbn.util.lock.Lockable#isLocked() isLocked}()</CODE> is {@code true}.
+		@exception  LockException  If <code>{@link com.github.xbn.util.lock.Lockable Lockable}.{@link com.github.xbn.util.lock.Lockable#isLocked() isLocked}()</code> is {@code true}.
 		@exception  IllegalArgumentException  If the gap exists, or (is non-{@code null} but) contains no characters or invalid characters.
 		@see  #addAll(String...)
 	 **/
@@ -141,16 +141,16 @@ public class GapMap extends AbstractOneWayLockable implements Copyable  {
 		map.put(name, null);
 	}
 	/**
-		<P>Does a gap exist?.</P>
+		<p>Does a gap exist?.</p>
 
-		@param  name  <I>Should</I> not be {@code null} or empty.
+		@param  name  <i>Should</i> not be {@code null} or empty.
 		@return  {@code true}  If the gap name exists.
 	 **/
 	public boolean contains(String name)  {
 		return  map.containsKey(name);
 	}
 	/**
-		<P>How many gaps have been filled so far?.</P>
+		<p>How many gaps have been filled so far?.</p>
 
 		@see  #getUnfilledCount()
 		@exception  LockException  If gaps are still being added.
@@ -161,17 +161,17 @@ public class GapMap extends AbstractOneWayLockable implements Copyable  {
 		return  filledCount;
 	}
 	/**
-		<P>How many gaps have yet to be filled?.</P>
+		<p>How many gaps have yet to be filled?.</p>
 
-		@return  <CODE>({@link #size() size}() - {@link #getFilledCount() getFilledCount}())</CODE>
+		@return  <code>({@link #size() size}() - {@link #getFilledCount() getFilledCount}())</code>
 	 **/
 	public int getUnfilledCount()  {
 		return  (size() - getFilledCount());
 	}
 	/**
-		<P>Prevent more gaps from being added, and allow fills.</P>
+		<p>Prevent more gaps from being added, and allow fills.</p>
 
-		<P>This calls <CODE>{@link com.github.xbn.util.lock.OneWayLockable super}.{@link com.github.xbn.util.lock.OneWayLockable#lock() lock}()</CODE></P>
+		<p>This calls <code>{@link com.github.xbn.util.lock.OneWayLockable super}.{@link com.github.xbn.util.lock.OneWayLockable#lock() lock}()</code></p>
 
 		@exception  TemplateFormatException  If no gaps were added.
 	 **/
@@ -182,7 +182,7 @@ public class GapMap extends AbstractOneWayLockable implements Copyable  {
 		super.lock();
 	}
 	/**
-		<P>All gap names.</P>
+		<p>All gap names.</p>
 
 		@see  #filledNameSet()
 		@see  #unfilledNameSet()
@@ -196,7 +196,7 @@ public class GapMap extends AbstractOneWayLockable implements Copyable  {
 		return  nameSet;
 	}
 	/**
-		<P>All gap names that have been filled.</P>
+		<p>All gap names that have been filled.</p>
 
 		@see  #unfilledNameSet()
 		@see  #getFilledCount()
@@ -213,7 +213,7 @@ public class GapMap extends AbstractOneWayLockable implements Copyable  {
 		return  filled;
 	}
 	/**
-		<P>All gap names that have not been filled.</P>
+		<p>All gap names that have not been filled.</p>
 
 		@see  #filledNameSet()
 		@see  #getUnfilledCount()
@@ -245,15 +245,15 @@ public class GapMap extends AbstractOneWayLockable implements Copyable  {
 		filledCount += ((text != null) ? 1 : -1);
 	}
 	/**
-		<P>Is every gap filled?.</P>
+		<p>Is every gap filled?.</p>
 
-		@return  <CODE>({@link #getUnfilledCount() getUnfilledCount}() == 0)</CODE>
+		@return  <code>({@link #getUnfilledCount() getUnfilledCount}() == 0)</code>
 	 **/
 	public boolean isFilled()  {
 		return  (getUnfilledCount() == 0);
 	}
 	/**
-		<P>Is a gap filled?.</P>
+		<p>Is a gap filled?.</p>
 
 		@param  name  Must {@linkplain #contains(String) exist}.
 		@exception  NoSuchElementException  If the gap doesn't exist.
@@ -267,7 +267,7 @@ public class GapMap extends AbstractOneWayLockable implements Copyable  {
 		return  (map.get(name) != null);
 	}
 	/**
-		<P>The number of gaps.</P>
+		<p>The number of gaps.</p>
 
 		@return  The number of times {@link #add(String) add} was called.
 	 **/
@@ -283,7 +283,7 @@ public class GapMap extends AbstractOneWayLockable implements Copyable  {
 		}
 	}
 	/**
-		<P>The text to replace the gap with.</P>
+		<p>The text to replace the gap with.</p>
 
 		@exception  GapFilledException  If the gap is not {@linkplain #isFilled(String) filled}.
 	 **/
@@ -297,9 +297,9 @@ public class GapMap extends AbstractOneWayLockable implements Copyable  {
 		return  "filled=" + Arrays.toString(filledNameSet().toArray()) + ", unfilled=" + Arrays.toString(unfilledNameSet().toArray());
 	}
 	/**
-		<P>Get a duplicate of this <CODE>GapMap</CODE>.</P>
+		<p>Get a duplicate of this <code>GapMap</code>.</p>
 
-		@return <CODE>({@link #GapMap(GapMap, Appendable) GapMap}(this, null))</CODE>
+		@return <code>({@link #GapMap(GapMap, Appendable) GapMap}(this, null))</code>
 	 **/
 	public GapMap getObjectCopy()  {
 		return  (new GapMap(this, null));

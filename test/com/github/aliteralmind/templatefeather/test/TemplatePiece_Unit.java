@@ -5,7 +5,7 @@ package  com.github.aliteralmind.templatefeather.test;
 	import  com.github.aliteralmind.templatefeather.FeatherTemplate;
 
 /**
-	<P>One-class unit: {@code java com.github.aliteralmind.templatefeather.test.TemplatePiece_Unit}</P>
+	<p>One-class unit: {@code java com.github.aliteralmind.templatefeather.test.TemplatePiece_Unit}</p>
  **/
 public class TemplatePiece_Unit  {
 	public static final void main(String[] ignored)  {

@@ -14,14 +14,14 @@
 \*license*/
 package  com.github.aliteralmind.templatefeather;
 /**
-	<P>Thrown when a {@linkplain com.github.aliteralmind.templatefeather.FeatherTemplate#unfill() reset} attempt is made on a template that is not resettable.</P>
+	<p>Thrown when a {@linkplain com.github.aliteralmind.templatefeather.FeatherTemplate#unfill() reset} attempt is made on a template that is not resettable.</p>
 
 	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://templatefeather.aliteralmind.com">{@code http://templatefeather.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/templatefeather">{@code https://github.com/aliteralmind/templatefeather}</A>
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://templatefeather.aliteralmind.com">{@code http://templatefeather.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/templatefeather">{@code https://github.com/aliteralmind/templatefeather}</a>
  **/
 public class TemplateResettableException extends IllegalStateException  {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 4755959386437877302L;
 	public TemplateResettableException()  {

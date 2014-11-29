@@ -15,22 +15,22 @@
 package  com.github.aliteralmind.templatefeather;
 	import  com.github.xbn.lang.CrashIfObject;
 /**
-   <P>A single gap in a parsed template.</P>
+   <p>A single gap in a parsed template.</p>
 
 	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://templatefeather.aliteralmind.com">{@code http://templatefeather.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/templatefeather">{@code https://github.com/aliteralmind/templatefeather}</A>
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://templatefeather.aliteralmind.com">{@code http://templatefeather.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/templatefeather">{@code https://github.com/aliteralmind/templatefeather}</a>
  **/
 public class GapPiece extends TemplatePiece  {
 	private final String originalWChars;
 	/**
-		<P>Create a new instance.</P>
+		<p>Create a new instance.</p>
 
-		<P>Steps:<OL>
-			<LI>Calls <CODE>{@link com.github.xbn.text.template.TemplatePiece#TemplatePiece(String, GapMap, GapCharConfig) super}(gapNameOnly_noPrePostChars, map, char_config)</CODE></LI>
-			<LI>Sets {@link #getOriginal() getOriginal}{@code ()} to <CODE>{@link #getCharConfig() getCharConfig}().{@link com.github.aliteralmind.templatefeather.GapCharConfig#getGapNameWithChars(String) getGapNameWithChars}(gapNameOnly_noPrePostChars)</CODE></LI>
-		</OL></P>
+		<p>Steps:<ol>
+			<li>Calls <code>{@link com.github.xbn.text.template.TemplatePiece#TemplatePiece(String, GapMap, GapCharConfig) super}(gapNameOnly_noPrePostChars, map, char_config)</code></li>
+			<li>Sets {@link #getOriginal() getOriginal}{@code ()} to <code>{@link #getCharConfig() getCharConfig}().{@link com.github.aliteralmind.templatefeather.GapCharConfig#getGapNameWithChars(String) getGapNameWithChars}(gapNameOnly_noPrePostChars)</code></li>
+		</ol></p>
 
-		@param  gapNameOnly_noPrePostChars  The name of the gap. May not be {@code null} or empty, and <I>should</I> not contain its {@linkplain com.github.aliteralmind.templatefeather.GapCharConfig#getStart() start} or {@linkplain com.github.aliteralmind.templatefeather.GapCharConfig#getEnd() end} characters. Get with {@link #getName() getName}{@code ()}*
+		@param  gapNameOnly_noPrePostChars  The name of the gap. May not be {@code null} or empty, and <i>should</i> not contain its {@linkplain com.github.aliteralmind.templatefeather.GapCharConfig#getStart() start} or {@linkplain com.github.aliteralmind.templatefeather.GapCharConfig#getEnd() end} characters. Get with {@link #getName() getName}{@code ()}*
 		@see  #getPieceCopy(GapMap, GapCharConfig)
 	 **/
 	public GapPiece(String gapNameOnly_noPrePostChars, GapMap map, GapCharConfig char_config)  {
@@ -38,25 +38,25 @@ public class GapPiece extends TemplatePiece  {
 		originalWChars = getCharConfig().getGapNameWithChars(gapNameOnly_noPrePostChars);
 	}
 	/**
-		<P>The name of this gap.</P>
+		<p>The name of this gap.</p>
 
-		@return  <CODE>{@link com.github.aliteralmind.templatefeather.TemplatePiece TemplatePiece}.{@link com.github.aliteralmind.templatefeather.TemplatePiece#getRaw() getRaw}</CODE>
+		@return  <code>{@link com.github.aliteralmind.templatefeather.TemplatePiece TemplatePiece}.{@link com.github.aliteralmind.templatefeather.TemplatePiece#getRaw() getRaw}</code>
 		@see  #GapPiece(String, GapMap, GapCharConfig)
 	 **/
 	public String getName()  {
 		return  getRaw();
 	}
 	/**
-		<P>Get the fill text.</P>
+		<p>Get the fill text.</p>
 	 **/
 	@Override
 	public String getOriginal()  {
 		return  originalWChars;
 	}
 	/**
-		<P>Get the gap's fill text.</P>
+		<p>Get the gap's fill text.</p>
 
-		@return  <CODE>{@link com.github.aliteralmind.templatefeather.TemplatePiece#getGapMap() getGapMap}().{@link com.github.aliteralmind.templatefeather.GapMap#getFillText(String) getFillText}({@link #getName() getName})</CODE>
+		@return  <code>{@link com.github.aliteralmind.templatefeather.TemplatePiece#getGapMap() getGapMap}().{@link com.github.aliteralmind.templatefeather.GapMap#getFillText(String) getFillText}({@link #getName() getName})</code>
 		@see  #getOriginal()
 		@see  #getRenderedOrOriginalIfNot()
 	 **/
@@ -64,13 +64,13 @@ public class GapPiece extends TemplatePiece  {
 		return  getGapMap().getFillText(getName());
 	}
 	/**
-		<P>Get the gap's fill text if it was filled, or the original gap text if not.</P>
+		<p>Get the gap's fill text if it was filled, or the original gap text if not.</p>
 	 **/
 	public final String getRenderedOrOriginalIfNot()  {
 		return  (isRendered() ? getRendered() : getOriginal());
 	}
 	/**
-		<P>Is this element ready to be rendered?.</P>
+		<p>Is this element ready to be rendered?.</p>
 
 		@return  {@code true} if {@link #getRendered() getRendered}{@code ()} may be safely called.
 		@see  #getRenderedOrOriginalIfNot()
@@ -79,7 +79,7 @@ public class GapPiece extends TemplatePiece  {
 		return  getGapMap().isFilled(getName());
 	}
 	/**
-	 	@return  <CODE>true</CODE> If {@code to_compareTo} is non-{@code null}, a {@code GapPiece}, and all its fields {@linkplain #areFieldsEqual(GapPiece) are equal}. This is implemented as suggested by Joshua Bloch in &quot;Effective Java&quot; (2nd ed, item 8, page 46).
+	 	@return  <code>true</code> If {@code to_compareTo} is non-{@code null}, a {@code GapPiece}, and all its fields {@linkplain #areFieldsEqual(GapPiece) are equal}. This is implemented as suggested by Joshua Bloch in &quot;Effective Java&quot; (2nd ed, item 8, page 46).
 	 **/
 	@Override
 	public boolean equals(Object to_compareTo)  {
@@ -102,7 +102,7 @@ public class GapPiece extends TemplatePiece  {
 		return  areFieldsEqual(o);
 	}
 	/**
-		<P>Are all relevant fields equal?.</P>
+		<p>Are all relevant fields equal?.</p>
 
 		@return  {@code true}  If {@code to_compareTo} has the same {@linkplain #getName() gap name} and, if {@linkplain #isRendered() filled}, the same {@linkplain #getRendered() fill-text}.
 	 **/
@@ -122,7 +122,7 @@ public class GapPiece extends TemplatePiece  {
 		return  getOriginal() + " (" + (isRendered() ? "" : "un") + "filled)";
 	}
 	/**
-		@return  <CODE>(new {@link #GapPiece(String, GapMap, GapCharConfig) GapPiece}({@link #getName() getName}(), map, char_config))</CODE>
+		@return  <code>(new {@link #GapPiece(String, GapMap, GapCharConfig) GapPiece}({@link #getName() getName}(), map, char_config))</code>
 	 **/
 	public GapPiece getPieceCopy(GapMap map, GapCharConfig char_config)  {
 		return  (new GapPiece(getOriginal(), getName(), map, char_config));

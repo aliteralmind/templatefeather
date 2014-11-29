@@ -15,12 +15,12 @@
 package  com.github.aliteralmind.templatefeather.examples;
 	import  com.github.aliteralmind.templatefeather.FeatherTemplate;
 /**
-	<P>Basic use of {@code com.github.aliteralmind.templatefeather.}{@link com.github.aliteralmind.templatefeather.FeatherTemplate}.</P>
+	<p>Basic use of {@code com.github.aliteralmind.templatefeather.}{@link com.github.aliteralmind.templatefeather.FeatherTemplate}.</p>
 
-	<P>{@code java com.github.aliteralmind.templatefeather.examples.HelloFeather}</P>
+	<p>{@code java com.github.aliteralmind.templatefeather.examples.HelloFeather}</p>
 
 	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://templatefeather.aliteralmind.com">{@code http://templatefeather.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/templatefeather">{@code https://github.com/aliteralmind/templatefeather}</A>
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://templatefeather.aliteralmind.com">{@code http://templatefeather.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/templatefeather">{@code https://github.com/aliteralmind/templatefeather}</a>
  **/
 public class HelloFeather  {
 	public static final void main(String[] ignored)  {

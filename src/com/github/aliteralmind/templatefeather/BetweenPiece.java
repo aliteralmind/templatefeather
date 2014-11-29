@@ -15,22 +15,22 @@
 package  com.github.aliteralmind.templatefeather;
 	import  com.github.xbn.lang.CrashIfObject;
 /**
-   <P>Static text in a parsed template, found between two gaps (or before the first or after the last).</P>
+   <p>Static text in a parsed template, found between two gaps (or before the first or after the last).</p>
 
 	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://templatefeather.aliteralmind.com">{@code http://templatefeather.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/templatefeather">{@code https://github.com/aliteralmind/templatefeather}</A>
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://templatefeather.aliteralmind.com">{@code http://templatefeather.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/templatefeather">{@code https://github.com/aliteralmind/templatefeather}</a>
  **/
 public class BetweenPiece extends TemplatePiece  {
 	private final String rendered;
 	/**
-		<P>Create a new instance.</P>
+		<p>Create a new instance.</p>
 
-		<P>Steps:<OL>
-			<LI>Calls <CODE>{@link com.github.xbn.text.template.TemplatePiece#TemplatePiece(String, GapMap, GapCharConfig) super}(original_text, map, char_config)</CODE></LI>
-			<LI>Sets {@link #getRendered() getRendered}{@code ()} to <CODE>{@link #getCharConfig() getCharConfig}().{@link com.github.aliteralmind.templatefeather.GapCharConfig#getWithLiteralsMadeActual(String) getWithLiteralsMadeActual}(original_text)</CODE></LI>
-		</OL></P>
+		<p>Steps:<ol>
+			<li>Calls <code>{@link com.github.xbn.text.template.TemplatePiece#TemplatePiece(String, GapMap, GapCharConfig) super}(original_text, map, char_config)</code></li>
+			<li>Sets {@link #getRendered() getRendered}{@code ()} to <code>{@link #getCharConfig() getCharConfig}().{@link com.github.aliteralmind.templatefeather.GapCharConfig#getWithLiteralsMadeActual(String) getWithLiteralsMadeActual}(original_text)</code></li>
+		</ol></p>
 
-		@param  original_text  The text existing between either the start-or-end of the text and a gap, or between two gaps. May not be {@code null}, and <I>should</I> have all its {@linkplain com.github.aliteralmind.templatefeather.GapCharConfig#getLiteralStart() literal start} and {@linkplain com.github.aliteralmind.templatefeather.GapCharConfig#getLiteralEnd() end} characters already interpeted. Get with {@link com.github.aliteralmind.codelet.TemplatePiece#getRaw() getRaw}{@code ()}*
+		@param  original_text  The text existing between either the start-or-end of the text and a gap, or between two gaps. May not be {@code null}, and <i>should</i> have all its {@linkplain com.github.aliteralmind.templatefeather.GapCharConfig#getLiteralStart() literal start} and {@linkplain com.github.aliteralmind.templatefeather.GapCharConfig#getLiteralEnd() end} characters already interpeted. Get with {@link com.github.aliteralmind.codelet.TemplatePiece#getRaw() getRaw}{@code ()}*
 		@see  #getPieceCopy(GapMap, GapCharConfig)
 	 **/
 	public BetweenPiece(String original_text, GapMap map, GapCharConfig char_config)  {
@@ -38,12 +38,12 @@ public class BetweenPiece extends TemplatePiece  {
 		rendered = getCharConfig().getWithLiteralsMadeActual(original_text);
 	}
 	/**
-		<P>Create a new instance as a duplicate of another.</P>
+		<p>Create a new instance as a duplicate of another.</p>
 
-		<P>Equal to
-		<BR> &nbsp; &nbsp; <CODE>{@link com.github.aliteralmind.templatefeather.TemplatePiece#TemplatePiece(TemplatePiece) super}(to_copy)</CODE></P>
+		<p>Equal to
+		<br/> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.templatefeather.TemplatePiece#TemplatePiece(TemplatePiece) super}(to_copy)</code></p>
 
-		@param  to_copy  May not be <CODE>null</CODE>.
+		@param  to_copy  May not be <code>null</code>.
 		@see  #getObjectCopy()
 		@see  #BetweenPiece(String, GapMap, GapCharConfig) this(s,gm,gcc)
 	public BetweenPiece(BetweenPiece to_copy)  {
@@ -51,16 +51,16 @@ public class BetweenPiece extends TemplatePiece  {
 	}
 	 **/
 	/**
-		<P>Get the original text, with any literal start or end characters restored.</P>
+		<p>Get the original text, with any literal start or end characters restored.</p>
 
 		@return  {@link com.github.aliteralmind.codelet.TemplatePiece#getRaw() getRaw}()*
-		@return  <CODE>{@link com.github.xbn.text.template.TemplatePiece#getCharConfig() getCharConfig}()*.{@link com.github.xbn.text.template.GapCharConfig#getWithActualsMadeLiteral(String) getWithActualsMadeLiteral}({@link com.github.aliteralmind.codelet.TemplatePiece#getRaw() getRaw}()*)</CODE>
+		@return  <code>{@link com.github.xbn.text.template.TemplatePiece#getCharConfig() getCharConfig}()*.{@link com.github.xbn.text.template.GapCharConfig#getWithActualsMadeLiteral(String) getWithActualsMadeLiteral}({@link com.github.aliteralmind.codelet.TemplatePiece#getRaw() getRaw}()*)</code>
 	 **/
 	public String getOriginal()  {
 		return  getRaw();
 	}
 	/**
-		<P>Get the rendered text (between text is always ready).</P>
+		<p>Get the rendered text (between text is always ready).</p>
 
 		@return  {@link #getRendered() getRendered}{@code ()}
 	 **/
@@ -68,7 +68,7 @@ public class BetweenPiece extends TemplatePiece  {
 		return  getRendered();
 	}
 	/**
-		<P>Get the rendered text, with literal start and end characters interpreted.</P>
+		<p>Get the rendered text, with literal start and end characters interpreted.</p>
 
 		@return  {@link com.github.aliteralmind.codelet.TemplatePiece#getRaw() getRaw}()*
 		@see  #BetweenPiece(String, GapMap, GapCharConfig) this(s,gm,gcc)
@@ -77,7 +77,7 @@ public class BetweenPiece extends TemplatePiece  {
 		return  rendered;
 	}
 	/**
-		<P>Is this element ready to be rendered?.</P>
+		<p>Is this element ready to be rendered?.</p>
 
 		@return  Yes. Yes it is.
 	 **/
@@ -85,7 +85,7 @@ public class BetweenPiece extends TemplatePiece  {
 		return  true;
 	}
 	/**
-	 	@return  <CODE>true</CODE> If {@code to_compareTo} is non-{@code null}, a {@code BetweenPiece}, and all its fields {@linkplain #areFieldsEqual(BetweenPiece) are equal}. This is implemented as suggested by Joshua Bloch in &quot;Effective Java&quot; (2nd ed, item 8, page 46).
+	 	@return  <code>true</code> If {@code to_compareTo} is non-{@code null}, a {@code BetweenPiece}, and all its fields {@linkplain #areFieldsEqual(BetweenPiece) are equal}. This is implemented as suggested by Joshua Bloch in &quot;Effective Java&quot; (2nd ed, item 8, page 46).
 	 **/
 	@Override
 	public boolean equals(Object to_compareTo)  {
@@ -108,7 +108,7 @@ public class BetweenPiece extends TemplatePiece  {
 		return  areFieldsEqual(o);
 	}
 	/**
-		<P>Are all relevant fields equal?.</P>
+		<p>Are all relevant fields equal?.</p>
 
 		@return  {@code true}  If {@code to_compareTo} has the same {@linkplain #getRaw() text}.
 	 **/
@@ -126,7 +126,7 @@ public class BetweenPiece extends TemplatePiece  {
 		return  "\"" + getRaw() + "\"";
 	}
 	/**
-		@return  <CODE>(new {@link #BetweenPiece(String, GapMap, GapCharConfig) BetweenPiece}({@link #getOriginal() getOriginal}(), map, char_config))</CODE>
+		@return  <code>(new {@link #BetweenPiece(String, GapMap, GapCharConfig) BetweenPiece}({@link #getOriginal() getOriginal}(), map, char_config))</code>
 	 **/
 	public BetweenPiece getPieceCopy(GapMap map, GapCharConfig char_config)  {
 		return  (new BetweenPiece(getRendered(), getOriginal(), map, char_config));

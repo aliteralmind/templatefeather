@@ -23,10 +23,10 @@ package  com.github.aliteralmind.templatefeather;
 	import  java.util.regex.Matcher;
 	import  java.util.regex.Pattern;
 /**
-   <P>The characters that must precede and follow gap names, their literal representations, and pre-compiled regular expressions as needed internally by the template.</P>
+   <p>The characters that must precede and follow gap names, their literal representations, and pre-compiled regular expressions as needed internally by the template.</p>
 
 	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://templatefeather.aliteralmind.com">{@code http://templatefeather.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/templatefeather">{@code https://github.com/aliteralmind/templatefeather}</A>
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://templatefeather.aliteralmind.com">{@code http://templatefeather.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/templatefeather">{@code https://github.com/aliteralmind/templatefeather}</a>
  **/
 public class GapCharConfig implements Copyable  {
 	public static final char DEFAULT_PREFIX_CHAR     = '%';
@@ -43,22 +43,22 @@ public class GapCharConfig implements Copyable  {
 	private final RegexReplacer  rplcrLiteralEndWithActual  ;
 	private final RegexReplacer  rplcrActualEndWithLiteral  ;
 	/**
-		<P>Create a new instance with defaults.</P>
+		<p>Create a new instance with defaults.</p>
 
-		<P>Equal to
-		<BR> &nbsp; &nbsp; <CODE>{@link #GapCharConfig(char, char, String, String) super}({@link #DEFAULT_PREFIX_CHAR}, {@link #DEFAULT_POSTFIX_CHAR}, {@link #DEFAULT_LITERAL_PREFIX}, {@link #DEFAULT_LITERAL_POSTFIX})</CODE></P>
+		<p>Equal to
+		<br> &nbsp; &nbsp; <code>{@link #GapCharConfig(char, char, String, String) super}({@link #DEFAULT_PREFIX_CHAR}, {@link #DEFAULT_POSTFIX_CHAR}, {@link #DEFAULT_LITERAL_PREFIX}, {@link #DEFAULT_LITERAL_POSTFIX})</code></p>
 	 **/
 	public GapCharConfig()  {
 		this(DEFAULT_PREFIX_CHAR, DEFAULT_POSTFIX_CHAR, DEFAULT_LITERAL_PREFIX, DEFAULT_LITERAL_POSTFIX);
 	}
 	/**
-		<P>Create a new instance with specific characters and their literals.</P>
+		<p>Create a new instance with specific characters and their literals.</p>
 
-		<P>This pre-compiles the objects needed to {@linkplain #getWithLiteralsMadeActual(String) replace literal chars} to actual, and XXXvice-versa.</P>
+		<p>This pre-compiles the objects needed to {@linkplain #getWithLiteralsMadeActual(String) replace literal chars} to actual, and XXXvice-versa.</p>
 
 		@param  start  The character that precedes a gap name. Get with {@link #getStart() getStart}{@code ()}
 		@param  end  The character that follows a gap name. Get with {@link #getEnd() getEnd}{@code ()}.
-		@param  literal_start  The string that must be used when a literal start character is needed. This and {@code literal_end} may both not be {@code null} or empty, and must contain only letters, digits, and underscores, <I>except</I> the start and end characters. Get with {@link #getLiteralStart() getLiteralStart}{@code ()}.
+		@param  literal_start  The string that must be used when a literal start character is needed. This and {@code literal_end} may both not be {@code null} or empty, and must contain only letters, digits, and underscores, <i>except</i> the start and end characters. Get with {@link #getLiteralStart() getLiteralStart}{@code ()}.
 		@param  literal_end  The string that must be used when a literal end character is needed.. Get with {@link #getLiteralEnd() getLiteralEnd}{@code ()}.
 		@see  #GapCharConfig()
 	 **/
@@ -85,7 +85,7 @@ public class GapCharConfig implements Copyable  {
 		literalEndChar   = literal_end;
 	}
 	/**
-		<P>Create a new instance as a duplicate of another.</P>
+		<p>Create a new instance as a duplicate of another.</p>
 
 		@param  to_copy  May not be {@code null}.
 		@see  #getObjectCopy()
@@ -113,7 +113,7 @@ public class GapCharConfig implements Copyable  {
 			}
 		}
 	/**
-		<P>The character that immediately-precedes a gap name in the original text.</P>
+		<p>The character that immediately-precedes a gap name in the original text.</p>
 
 		@see  #getLiteralStart()
 		@see  #getEnd()
@@ -122,7 +122,7 @@ public class GapCharConfig implements Copyable  {
 		return  startChar;
 	}
 	/**
-		<P>The character that immediately-follows a gap name in the original text.</P>
+		<p>The character that immediately-follows a gap name in the original text.</p>
 
 		@see  #getLiteralEnd()
 		@see  #getStart()
@@ -131,7 +131,7 @@ public class GapCharConfig implements Copyable  {
 		return  endChar;
 	}
 	/**
-		<P>The text to use when a literal start-char is needed. This is only for use in the text between gaps.</P>
+		<p>The text to use when a literal start-char is needed. This is only for use in the text between gaps.</p>
 
 		@see  #getStart()
 		@see  #getLiteralEnd()
@@ -140,7 +140,7 @@ public class GapCharConfig implements Copyable  {
 		return  literalStartChar;
 	}
 	/**
-		<P>The text to use when a literal end-char is needed. This is only for use in the text between gaps.</P>
+		<p>The text to use when a literal end-char is needed. This is only for use in the text between gaps.</p>
 
 		@see  #getEnd()
 		@see  #getLiteralStart()
@@ -149,12 +149,12 @@ public class GapCharConfig implements Copyable  {
 		return  literalEndChar;
 	}
 	/**
-		<P>ReplacedInEachInput all literal-start and end characters with their actuals.</P>
+		<p>ReplacedInEachInput all literal-start and end characters with their actuals.</p>
 
-		@return  <I>Essentially:</I>
+		@return  <i>Essentially:</i>
 
-<BLOCKQUOTE><PRE>text.{@link java.lang.String#replaceAll(String, String) replaceAll}(getLiteralStart(), {@link java.util.regex.Matcher Matcher}.{@link java.util.regex.Matcher#quoteReplacement(String) quoteReplacement}((new Character({@link #getStart() getStart}())).toString())).
-   replaceAll({@link #getLiteralEnd() getLiteralEnd}(), Matcher.quoteReplacement((new Character({@link #getEnd() getEnd}())).toString()))</PRE></BLOCKQUOTE>
+<blockquote><pre>text.{@link java.lang.String#replaceAll(String, String) replaceAll}(getLiteralStart(), {@link java.util.regex.Matcher Matcher}.{@link java.util.regex.Matcher#quoteReplacement(String) quoteReplacement}((new Character({@link #getStart() getStart}())).toString())).
+   replaceAll({@link #getLiteralEnd() getLiteralEnd}(), Matcher.quoteReplacement((new Character({@link #getEnd() getEnd}())).toString()))</pre></blockquote>
    	@see  #getWithActualsMadeLiteral(String)
 	 **/
 	public final String getWithLiteralsMadeActual(String text)  {
@@ -162,12 +162,12 @@ public class GapCharConfig implements Copyable  {
 		return  rplcrLiteralEndWithActual.getReplaced(s);
 	}
 	/**
-		<P>ReplacedInEachInput all literal-start and end characters with their actuals.</P>
+		<p>ReplacedInEachInput all literal-start and end characters with their actuals.</p>
 
-		@return  <I>Essentially:</I>
+		@return  <i>Essentially:</i>
 
-<BLOCKQUOTE><PRE>text.{@link java.lang.String#replaceAll(String, String) replaceAll}(new Character({@link #getStart() getStart}()), {@link java.util.regex.Matcher Matcher}.{@link java.util.regex.Matcher#quoteReplacement(String) quoteReplacement}((new Character({@link #getEnd() getEnd}())).toString()).
-   replaceAll({@link #getLiteralEnd() getLiteralEnd}(), Matcher.quoteReplacement((getLiteralStart()).toString())))</PRE></BLOCKQUOTE>
+<blockquote><pre>text.{@link java.lang.String#replaceAll(String, String) replaceAll}(new Character({@link #getStart() getStart}()), {@link java.util.regex.Matcher Matcher}.{@link java.util.regex.Matcher#quoteReplacement(String) quoteReplacement}((new Character({@link #getEnd() getEnd}())).toString()).
+   replaceAll({@link #getLiteralEnd() getLiteralEnd}(), Matcher.quoteReplacement((getLiteralStart()).toString())))</pre></blockquote>
    	@see  #getWithActualsMadeLiteral(String)
 	 **/
 	public final String getWithActualsMadeLiteral(String text)  {
@@ -175,7 +175,7 @@ public class GapCharConfig implements Copyable  {
 		return  rplcrActualEndWithLiteral.getReplaced(s);
 	}
 	/**
-		<P>Get a new tokenizer for parsing the original template text into its parts.</P>
+		<p>Get a new tokenizer for parsing the original template text into its parts.</p>
 
 		@param  original_text  May not be {@code null}.
 		@return  A new {@linkplain #newTemplateTokenizer(String, Appendable) regex-tokenizer} that returns both {@linkplain com.github.xbn.regexutil.z.RegexTokenizer_CfgForNeeder#separators() separators} (gaps) and {@linkplain com.github.xbn.regexutil.z.RegexTokenizer_CfgForNeeder#allBetweens() all betweens}, where the separator regular expression is {@link #getGapRegex(char, char) getGapRegex}, and the {@linkplain com.github.xbn.regexutil.RegexTokenizer#setNewSearch(Object, int) search text} is {@code original_text}.
@@ -187,9 +187,9 @@ public class GapCharConfig implements Copyable  {
 		return  tokenizer;
 	}
 	/**
-		<P>Get the index of the first-found start <I>or</I> end character.</P>
+		<p>Get the index of the first-found start <i>or</i> end character.</p>
 
-		@param  text  May not be {@code null}, and <I>should</I> be non-empty.
+		@param  text  May not be {@code null}, and <i>should</i> be non-empty.
 		@return  The character index of the first {@linkplain #getStart() start} or {@linkplain #getEnd() end} character found in the text. If not found: {@code -1}.
 	 **/
 	public int indexOfStartOrEndChar(String text)  {
@@ -212,19 +212,19 @@ public class GapCharConfig implements Copyable  {
 		}
 	}
 	/**
-		<P>Get a gap as it exists in the original text--surrounded by its start and end characters.</P>
+		<p>Get a gap as it exists in the original text--surrounded by its start and end characters.</p>
 
-		@param  gap_name  <I>Should</I> not be {@code null} or empty, and <I>should</I> be a valid gap name.
-		@return  <CODE>{@link #getStart() getStart}() + gap_name + {@link #getEnd() getEnd}()</CODE>
+		@param  gap_name  <i>Should</i> not be {@code null} or empty, and <i>should</i> be a valid gap name.
+		@return  <code>{@link #getStart() getStart}() + gap_name + {@link #getEnd() getEnd}()</code>
 	 **/
 	public String getGapNameWithChars(String gap_name)  {
 		return  getStart() + gap_name + getEnd();
 	}
 	/**
-		<P>Strip the start and end characters from the gap text ({@code "%gapname%"} to {@code "gapname"}).</P>
+		<p>Strip the start and end characters from the gap text ({@code "%gapname%"} to {@code "gapname"}).</p>
 
-		@param  prefix_name_postfix  May not be {@code null} or contain less than three characters, and <I>should</I> be equal to
-		<BR> &nbsp; &nbsp; <CODE>{@link #getStart() getStart}() + <I>[gap-name]</I> + {@link #getEnd() getEnd}()</CODE>
+		@param  prefix_name_postfix  May not be {@code null} or contain less than three characters, and <i>should</i> be equal to
+		<br> &nbsp; &nbsp; <code>{@link #getStart() getStart}() + <i>[gap-name]</i> + {@link #getEnd() getEnd}()</code>
 	 **/
 	public static final String getGapNameWithNoChars(String prefix_name_postfix)  {
 		try  {
@@ -236,17 +236,17 @@ public class GapCharConfig implements Copyable  {
 		}
 	}
 	/**
-		<P>Get a duplicate of this <CODE>GapCharConfig</CODE>.</P>
+		<p>Get a duplicate of this <code>GapCharConfig</code>.</p>
 
-		@return <CODE>({@link #GapCharConfig(GapCharConfig) GapCharConfig}(this))</CODE>
+		@return <code>({@link #GapCharConfig(GapCharConfig) GapCharConfig}(this))</code>
 	 **/
 	public GapCharConfig getObjectCopy()  {
 		return  (new GapCharConfig(this));
 	}
 	/**
-		<P>The regular expression representing a gap in the original (unparsed) template text.</P>
+		<p>The regular expression representing a gap in the original (unparsed) template text.</p>
 
-		@return  <CODE>&quot;\\Q&quot; + start + &quot;\\E\\w+\\Q&quot; + end + &quot;\\E&quot;</CODE>
+		@return  <code>&quot;\\Q&quot; + start + &quot;\\E\\w+\\Q&quot; + end + &quot;\\E&quot;</code>
 	 **/
 	public static final String getGapRegex(char start, char end)  {
 		return  "\\Q" + start + "\\E\\w+\\Q" + end + "\\E";

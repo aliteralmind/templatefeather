@@ -3,7 +3,7 @@ package  com.github.aliteralmind.templatefeather.test;
 	import  com.github.xbn.testdev.VerifyApplicationOutput;
 	import  org.junit.Test;
 /**
-   <P>Example-code units: {@code com.github.aliteralmind.templatefeather.test.ExampleCodeOutputsContain_Unit}</P>
+   <p>Example-code units: {@code com.github.aliteralmind.templatefeather.test.ExampleCodeOutputsContain_Unit}</p>
  **/
 public class ExampleCodeOutputsContain_Unit  {
    public static final void main(String[] ignored)  {

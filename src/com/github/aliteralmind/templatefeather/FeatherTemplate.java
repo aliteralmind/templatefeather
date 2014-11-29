@@ -27,14 +27,14 @@ package  com.github.aliteralmind.templatefeather;
 	import  java.util.Collections;
 	import  java.util.List;
 /**
-	<P>A template.</P>
+	<p>A template.</p>
 
 	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <A HREF="http://templatefeather.aliteralmind.com">{@code http://templatefeather.aliteralmind.com}</A>, <A HREF="https://github.com/aliteralmind/templatefeather">{@code https://github.com/aliteralmind/templatefeather}</A>
+	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://templatefeather.aliteralmind.com">{@code http://templatefeather.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/templatefeather">{@code https://github.com/aliteralmind/templatefeather}</a>
  **/
 public class FeatherTemplate extends SimpleDebuggable implements Copyable  {
 	/**
-		<P>The default capacity to initialize the internal array-list of template-pieces to--Equal to {@code 100}.</P>
+		<p>The default capacity to initialize the internal array-list of template-pieces to--Equal to {@code 100}.</p>
 
 		@see  #FeatherTemplate(String, Appendable)
 	 **/
@@ -47,32 +47,32 @@ public class FeatherTemplate extends SimpleDebuggable implements Copyable  {
 	private static final VzblPadChop VPC_DBG = NewVzblPadChopFor.trimEscChopWithDDD(true, null, 50);
 
 	/**
-		<P>Create a new instance with defaults.</P>
+		<p>Create a new instance with defaults.</p>
 
-		<P>Equal to
-		<BR> &nbsp; &nbsp; <CODE>{@link #FeatherTemplate(String, GapCharConfig, int, Resettable, Appendable) this}(original_text, (new GapCharConfig()), {@link com.github.aliteralmind.templatefeather.Resettable Resettable}.{@link com.github.aliteralmind.templatefeather.Resettable#NO NO})</CODE></P>
+		<p>Equal to
+		<br> &nbsp; &nbsp; <code>{@link #FeatherTemplate(String, GapCharConfig, int, Resettable, Appendable) this}(original_text, (new GapCharConfig()), {@link com.github.aliteralmind.templatefeather.Resettable Resettable}.{@link com.github.aliteralmind.templatefeather.Resettable#NO NO})</code></p>
 	 **/
 	public FeatherTemplate(String original_text, Appendable debugDest_ifNonNull)  {
 		this(original_text, (new GapCharConfig()), Resettable.NO, debugDest_ifNonNull);
 	}
 	/**
-		<P>Create a new instance.</P>
+		<p>Create a new instance.</p>
 
-		<P>Equal to
-		<BR> &nbsp; &nbsp; <CODE>{@link #FeatherTemplate(String, GapCharConfig, int, Resettable, Appendable) this}(original_text, char_config, {@link #DEFAULT_INIT_PIECE_LIST_CAPACITY}, resettable)</CODE></P>
+		<p>Equal to
+		<br> &nbsp; &nbsp; <code>{@link #FeatherTemplate(String, GapCharConfig, int, Resettable, Appendable) this}(original_text, char_config, {@link #DEFAULT_INIT_PIECE_LIST_CAPACITY}, resettable)</code></p>
 	 **/
 	public FeatherTemplate(String original_text, GapCharConfig char_config, Resettable resettable, Appendable debugDest_ifNonNull)  {
 		this(original_text, char_config, DEFAULT_INIT_PIECE_LIST_CAPACITY, resettable, debugDest_ifNonNull);
 	}
 	/**
-		<P>Create a new instance.</P>
+		<p>Create a new instance.</p>
 
-		<P>This {@linkplain com.github.aliteralmind.templatefeather.GapCharConfig#newTemplateTokenizer(String, Appendable) parses} original text into its {@linkplain #getPieceList() parts}.</P>
+		<p>This {@linkplain com.github.aliteralmind.templatefeather.GapCharConfig#newTemplateTokenizer(String, Appendable) parses} original text into its {@linkplain #getPieceList() parts}.</p>
 
 		@param  original_text  May not be {@code null} and must be a validly-formatted template (containing at least one gap).
 		@param  char_config  Defines the characters that surround gap names, and their literal counterparts. May not be {@code null}. Get with {@link #getCharConfig() getCharConfig}{@code ()}.
 		@param  initialPieceList_capacity  The {@linkplain java.util.ArrayList#ArrayList(int) capacity} to initialize the internal {@linkplain java.util.ArrayList array list} to, in preparation for parsing the original text. Ideally this should be the number of (non-unique) gaps, doubled, plus one.
-		@param  resettable  May not be {@code null}. If {@link com.github.aliteralmind.templatefeather.Resettable#YES YES}, then then it is possible to {@linkplain #unfill} the template, which also means that gaps may be {@linkplain #unfill(String) unfilled}. Get with {@link #isResettable() isResettable}{@code ()}. <I>If {@linkplain #setAutoRendererX(Appendable) auto-rendering}, this should be set to {@link com.github.aliteralmind.templatefeather.Resettable#NO NO}. Unfilling a gap does not affect <B>already output</B> gaps.</I>
+		@param  resettable  May not be {@code null}. If {@link com.github.aliteralmind.templatefeather.Resettable#YES YES}, then then it is possible to {@linkplain #unfill} the template, which also means that gaps may be {@linkplain #unfill(String) unfilled}. Get with {@link #isResettable() isResettable}{@code ()}. <i>If {@linkplain #setAutoRendererX(Appendable) auto-rendering}, this should be set to {@link com.github.aliteralmind.templatefeather.Resettable#NO NO}. Unfilling a gap does not affect <b>already output</b> gaps.</i>
 		@see  #FeatherTemplate(String, Appendable)
 		@see  #FeatherTemplate(String, GapCharConfig, Resettable, Appendable)
 		@see  #FeatherTemplate(FeatherTemplate, Appendable)
@@ -132,7 +132,7 @@ public class FeatherTemplate extends SimpleDebuggable implements Copyable  {
 		setAutoRenderer(null);
 	}
 	/**
-		<P>Create a new template with the same original-text as an existing template. The new template is {@linkplain com.github.aliteralmind.templatefeather.GapMap#isFilled() unfilled}, {@linkplain #setAutoRenderer(Appendable) auto-rendering} is disabled, and {@linkplain com.github.xbn.io.Debuggable#isDebugOn() debugging} is off.</P>
+		<p>Create a new template with the same original-text as an existing template. The new template is {@linkplain com.github.aliteralmind.templatefeather.GapMap#isFilled() unfilled}, {@linkplain #setAutoRenderer(Appendable) auto-rendering} is disabled, and {@linkplain com.github.xbn.io.Debuggable#isDebugOn() debugging} is off.</p>
 
 		@param  to_copy  May not be {@code null}.
 		@see  #getObjectCopy()
@@ -160,10 +160,10 @@ public class FeatherTemplate extends SimpleDebuggable implements Copyable  {
 		setAutoRenderer(null);
 	}
 	/**
-		<P>An immutable list of all template pieces.</P>
+		<p>An immutable list of all template pieces.</p>
 
-		@return  An {@linkplain java.util.Collections#unmodifiableList(List) immutable list} containing all gaps and betweens (the text between each gap). The first and last elements are {@linkplain com.github.aliteralmind.templatefeather.BetweenPiece betweens}. Each between is next to a {@linkplain com.github.aliteralmind.templatefeather.GapPiece gap}, and each gap is next to a between. If there are two gaps immediately next to each other, they are separated by an empty-string between. The number of <I>non-unique</I> gaps can be determined by
-		<BR> &nbsp; &nbsp; <CODE>((getPieceList().size() - 1) / 2)</CODE>
+		@return  An {@linkplain java.util.Collections#unmodifiableList(List) immutable list} containing all gaps and betweens (the text between each gap). The first and last elements are {@linkplain com.github.aliteralmind.templatefeather.BetweenPiece betweens}. Each between is next to a {@linkplain com.github.aliteralmind.templatefeather.GapPiece gap}, and each gap is next to a between. If there are two gaps immediately next to each other, they are separated by an empty-string between. The number of <i>non-unique</i> gaps can be determined by
+		<br> &nbsp; &nbsp; <code>((getPieceList().size() - 1) / 2)</code>
 		@see  #getGapMap()
 		@see  #getBetweenPiece(int)
 		@see  #getGapPiece(int)
@@ -172,10 +172,10 @@ public class FeatherTemplate extends SimpleDebuggable implements Copyable  {
 		return  immutablePieceList;
 	}
 	/**
-		<P>Get a between piece.</P>
+		<p>Get a between piece.</p>
 
 		@param  index  Must refer to a between element.
-		@exception  XbnIndexOutOfBoundsException  If {@code index} is invalid, given <CODE>{@link #getPieceList() getPieceList}().size()</CODE>.
+		@exception  XbnIndexOutOfBoundsException  If {@code index} is invalid, given <code>{@link #getPieceList() getPieceList}().size()</code>.
 		@exception  ClassCastException  If the element is a gap.
 		@see  #getGapPiece(int)
 	 **/
@@ -192,10 +192,10 @@ public class FeatherTemplate extends SimpleDebuggable implements Copyable  {
 		}
 	}
 	/**
-		<P>Get a gap piece.</P>
+		<p>Get a gap piece.</p>
 
 		@param  index  Must refer to a gap element.
-		@exception  XbnIndexOutOfBoundsException  If {@code index} is invalid, given <CODE>{@link #getPieceList() getPieceList}().size()</CODE>.
+		@exception  XbnIndexOutOfBoundsException  If {@code index} is invalid, given <code>{@link #getPieceList() getPieceList}().size()</code>.
 		@exception  ClassCastException  If the element is a between.
 		@see  #getGapPiece(int)
 	 **/
@@ -212,17 +212,17 @@ public class FeatherTemplate extends SimpleDebuggable implements Copyable  {
 		}
 	}
 	/**
-		<P>Get the fully-rendered text.</P>
+		<p>Get the fully-rendered text.</p>
 
-		@return  <CODE>{@link #appendFilled(Appendable) appendFilled}(new StringBuilder()).toString()</CODE>
+		@return  <code>{@link #appendFilled(Appendable) appendFilled}(new StringBuilder()).toString()</code>
 	 **/
 	public String getFilled()  {
 		return  appendFilled(new StringBuilder()).toString();
 	}
 	/**
-		<P>Append the fully-rendered text, with runtime exceptions only.</P>
+		<p>Append the fully-rendered text, with runtime exceptions only.</p>
 
-		@return  <CODE>{@link #appendFilledX(Appendable) appendFilledX}(new StringBuilder()).toString()</CODE>
+		@return  <code>{@link #appendFilledX(Appendable) appendFilledX}(new StringBuilder()).toString()</code>
 		@exception  RTIOException  If a {@code java.io.IOException} is thrown for any reason.
 	 **/
 	public Appendable appendFilled(Appendable to_appendTo)  {
@@ -233,13 +233,13 @@ public class FeatherTemplate extends SimpleDebuggable implements Copyable  {
 		}
 	}
 	/**
-		<P>Append the fully-rendered text, with checked exceptions (<A HREF="{@docRoot}/overview-summary.html#xmpl_fully">example</A>). This is unaffected by--and does not adversely affect--any {@linkplain #setAutoRendererX(Appendable) auto-render} currently in process.</P>
+		<p>Append the fully-rendered text, with checked exceptions (<a href="{@docRoot}/overview-summary.html#xmpl_fully">example</a>). This is unaffected by--and does not adversely affect--any {@linkplain #setAutoRendererX(Appendable) auto-render} currently in process.</p>
 
-		<P>For {@linkplain #getPieceList() each piece} in order, this appends their {@linkplain com.github.aliteralmind.templatefeather.TemplatePiece#getRendered() rendered texts}.</P>
+		<p>For {@linkplain #getPieceList() each piece} in order, this appends their {@linkplain com.github.aliteralmind.templatefeather.TemplatePiece#getRendered() rendered texts}.</p>
 
 		@param  to_appendTo  May not be {@code null}.
 		@return  {@code to_appendTo}
-		@exception  GapUnfilledException  If <CODE>{@link #getGapMap() getGapMap}().{@link com.github.aliteralmind.templatefeather.GapMap#isFilled() isFilled}()</CODE> is {@code false}.
+		@exception  GapUnfilledException  If <code>{@link #getGapMap() getGapMap}().{@link com.github.aliteralmind.templatefeather.GapMap#isFilled() isFilled}()</code> is {@code false}.
 		@exception  IOException  If appending fails.
 		@see  #appendFilled(Appendable)
 		@see  #getFilled()
@@ -260,17 +260,17 @@ public class FeatherTemplate extends SimpleDebuggable implements Copyable  {
 		return  to_appendTo;
 	}
 	/**
-		<P>Get the rendered text with any unfilled gaps replaced by their original text.</P>
+		<p>Get the rendered text with any unfilled gaps replaced by their original text.</p>
 
-		@return  <CODE>{@link #appendPartiallyFilled(Appendable) appendPartiallyFilled}(new StringBuilder()).toString()</CODE>
+		@return  <code>{@link #appendPartiallyFilled(Appendable) appendPartiallyFilled}(new StringBuilder()).toString()</code>
 	 **/
 	public String getPartiallyFilled()  {
 		return  appendPartiallyFilled(new StringBuilder()).toString();
 	}
 	/**
-		<P>Get the rendered text with any unfilled gaps replaced by their original text.</P>
+		<p>Get the rendered text with any unfilled gaps replaced by their original text.</p>
 
-		@return  <CODE>{@link #appendPartiallyFilledX(Appendable) appendPartiallyFilledX}(new StringBuilder()).toString()</CODE>
+		@return  <code>{@link #appendPartiallyFilledX(Appendable) appendPartiallyFilledX}(new StringBuilder()).toString()</code>
 		@exception  RTIOException  If a {@code java.io.IOException} is thrown for any reason.
 	 **/
 	public Appendable appendPartiallyFilled(Appendable to_appendTo)  {
@@ -281,9 +281,9 @@ public class FeatherTemplate extends SimpleDebuggable implements Copyable  {
 		}
 	}
 	/**
-		<P>Get the rendered text with any unfilled gaps replaced by their {@linkplain com.github.aliteralmind.codelet.GapCharConfig#getGapNameWithChars(String) original text}. This is unaffected by--and does not adversely affect--any {@linkplain #setAutoRendererX(Appendable) auto-render} currently in process.</P>
+		<p>Get the rendered text with any unfilled gaps replaced by their {@linkplain com.github.aliteralmind.codelet.GapCharConfig#getGapNameWithChars(String) original text}. This is unaffected by--and does not adversely affect--any {@linkplain #setAutoRendererX(Appendable) auto-render} currently in process.</p>
 
-		<P>For {@linkplain #getPieceList() each piece} in order, this appends their {@linkplain com.github.aliteralmind.templatefeather.TemplatePiece#getRenderedOrOriginalIfNot() rendered-unless-not-ready} texts.</P>
+		<p>For {@linkplain #getPieceList() each piece} in order, this appends their {@linkplain com.github.aliteralmind.templatefeather.TemplatePiece#getRenderedOrOriginalIfNot() rendered-unless-not-ready} texts.</p>
 
 		@param  to_appendTo  May not be {@code null}.
 		@return  {@code to_appendTo}
@@ -303,17 +303,17 @@ public class FeatherTemplate extends SimpleDebuggable implements Copyable  {
 		return  to_appendTo;
 	}
 	/**
-		<P>Get the original text.</P>
+		<p>Get the original text.</p>
 
-		@return  <CODE>{@link #appendOriginal(Appendable) appendOriginal}(new StringBuilder()).toString()</CODE>
+		@return  <code>{@link #appendOriginal(Appendable) appendOriginal}(new StringBuilder()).toString()</code>
 	 **/
 	public String getOriginal()  {
 		return  appendOriginal(new StringBuilder()).toString();
 	}
 	/**
-		<P>Get the original text.</P>
+		<p>Get the original text.</p>
 
-		@return  <CODE>{@link #appendOriginalX(Appendable) appendOriginalX}(new StringBuilder()).toString()</CODE>
+		@return  <code>{@link #appendOriginalX(Appendable) appendOriginalX}(new StringBuilder()).toString()</code>
 		@exception  RTIOException  If a {@code java.io.IOException} is thrown for any reason.
 	 **/
 	public Appendable appendOriginal(Appendable to_appendTo)  {
@@ -324,9 +324,9 @@ public class FeatherTemplate extends SimpleDebuggable implements Copyable  {
 		}
 	}
 	/**
-		<P>Get the original text. This is unaffected by--and does not adversely affect--any {@linkplain #setAutoRendererX(Appendable) auto-render} currently in process.</P>
+		<p>Get the original text. This is unaffected by--and does not adversely affect--any {@linkplain #setAutoRendererX(Appendable) auto-render} currently in process.</p>
 
-		<P>For {@linkplain #getPieceList() each piece} in order, this appends their {@linkplain com.github.aliteralmind.templatefeather.TemplatePiece#getOriginal() original texts}.</P>
+		<p>For {@linkplain #getPieceList() each piece} in order, this appends their {@linkplain com.github.aliteralmind.templatefeather.TemplatePiece#getOriginal() original texts}.</p>
 
 		@param  to_appendTo  May not be {@code null}.
 		@return  {@code to_appendTo}
@@ -346,17 +346,17 @@ public class FeatherTemplate extends SimpleDebuggable implements Copyable  {
 		return  to_appendTo;
 	}
 	/**
-		<P>Get the fully-rendered text.</P>
+		<p>Get the fully-rendered text.</p>
 
-		@return  <CODE>{@link #appendFilledAndReset(Appendable) appendFilledAndReset}(new StringBuilder()).toString()</CODE>
+		@return  <code>{@link #appendFilledAndReset(Appendable) appendFilledAndReset}(new StringBuilder()).toString()</code>
 	 **/
 	public String getFilledAndReset()  {
 		return  appendFilledAndReset(new StringBuilder()).toString();
 	}
 	/**
-		<P>Append the fully-rendered text, with runtime exceptions only.</P>
+		<p>Append the fully-rendered text, with runtime exceptions only.</p>
 
-		@return  <CODE>{@link #appendFilledAndResetX(Appendable) appendFilledAndResetX}(new StringBuilder()).toString()</CODE>
+		@return  <code>{@link #appendFilledAndResetX(Appendable) appendFilledAndResetX}(new StringBuilder()).toString()</code>
 		@exception  RTIOException  If a {@code java.io.IOException} is thrown for any reason.
 	 **/
 	public Appendable appendFilledAndReset(Appendable to_appendTo)  {
@@ -367,9 +367,9 @@ public class FeatherTemplate extends SimpleDebuggable implements Copyable  {
 		}
 	}
 	/**
-		<P>Get the fully-rendered text and reset the template.</P>
+		<p>Get the fully-rendered text and reset the template.</p>
 
-		<P>This calls {@link #appendFilledX(Appendable) appendFilledX}{@code (to_appendTo)} then {@link #unfill() unfill}{@code ()}.</P>
+		<p>This calls {@link #appendFilledX(Appendable) appendFilledX}{@code (to_appendTo)} then {@link #unfill() unfill}{@code ()}.</p>
 
 		@return  {@code to_appendTo}
 		@exception  TemplateResettableException  If {@link #isResettable() isResettable}{@code ()} is {@code false}.
@@ -382,10 +382,10 @@ public class FeatherTemplate extends SimpleDebuggable implements Copyable  {
 		return  to_appendTo;
 	}
 	/**
-		<P>Set the auto-rendering output destination.</P>
+		<p>Set the auto-rendering output destination.</p>
 
-		<P>Equal to
-		<BR> &nbsp; &nbsp; {@link #setAutoRendererX(Appendable) setAutoRendererX}{@code (render_dest)}</P>
+		<p>Equal to
+		<br> &nbsp; &nbsp; {@link #setAutoRendererX(Appendable) setAutoRendererX}{@code (render_dest)}</p>
 
 		@exception  RTIOException  If a {@code java.io.IOException} is thrown for any reason.
 	 **/
@@ -397,28 +397,28 @@ public class FeatherTemplate extends SimpleDebuggable implements Copyable  {
 		}
 	}
 	/**
-		<P>Set the auto-rendering output destination, and start rendering.</P>
+		<p>Set the auto-rendering output destination, and start rendering.</p>
 
-		<P>Auto-rendering may be safely started and ended at any time, regardless how many gaps are or are not filled. In addition, the {@linkplain #appendFilledX(Appendable) fully rendered} (or {@linkplain #appendPartiallyFilledX(Appendable) partial} or {@linkplain #appendOriginalX(Appendable) original}) output may be retrieved at any time without adversely affecting auto-rendering.</P>
+		<p>Auto-rendering may be safely started and ended at any time, regardless how many gaps are or are not filled. In addition, the {@linkplain #appendFilledX(Appendable) fully rendered} (or {@linkplain #appendPartiallyFilledX(Appendable) partial} or {@linkplain #appendOriginalX(Appendable) original}) output may be retrieved at any time without adversely affecting auto-rendering.</p>
 
-		<P>Steps<OL>
-			<LI>Sets {@link #getAutoRenderIndex() getAutoRenderIndex}{@code ()} to zero</LI>
-			<LI>Outputs all text up to, but not including, the first unfilled gap.</LI>
-			<LI>Each time a gap is {@linkplain #fill(String, Object) filled}, this repeats: All text to just before the next unfilled gap is output.</LI>
-			<LI>When the final gap is filled, all remaining text is output, and auto-rendering is deactivated:<OL>
-				<LI>{@link #getAutoRenderer() getAutoRenderer}{@code ()} is set to {@code null}</LI>
-				<LI>{@code getAutoRenderIndex()} is set to {@code -1}.</LI>
-			</OL>.</LI>
-		</OL></P>
+		<p>Steps<ol>
+			<li>Sets {@link #getAutoRenderIndex() getAutoRenderIndex}{@code ()} to zero</li>
+			<li>Outputs all text up to, but not including, the first unfilled gap.</li>
+			<li>Each time a gap is {@linkplain #fill(String, Object) filled}, this repeats: All text to just before the next unfilled gap is output.</li>
+			<li>When the final gap is filled, all remaining text is output, and auto-rendering is deactivated:<ol>
+				<li>{@link #getAutoRenderer() getAutoRenderer}{@code ()} is set to {@code null}</li>
+				<li>{@code getAutoRenderIndex()} is set to {@code -1}.</li>
+			</ol>.</li>
+		</ol></p>
 
-		<H3>Example</H3>
+		<h3>Example</h3>
 
 {@.codelet.and.out com.github.aliteralmind.templatefeather.examples.FeatherAutoRenderDemo%eliminateCmtBlocksPkgLineAndPkgReferences(true, true, false)}
 
-		<P><B>Warning:</B> If the template is {@linkplain #isResettable() resettable}, this means that gaps can be {@linkplain #unfill(String) unfilled}, even though they may have already been output.</P>
+		<p><b>Warning:</b> If the template is {@linkplain #isResettable() resettable}, this means that gaps can be {@linkplain #unfill(String) unfilled}, even though they may have already been output.</p>
 
-		@param  render_dest  If {@code null}, auto-rendering is deactivated. Otherwise, this immediately outputs up rendered text up-to-but-not-including the first <I>unfilled</I> gap. Get with {@link #getAutoRenderer() getAutoRenderer}{@code ()}
-		@exception  IllegalStateException  If <CODE>{@link #getGapMap() getGapMap}().{@link com.github.aliteralmind.templatefeather.GapMap#isFilled() isFilled}()</CODE> is {@code true}.
+		@param  render_dest  If {@code null}, auto-rendering is deactivated. Otherwise, this immediately outputs up rendered text up-to-but-not-including the first <i>unfilled</i> gap. Get with {@link #getAutoRenderer() getAutoRenderer}{@code ()}
+		@exception  IllegalStateException  If <code>{@link #getGapMap() getGapMap}().{@link com.github.aliteralmind.templatefeather.GapMap#isFilled() isFilled}()</code> is {@code true}.
 		@see  #isAutoRendering()
 	 **/
 	public void setAutoRendererX(Appendable render_dest) throws IOException  {
@@ -458,18 +458,18 @@ public class FeatherTemplate extends SimpleDebuggable implements Copyable  {
 			autoRenderDest = null;
 		}
 	/**
-		<P>The auto-render destination.</P>
+		<p>The auto-render destination.</p>
 
-		@return  If {@link #isAutoRendering() isAutoRendering}{@code ()} is<UL>
-			<LI>{@code true}: The {@linkplain #setAutoRendererX(Appendable) auto-render} outputter.</LI>
-			<LI>{@code false}: {@code null}</LI>
-		</UL>
+		@return  If {@link #isAutoRendering() isAutoRendering}{@code ()} is<ul>
+			<li>{@code true}: The {@linkplain #setAutoRendererX(Appendable) auto-render} outputter.</li>
+			<li>{@code false}: {@code null}</li>
+		</ul>
 	 **/
 	public Appendable getAutoRenderer()  {
 		return  autoRenderDest;
 	}
 	/**
-		<P>The next piece-index to be auto-rendered. This is the index of the first non-unique {@linkplain com.github.aliteralmind.templatefeather.GapPiece gap} in the template <I>not yet filled</I> and, therefore, not yet output.</P>
+		<p>The next piece-index to be auto-rendered. This is the index of the first non-unique {@linkplain com.github.aliteralmind.templatefeather.GapPiece gap} in the template <i>not yet filled</i> and, therefore, not yet output.</p>
 
 		@see  #setAutoRendererX(Appendable)
 	 **/
@@ -477,9 +477,9 @@ public class FeatherTemplate extends SimpleDebuggable implements Copyable  {
 		return  autoRenderPieceIdx;
 	}
 	/**
-		<P>Is an auto-render underway?.</P>
+		<p>Is an auto-render underway?.</p>
 
-		@return  <CODE>({@link #getAutoRenderIndex() getAutoRenderIndex}() != -1)</CODE>
+		@return  <code>({@link #getAutoRenderIndex() getAutoRenderIndex}() != -1)</code>
 		@see  #setAutoRendererX(Appendable)
 	 **/
 	public boolean isAutoRendering()  {
@@ -487,7 +487,7 @@ public class FeatherTemplate extends SimpleDebuggable implements Copyable  {
 	}
 
 	/**
-		<P>Configuration related to the gap-start and end characters.</P>
+		<p>Configuration related to the gap-start and end characters.</p>
 
 		@see  #FeatherTemplate(String, GapCharConfig, int, Resettable, Appendable)
 	 **/
@@ -495,7 +495,7 @@ public class FeatherTemplate extends SimpleDebuggable implements Copyable  {
 		return  charConfig;
 	}
 	/**
-		<P>Associates gap names and their fill texts.</P>
+		<p>Associates gap names and their fill texts.</p>
 
 		@see  #FeatherTemplate(String, GapCharConfig, int, Resettable, Appendable)
 	 **/
@@ -503,7 +503,7 @@ public class FeatherTemplate extends SimpleDebuggable implements Copyable  {
 		return  gapMap;
 	}
 	/**
-		<P>Fill a gap.</P>
+		<p>Fill a gap.</p>
 
 		@param  name  May not be {@code null}, and must {@linkplain com.github.aliteralmind.templatefeather.GapMap#contains(String) exist} and, when {@code text} is {@code null}, must be {@linkplain com.github.aliteralmind.templatefeather.GapMap#isFilled(String) unfilled}.
 		@param  text  If non-{@code null}, the gap is filled, and when active, {@linkplain #setAutoRendererX(Appendable) auto-rendering} proceeds. If {@code null}, the gap is {@linkplain #unfill(String) unfilled}.
@@ -517,16 +517,16 @@ public class FeatherTemplate extends SimpleDebuggable implements Copyable  {
 		return  this;
 	}
 	/**
-		<P>Unfill a gap.</P>
+		<p>Unfill a gap.</p>
 
-		<P>Equal to
-		<BR> &nbsp; &nbsp; {@link #fill(String, Object) fill}{@code (name, null)}</P>
+		<p>Equal to
+		<br> &nbsp; &nbsp; {@link #fill(String, Object) fill}{@code (name, null)}</p>
 	 **/
 	public void unfill(String name)  {
 		fill(name, null);
 	}
 	/**
-		<P>Unfill all gaps. This {@linkplain #fill(String name, Object text) fills} all gaps with {@code null}.</P>
+		<p>Unfill all gaps. This {@linkplain #fill(String name, Object text) fills} all gaps with {@code null}.</p>
 
 		@exception  TemplateResettableException  If {@link #isResettable() isResettable}{@code ()} is {@code false}.
 	 **/
@@ -534,7 +534,7 @@ public class FeatherTemplate extends SimpleDebuggable implements Copyable  {
 		getGapMap().unfill();
 	}
 	/**
-		<P>Get a duplicate of this <CODE>FeatherTemplate</CODE>.</P>
+		<p>Get a duplicate of this <code>FeatherTemplate</code>.</p>
 
 		@return {@link #getObjectCopy(Appendable)}{@code (null)}
 	 **/
@@ -542,25 +542,25 @@ public class FeatherTemplate extends SimpleDebuggable implements Copyable  {
 		return  getObjectCopy(null);
 	}
 	/**
-		<P>Get a duplicate of this <CODE>FeatherTemplate</CODE>.</P>
+		<p>Get a duplicate of this <code>FeatherTemplate</code>.</p>
 
-		@return <CODE>({@link #FeatherTemplate(FeatherTemplate, Appendable) FeatherTemplate}(this, debugDest_ifNonNull))</CODE>
+		@return <code>({@link #FeatherTemplate(FeatherTemplate, Appendable) FeatherTemplate}(this, debugDest_ifNonNull))</code>
 		@see  #getObjectCopy()
 	 **/
 	public FeatherTemplate getObjectCopy(Appendable debugDest_ifNonNull)  {
 		return  (new FeatherTemplate(this, debugDest_ifNonNull));
 	}
 	/**
-		<P>Can all gaps be unfilled, so the template can be reused?.</P>
+		<p>Can all gaps be unfilled, so the template can be reused?.</p>
 
-		@return  <CODE>{@link #getGapMap() getGapMap}().{@link com.github.aliteralmind.templatefeather.GapMap#isUnfillOk() isUnfillOk}()</CODE>
+		@return  <code>{@link #getGapMap() getGapMap}().{@link com.github.aliteralmind.templatefeather.GapMap#isUnfillOk() isUnfillOk}()</code>
 		@see  #unfill()
 	 **/
 	public boolean isResettable()  {
 		return  getGapMap().isUnfillOk();
 	}
 	/**
-	 	@return  <CODE>true</CODE> If {@code to_compareTo} is non-{@code null}, a {@code FeatherTemplate}, and all its fields {@linkplain #areFieldsEqual(FeatherTemplate) are equal}. This is implemented as suggested by Joshua Bloch in &quot;Effective Java&quot; (2nd ed, item 8, page 46).
+	 	@return  <code>true</code> If {@code to_compareTo} is non-{@code null}, a {@code FeatherTemplate}, and all its fields {@linkplain #areFieldsEqual(FeatherTemplate) are equal}. This is implemented as suggested by Joshua Bloch in &quot;Effective Java&quot; (2nd ed, item 8, page 46).
 	 **/
 	@Override
 	public boolean equals(Object to_compareTo)  {
@@ -583,12 +583,12 @@ public class FeatherTemplate extends SimpleDebuggable implements Copyable  {
 		return  areFieldsEqual(o);
 	}
 	/**
-		<P>Are all relevant fields equal?.</P>
+		<p>Are all relevant fields equal?.</p>
 
 		@param  to_compareTo  May not be {@code null}.
 		@return  {@code true}  If all pieces are equal. Specifically:
-		<BR> &nbsp; &nbsp; <CODE>to_compareTo.{@link #getPieceList() getPieceList}().equals(getPieceList())</CODE>
-		@see  <CODE><A HREF="http://stackoverflow.com/questions/2889858/compare-two-lists">http://stackoverflow.com/questions/2889858/compare-two-lists</A></CODE>
+		<br> &nbsp; &nbsp; <code>to_compareTo.{@link #getPieceList() getPieceList}().equals(getPieceList())</code>
+		@see  <code><a href="http://stackoverflow.com/questions/2889858/compare-two-lists">http://stackoverflow.com/questions/2889858/compare-two-lists</a></code>
 	 **/
 	public boolean areFieldsEqual(FeatherTemplate to_compareTo)  {
 		try  {
