@@ -13,30 +13,30 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.templatefeather.examples;
-	import  com.github.aliteralmind.templatefeather.FeatherTemplate;
+   import  com.github.aliteralmind.templatefeather.FeatherTemplate;
 /**
-	<p>{@linkplain com.github.aliteralmind.templatefeather.FeatherTemplate#setAutoRendererX(Appendable) Auto-render} demonstration.</p>
+   <p>{@linkplain com.github.aliteralmind.templatefeather.FeatherTemplate#setAutoRendererX(Appendable) Auto-render} demonstration.</p>
 
-	<p>{@code java com.github.aliteralmind.templatefeather.examples.FeatherAutoRenderDemo}</p>
+   <p>{@code java com.github.aliteralmind.templatefeather.examples.FeatherAutoRenderDemo}</p>
 
-	@since  0.1.0
-	@author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://templatefeather.aliteralmind.com">{@code http://templatefeather.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/templatefeather">{@code https://github.com/aliteralmind/templatefeather}</a>
+   @since  0.1.0
+   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://templatefeather.aliteralmind.com">{@code http://templatefeather.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/templatefeather">{@code https://github.com/aliteralmind/templatefeather}</a>
  **/
 public class FeatherAutoRenderDemo  {
-	public static final void main(String[] ignored)  {
-		String origText = "Hello %name%. I like you, %name%, %pct_num%__PCT__ guaranteed.";
+   public static final void main(String[] ignored)  {
+      String origText = "Hello %name%. I like you, %name%, %pct_num%__PCT__ guaranteed.";
 
-		FeatherTemplate tmpl = new FeatherTemplate(origText,
-			null);  //debug on=System.out, off=null
+      FeatherTemplate tmpl = new FeatherTemplate(origText,
+         null);  //debug on=System.out, off=null
 
-		tmpl.setAutoRenderer(System.out);
+      tmpl.setAutoRenderer(System.out);
 
-		System.out.println("<--Auto renderer set.");
-		tmpl.fill("name", "Ralph");
+      System.out.println("<--Auto renderer set.");
+      tmpl.fill("name", "Ralph");
 
-		System.out.println("<--Filled first gap");
-		tmpl.fill("pct_num", 45);
+      System.out.println("<--Filled first gap");
+      tmpl.fill("pct_num", 45);
 
-		System.out.println("<--Filled second-and-final gap");
-	}
+      System.out.println("<--Filled second-and-final gap");
+   }
 }
