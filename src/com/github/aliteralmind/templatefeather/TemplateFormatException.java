@@ -14,7 +14,7 @@
 \*license*/
 package  com.github.aliteralmind.templatefeather;
 /**
-   <p>Indicates an error in the original template text, such as no gaps, or gap {@linkplain com.github.aliteralmind.codelet.GapCharConfig#getStart() start} or {@linkplain com.github.aliteralmind.codelet.GapCharConfig#getEnd() end} characters existing between the gaps.</p>
+   <p>Indicates an error in the original template text, such as no gaps, or gap {@linkplain com.github.aliteralmind.templatefeather.GapCharConfig#getStart() start} or {@linkplain com.github.aliteralmind.templatefeather.GapCharConfig#getEnd() end} characters existing between the gaps.</p>
 
  * @since  0.1.0
  * @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://templatefeather.aliteralmind.com">{@code http://templatefeather.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/templatefeather">{@code https://github.com/aliteralmind/templatefeather}</a>

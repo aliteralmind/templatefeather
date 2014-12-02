@@ -281,7 +281,7 @@ public class FeatherTemplate extends SimpleDebuggable implements Copyable  {
       }
    }
    /**
-      <p>Get the rendered text with any unfilled gaps replaced by their {@linkplain com.github.aliteralmind.codelet.GapCharConfig#getGapNameWithChars(String) original text}. This is unaffected by--and does not adversely affect--any {@linkplain #setAutoRendererX(Appendable) auto-render} currently in process.</p>
+      <p>Get the rendered text with any unfilled gaps replaced by their {@linkplain com.github.aliteralmind.templatefeather.GapCharConfig#getGapNameWithChars(String) original text}. This is unaffected by--and does not adversely affect--any {@linkplain #setAutoRendererX(Appendable) auto-render} currently in process.</p>
 
       <p>For {@linkplain #getPieceList() each piece} in order, this appends their {@linkplain com.github.aliteralmind.templatefeather.TemplatePiece#getRenderedOrOriginalIfNot() rendered-unless-not-ready} texts.</p>
 
