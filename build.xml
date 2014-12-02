@@ -218,6 +218,8 @@ built. The example codes will be excluded.</echo>
 
       <echo>Duplicating log to ${dir_build_logs}</echo>
       <copy file="${output_file}" todir="${dir_build_logs}"/>
+
+      <echo>(If you want the log on aliteralmind, re-run 'dupbuildtoalit'.)</echo>
    </target>
 
 
