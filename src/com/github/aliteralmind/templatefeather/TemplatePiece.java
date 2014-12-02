@@ -17,8 +17,8 @@ package  com.github.aliteralmind.templatefeather;
 /**
    <p>A single element in a parsed template: Either a gap name, or its &quot;between&quot; text.</p>
 
-   @since  0.1.0
-   @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://templatefeather.aliteralmind.com">{@code http://templatefeather.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/templatefeather">{@code https://github.com/aliteralmind/templatefeather}</a>
+ * @since  0.1.0
+ * @author  Copyright (C) 2014, Jeff Epstein ({@code aliteralmind __DASH__ github __AT__ yahoo __DOT__ com}), dual-licensed under the LGPL (version 3.0 or later) or the ASL (version 2.0). See source code for details. <a href="http://templatefeather.aliteralmind.com">{@code http://templatefeather.aliteralmind.com}</a>, <a href="https://github.com/aliteralmind/templatefeather">{@code https://github.com/aliteralmind/templatefeather}</a>
  **/
 public abstract class TemplatePiece  {
    private final String        rawText   ;
@@ -27,10 +27,10 @@ public abstract class TemplatePiece  {
    /**
       <p>Create a new instance.</p>
 
-      @param  raw_text  May not be {@code null}. Get with {@link #getRaw() getRaw}{@code ()}.
-      @param  map  May not be {@code null}. Get with {@link #getGapMap() getGapMap}{@code ()}. For <i>read-only</i>.
-      @param  char_config  May not be {@code null}. Get with {@link #getCharConfig() getCharConfig}{@code ()}. For <i>read-only</i>.
-    **/
+    * @param  raw_text  May not be {@code null}. Get with {@link #getRaw() getRaw}{@code ()}.
+    * @param  map  May not be {@code null}. Get with {@link #getGapMap() getGapMap}{@code ()}. For <i>read-only</i>.
+    * @param  char_config  May not be {@code null}. Get with {@link #getCharConfig() getCharConfig}{@code ()}. For <i>read-only</i>.
+    */
    public TemplatePiece(String raw_text, GapMap map, GapCharConfig char_config)  {
       Objects.requireNonNull(raw_text, "raw_text");
       Objects.requireNonNull(map, "map");
@@ -42,61 +42,61 @@ public abstract class TemplatePiece  {
    /**
       <p>The gap map, for <i>read-only</i>.</p>
 
-      @see  #TemplatePiece(String, GapMap, GapCharConfig)
-    **/
+    * @see  #TemplatePiece(String, GapMap, GapCharConfig)
+    */
    protected final GapMap getGapMap()  {
       return  map;
    }
    /**
       <p>The char config, for <i>read-only</i>.</p>
 
-      @see  #TemplatePiece(String, GapMap, GapCharConfig)
-    **/
+    * @see  #TemplatePiece(String, GapMap, GapCharConfig)
+    */
    protected final GapCharConfig getCharConfig()  {
       return  charConfig;
    }
    /**
       <p>The original between text, or the name-only of the gap (no pre/post chars).</p>
 
-      @see  #TemplatePiece(String, GapMap, GapCharConfig) this(s,gm,gcc)
-      @see  #getRendered()
-      @see  #getOriginal()
-      @see  #getRenderedOrOriginalIfNot()
-    **/
+    * @see  #TemplatePiece(String, GapMap, GapCharConfig) this(s,gm,gcc)
+    * @see  #getRendered()
+    * @see  #getOriginal()
+    * @see  #getRenderedOrOriginalIfNot()
+    */
    protected final String getRaw()  {
       return  rawText;
    }
    /**
       <p>The text as it exists in the pre-parsed template.</p>
 
-      @see  #TemplatePiece(String, GapMap, GapCharConfig) this(s,gm,gcc)
-      @see  #getRaw()
-    **/
+    * @see  #TemplatePiece(String, GapMap, GapCharConfig) this(s,gm,gcc)
+    * @see  #getRaw()
+    */
    public abstract String getOriginal();
    /**
       <p>Get the rendered text if it's ready. Otherwise, get the original text.</p>
 
-      @return  <code>({@link #isRendered() isRendered}() ? {@link #getRendered() getRendered}() : {@link #getOriginal() getOriginal}())</code>
-    **/
+    * @return  <code>({@link #isRendered() isRendered}() ? {@link #getRendered() getRendered}() : {@link #getOriginal() getOriginal}())</code>
+    */
    public abstract String getRenderedOrOriginalIfNot();
    /**
       <p>Get the fully-rendered text.</p>
 
-      @exception  GapFilledException  If {@link #isRendered() isRendered}{@code ()} is {@code false}
-      @see  #getRaw()
-    **/
+    * @exception  GapFilledException  If {@link #isRendered() isRendered}{@code ()} is {@code false}
+    * @see  #getRaw()
+    */
    public abstract String getRendered();
    /**
       <p>Is this element ready to be rendered?.</p>
 
-      @return  {@code true} If {@link #getRendered() getRendered}{@code ()} may be safely called.
-    **/
+    * @return  {@code true} If {@link #getRendered() getRendered}{@code ()} may be safely called.
+    */
    public abstract boolean isRendered();
    /**
       <p>Duplicate this piece for a new template.</p>
 
-      @param  map  May not be {@code null}.
-      @param  char_config  May not be {@code null}.
-    **/
+    * @param  map  May not be {@code null}.
+    * @param  char_config  May not be {@code null}.
+    */
    public abstract TemplatePiece getPieceCopy(GapMap map, GapCharConfig char_config);
 }
