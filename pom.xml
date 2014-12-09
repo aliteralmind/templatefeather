@@ -66,7 +66,7 @@
 
    <properties>
       <java.version>1.7</java.version>
-      <jarprefix>C:/data_jeffy/programming/build/templatefeather-0.1.1.2//${project.artifactId}-${project.version}/download/${project.artifactId}-${project.version}</jarprefix>
+      <jarprefix>C:/data_jeffy/code/java/xbn/build/templatefeather-0.1.1.2//${project.artifactId}-${project.version}/download/${project.artifactId}-${project.version}</jarprefix>
    </properties>
 
    <build>
