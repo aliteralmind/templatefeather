@@ -13,19 +13,21 @@
    - ASL 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 \*license*/
 package  com.github.aliteralmind.templatefeather;
-   import  java.util.NoSuchElementException;
-   import  java.util.Objects;
    import  com.github.xbn.lang.Copyable;
    import  com.github.xbn.lang.CrashIfObject;
    import  com.github.xbn.util.lock.AbstractOneWayLockable;
    import  com.github.xbn.util.lock.LockException;
    import  java.util.Arrays;
+   import  java.util.Iterator;
    import  java.util.Map;
+   import  java.util.NoSuchElementException;
+   import  java.util.Objects;
+   import  java.util.regex.Matcher;
+   import  java.util.regex.Pattern;
    import  java.util.Set;
    import  java.util.TreeMap;
    import  java.util.TreeSet;
-   import  java.util.regex.Matcher;
-   import  java.util.regex.Pattern;
+   import  static com.github.xbn.lang.XbnConstants.*;
 /**
    <p>Associates gap names and their fill texts.</p>
 

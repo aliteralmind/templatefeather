@@ -12,7 +12,7 @@
    <groupId>com.github.aliteralmind</groupId>
    <artifactId>templatefeather</artifactId>
    <packaging>pom</packaging>
-   <version>0.1.1.2</version>
+   <version>0.1.1.3</version>
    <name>Template Featherweight</name>
    <url>https://github.com/aliteralmind/templatefeather</url>
    <inceptionYear>2014</inceptionYear>
@@ -66,7 +66,7 @@
 
    <properties>
       <java.version>1.7</java.version>
-      <jarprefix>C:/data_jeffy/code/java/xbn/build/templatefeather-0.1.1.2//${project.artifactId}-${project.version}/download/${project.artifactId}-${project.version}</jarprefix>
+      <jarprefix>C:/data_jeffy/code/java/xbn/build/templatefeather-0.1.1.3//${project.artifactId}-${project.version}/download/${project.artifactId}-${project.version}</jarprefix>
    </properties>
 
    <build>
@@ -140,7 +140,7 @@
       <dependency>
          <groupId>com.github.aliteralmind</groupId>
          <artifactId>xbnjava</artifactId>
-         <version>0.1.5</version>
+         <version>0.1.5.1</version>
       </dependency>
    </dependencies>
 

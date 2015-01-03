@@ -13,16 +13,24 @@
    </target>
 
    <target name="jar" description="Creates the 'all' and 'core' (the non-'all') jars, for using Template Featherweight.">
-      <delete file="${dir_build_download}${project_name_with_version}-all.jar"/>
+      <!--
+         0.1.1.2:
+         No longer deleting jars. Instead updating them (update="true").
+         Windows causes problems, because it holds a lock on jars, so
+         deleting them randomly doesn't work.
+        -->
+
+<!-- 		<delete file="${dir_build_download}${project_name_with_version}-all.jar"/>
       <delete file="${dir_build_download}${project_name_with_version}.jar"/>
-      <jar destfile="${dir_build_download}${project_name_with_version}-all.jar"
-         basedir="${build.class.dir}"
-         includes="${cg_alit_feather}**/*.class"
+ -->
+ 		<jar destfile="${dir_build_download}${project_name_with_version}-all.jar"
+         basedir="${build.class.dir}" includes="${cg_alit_feather}**/*.class"
+         update="true"
       />
       <jar destfile="${dir_build_download}${project_name_with_version}.jar"
-         basedir="${build.class.dir}"
-         includes="${cg_alit_feather}**/*.class"
+         basedir="${build.class.dir}" includes="${cg_alit_feather}**/*.class"
          excludes="${cg_alit_feather}examples/**/*.class,${cg_alit_feather}test/**/*.class"
+         update="true"
       />
    </target>
 

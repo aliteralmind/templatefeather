@@ -409,7 +409,7 @@ public class FeatherTemplate extends SimpleDebuggable implements Copyable  {
             <li>{@link #getAutoRenderer() getAutoRenderer}{@code ()} is set to {@code null}</li>
             <li>{@code getAutoRenderIndex()} is set to {@code -1}.</li>
          </ol>.</li>
-      </ol></p>
+      </ol>
 
       <h3>Example</h3>
 
@@ -509,6 +509,8 @@ public class FeatherTemplate extends SimpleDebuggable implements Copyable  {
     * @param  text  If non-{@code null}, the gap is filled, and when active, {@linkplain #setAutoRendererX(Appendable) auto-rendering} proceeds. If {@code null}, the gap is {@linkplain #unfill(String) unfilled}.
     * @exception  GapFilledException  If {@code text} is non-{@code null} and the gap is already filled.
     * @exception  TemplateResettableException  If {@code text} is {@code null} and {@link #isResettable() isResettable}{@code ()} is {@code false}
+    * @see #fill(String, Iterator)
+    * @see #fill(String, Iterator, String)
     */
    public FeatherTemplate fill(String name, Object text)  {
       if(isDebugOn()) { getDebugAptr().appent("FeatherTemplate.fill(\"" + name + "\", \"" + VPC_DBG.get(text) + "\")"); }

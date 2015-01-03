@@ -28,7 +28,7 @@ public class GapPiece extends TemplatePiece  {
       <p>Steps:<ol>
          <li>Calls <code>{@link com.github.aliteralmind.templatefeather.TemplatePiece#TemplatePiece(String, GapMap, GapCharConfig) super}(gapNameOnly_noPrePostChars, map, char_config)</code></li>
          <li>Sets {@link #getOriginal() getOriginal}{@code ()} to <code>{@link #getCharConfig() getCharConfig}().{@link com.github.aliteralmind.templatefeather.GapCharConfig#getGapNameWithChars(String) getGapNameWithChars}(gapNameOnly_noPrePostChars)</code></li>
-      </ol></p>
+      </ol>
 
     * @param  gapNameOnly_noPrePostChars  The name of the gap. May not be {@code null} or empty, and <i>should</i> not contain its {@linkplain com.github.aliteralmind.templatefeather.GapCharConfig#getStart() start} or {@linkplain com.github.aliteralmind.templatefeather.GapCharConfig#getEnd() end} characters. Get with {@link #getName() getName}{@code ()}*
     * @see  #getPieceCopy(GapMap, GapCharConfig)

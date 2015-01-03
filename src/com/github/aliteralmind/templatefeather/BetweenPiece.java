@@ -28,7 +28,7 @@ public class BetweenPiece extends TemplatePiece  {
       <p>Steps:<ol>
          <li>Calls <code>{@link com.github.aliteralmind.templatefeather.TemplatePiece#TemplatePiece(String, GapMap, GapCharConfig) super}(original_text, map, char_config)</code></li>
          <li>Sets {@link #getRendered() getRendered}{@code ()} to <code>{@link #getCharConfig() getCharConfig}().{@link com.github.aliteralmind.templatefeather.GapCharConfig#getWithLiteralsMadeActual(String) getWithLiteralsMadeActual}(original_text)</code></li>
-      </ol></p>
+      </ol>
 
     * @param  original_text  The text existing between either the start-or-end of the text and a gap, or between two gaps. May not be {@code null}, and <i>should</i> have all its {@linkplain com.github.aliteralmind.templatefeather.GapCharConfig#getLiteralStart() literal start} and {@linkplain com.github.aliteralmind.templatefeather.GapCharConfig#getLiteralEnd() end} characters already interpeted. Get with {@link com.github.aliteralmind.templatefeather.TemplatePiece#getRaw() getRaw}{@code ()}*
     * @see  #getPieceCopy(GapMap, GapCharConfig)
@@ -41,7 +41,7 @@ public class BetweenPiece extends TemplatePiece  {
       <p>Create a new instance as a duplicate of another.</p>
 
     * <p>Equal to
-      <br/> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.templatefeather.TemplatePiece#TemplatePiece(TemplatePiece) super}(to_copy)</code></p>
+      <br> &nbsp; &nbsp; <code>{@link com.github.aliteralmind.templatefeather.TemplatePiece#TemplatePiece(TemplatePiece) super}(to_copy)</code></p>
 
     * @param  to_copy  May not be <code>null</code>.
     * @see  #getObjectCopy()
